@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh · Leaderboard</title>
+<link rel="icon" href="images/logo.png">
+
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl-LeaderboardA"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1F2E24}
+a{color:inherit}
+.bk{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,248,238,.3);color:#FFF8EE;text-decoration:none}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;border:0;font-family:inherit;font-size:14px;font-weight:700;background:transparent;color:rgba(255,248,238,.75)}
+.tab.on{background:#F2B9A6;color:#1F2E24}
+@keyframes la-rise{from{transform:translateY(30px)}to{transform:none}}
+@keyframes la-crown{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+@keyframes la-me{0%{box-shadow:0 0 0 0 rgba(242,185,166,.6)}100%{box-shadow:0 0 0 10px rgba(242,185,166,0)}}
+.la-rise{animation:la-rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+.la-crown{animation:la-crown 3s ease-in-out infinite}
+.la-me{animation:la-me 2s ease-out infinite}
+.row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:16px;background:#FBF7F0}
+.row .n{width:24px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:#9A6A3C;text-align:center}
+.row .av{width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;background:#EFE6D8;color:#2F4536;font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
+.row .nm{flex:1;font-size:15px;font-weight:700;color:#2F4536}
+.row .pt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#2F4536}
+.row.me{background:#2F4536}.row.me .n,.row.me .nm,.row.me .pt{color:#FFF8EE}.row.me .av{background:#F2B9A6;color:#1F2E24}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width:390px;position:relative;overflow:hidden;background:#1F2E24;color:#FFF8EE;font-family:Figtree,'Segoe UI',sans-serif;padding-bottom:110px">
+  <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-80px;top:40px;height:300px;width:auto;opacity:.05">
+  <header style="position:relative;padding:14px 16px;display:flex;align-items:center;justify-content:space-between">
+    <a href="MemberTableQr.dc.html" class="bk" aria-label="Back to Table 7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+    <img src="images/logo.png" alt="Ruh" style="height:38px;width:auto">
+    <span style="display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:999px;background:rgba(255,248,238,.1);border:1px solid rgba(255,248,238,.2);font-size:13px;font-weight:700;color:#FFF8EE">Table 7</span>
+  </header>
+
+  <div style="position:relative;padding:8px 20px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px">
+    <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E7C9A8">Ruh Circle · November</p>
+    <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:42px;line-height:.95;letter-spacing:-.04em">Top regulars this <span style="color:#F2B9A6">month.</span></h1>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:rgba(255,248,238,.8)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Resets in 21 days</span>
+  </div>
+  <div role="tablist" aria-label="Ranking period" style="position:relative;margin:0 16px;display:flex;gap:4px;background:rgba(255,248,238,.08);border-radius:999px;padding:4px">
+    <button type="button" role="tab" aria-selected="true" class="tab on">This month</button><button type="button" role="tab" aria-selected="false" class="tab">Overall</button>
+  </div>
+
+  <ol aria-label="Top 3" style="position:relative;list-style:none;margin:24px 16px 0;padding:0;display:flex;align-items:flex-end;gap:10px">
+    <li style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;border:3px solid #FFF8EE">Y</span><strong style="font-size:14px;color:#FFF8EE">Youssef M.</strong><span style="font-size:13px;font-weight:700;color:#F2B9A6">540 pts</span><span class="la-rise" style="animation-delay:0.15s;width:100%;height:96px;border-radius:16px 16px 0 0;background:#2F4536;display:flex;justify-content:center;padding-top:10px;box-sizing:border-box;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:#FFF8EE">2</span></li><li style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><svg class="la-crown" width="30" height="24" viewBox="0 0 30 24" aria-hidden="true" style="margin-bottom:-4px"><path d="M3 20 L5 6 L11 12 L15 3 L19 12 L25 6 L27 20 Z" fill="#F2B9A6"/></svg><span style="width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;border:3px solid #FFF8EE">S</span><strong style="font-size:14px;color:#FFF8EE">Salma K.</strong><span style="font-size:13px;font-weight:700;color:#F2B9A6">620 pts</span><span class="la-rise" style="animation-delay:0s;width:100%;height:130px;border-radius:16px 16px 0 0;background:#B4553E;display:flex;justify-content:center;padding-top:10px;box-sizing:border-box;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:#FFF8EE">1</span></li><li style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;border:3px solid #FFF8EE">F</span><strong style="font-size:14px;color:#FFF8EE">Farida H.</strong><span style="font-size:13px;font-weight:700;color:#F2B9A6">480 pts</span><span class="la-rise" style="animation-delay:0.3s;width:100%;height:74px;border-radius:16px 16px 0 0;background:#2F4536;display:flex;justify-content:center;padding-top:10px;box-sizing:border-box;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:#FFF8EE">3</span></li>
+  </ol>
+  <div style="position:relative;background:#F6F0E6;border-radius:28px 28px 0 0;padding:18px 14px 20px;display:flex;flex-direction:column;gap:12px">
+    <ol start="4" aria-label="Ranks 4 to 10" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px"><li class="row"><span class="n">4</span><span class="av" aria-hidden="true">K</span><span class="nm">Karim S.</span><span class="pt">410</span></li><li class="row"><span class="n">5</span><span class="av" aria-hidden="true">M</span><span class="nm">Mariam T.</span><span class="pt">360</span></li><li class="row"><span class="n">6</span><span class="av" aria-hidden="true">H</span><span class="nm">Hana E.</span><span class="pt">330</span></li><li class="row"><span class="n">7</span><span class="av" aria-hidden="true">A</span><span class="nm">Ali R.</span><span class="pt">290</span></li><li class="row me" aria-current="true"><span class="n">8</span><span class="av" aria-hidden="true">N</span><span class="nm">You · Nour A.</span><span class="pt">240</span></li><li class="row"><span class="n">9</span><span class="av" aria-hidden="true">L</span><span class="nm">Laila G.</span><span class="pt">220</span></li><li class="row"><span class="n">10</span><span class="av" aria-hidden="true">A</span><span class="nm">Adam F.</span><span class="pt">190</span></li></ol>
+    <p style="position:relative;margin:0;display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.5;color:#5C6B60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Ranked by Ruh Circle points. First name and initial only. The top 3 win private prizes, shown only in their own profile.</p>
+  </div>
+  <div class="la-me" style="position:absolute;left:12px;right:12px;bottom:14px;background:#B4553E;color:#FFF8EE;border-radius:22px;padding:12px 16px;display:flex;align-items:center;gap:12px">
+    <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px">#8</span>
+    <span style="flex:1;display:flex;flex-direction:column"><strong style="font-size:15px">You · 240 pts</strong><span style="font-size:12px;color:rgba(255,248,238,.85)">120 points to reach the top 5</span></span>
+    <a href="MemberWalkInConfirm.dc.html" style="flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;background:#FFF8EE;color:#B4553E;text-decoration:none;font-weight:700;font-size:13px">Check in</a>
+  </div>
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-LeaderboardA">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+<template id="tpl-LeaderboardA2"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1F2E24}
+a{color:inherit}
+.bk{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,248,238,.3);color:#FFF8EE;text-decoration:none}
+.tab{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;border:0;font-family:inherit;font-size:14px;font-weight:700;background:transparent;color:rgba(255,248,238,.75)}
+.tab.on{background:#F2B9A6;color:#1F2E24}
+@keyframes la-rise{from{transform:translateY(30px)}to{transform:none}}
+@keyframes la-crown{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-5px) rotate(4deg)}}
+@keyframes la-me{0%{box-shadow:0 0 0 0 rgba(242,185,166,.6)}100%{box-shadow:0 0 0 10px rgba(242,185,166,0)}}
+.la-rise{animation:la-rise .9s cubic-bezier(.2,.7,.2,1) backwards}
+.la-crown{animation:la-crown 3s ease-in-out infinite}
+.la-me{animation:la-me 2s ease-out infinite}
+.row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:16px;background:#FBF7F0}
+.row .n{width:24px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:#9A6A3C;text-align:center}
+.row .av{width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;background:#EFE6D8;color:#2F4536;font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
+.row .nm{flex:1;font-size:15px;font-weight:700;color:#2F4536}
+.row .pt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;color:#2F4536}
+@keyframes la-shine{0%{transform:translateX(-120%)}60%,100%{transform:translateX(260%)}}
+.la-shine{position:absolute;top:0;bottom:0;width:35%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:la-shine 4.5s ease-in-out infinite}
+.row.me{background:#2F4536}.row.me .n,.row.me .nm,.row.me .pt{color:#FFF8EE}.row.me .av{background:#F2B9A6;color:#1F2E24}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width:390px;position:relative;overflow:hidden;background:#1F2E24;color:#FFF8EE;font-family:Figtree,'Segoe UI',sans-serif;padding-bottom:0">
+  <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-80px;top:40px;height:300px;width:auto;opacity:.05">
+  <header style="position:relative;padding:14px 16px;display:flex;align-items:center;justify-content:space-between">
+    <a href="TableQrB.dc.html" class="bk" aria-label="Back to Table 7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+    <img src="images/logo.png" alt="Ruh" style="height:38px;width:auto">
+    <span style="display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border-radius:999px;background:rgba(255,248,238,.1);border:1px solid rgba(255,248,238,.2);font-size:13px;font-weight:700;color:#FFF8EE">Table 7</span>
+  </header>
+
+  <div style="position:relative;padding:8px 20px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px">
+    <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E7C9A8">Ruh Circle · November</p>
+    <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:42px;line-height:.95;letter-spacing:-.04em">Top regulars this <span style="color:#F2B9A6">month.</span></h1>
+    <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:rgba(255,248,238,.8)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Resets in 21 days</span>
+  </div>
+  <div role="tablist" aria-label="Ranking period" style="position:relative;margin:0 16px;display:flex;gap:4px;background:rgba(255,248,238,.08);border-radius:999px;padding:4px">
+    <button type="button" role="tab" aria-selected="true" class="tab on">This month</button><button type="button" role="tab" aria-selected="false" class="tab">Overall</button>
+  </div>
+
+  <ol aria-label="Top 3" style="position:relative;list-style:none;margin:24px 16px 0;padding:0;display:flex;align-items:flex-end;gap:10px">
+    <li style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;border:3px solid #FFF8EE">Y</span><strong style="font-size:14px;color:#FFF8EE">Youssef M.</strong><span style="font-size:13px;font-weight:700;color:#F2B9A6">540 pts</span><span class="la-rise" style="animation-delay:0.15s;width:100%;height:96px;border-radius:16px 16px 0 0;background:#2F4536;display:flex;justify-content:center;padding-top:10px;box-sizing:border-box;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:#FFF8EE">2</span></li><li style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><svg class="la-crown" width="30" height="24" viewBox="0 0 30 24" aria-hidden="true" style="margin-bottom:-4px"><path d="M3 20 L5 6 L11 12 L15 3 L19 12 L25 6 L27 20 Z" fill="#F2B9A6"/></svg><span style="width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;border:3px solid #FFF8EE">S</span><strong style="font-size:14px;color:#FFF8EE">Salma K.</strong><span style="font-size:13px;font-weight:700;color:#F2B9A6">620 pts</span><span class="la-rise" style="animation-delay:0s;width:100%;height:130px;border-radius:16px 16px 0 0;background:#B4553E;display:flex;justify-content:center;padding-top:10px;box-sizing:border-box;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:#FFF8EE">1</span></li><li style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><span style="width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;border:3px solid #FFF8EE">F</span><strong style="font-size:14px;color:#FFF8EE">Farida H.</strong><span style="font-size:13px;font-weight:700;color:#F2B9A6">480 pts</span><span class="la-rise" style="animation-delay:0.3s;width:100%;height:74px;border-radius:16px 16px 0 0;background:#2F4536;display:flex;justify-content:center;padding-top:10px;box-sizing:border-box;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;color:#FFF8EE">3</span></li>
+  </ol>
+  <div style="position:relative;background:#F6F0E6;border-radius:28px 28px 0 0;padding:18px 14px 20px;display:flex;flex-direction:column;gap:12px">
+    <ol start="4" aria-label="Ranks 4 to 10" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px"><li class="row"><span class="n">4</span><span class="av" aria-hidden="true">K</span><span class="nm">Karim S.</span><span class="pt">410</span></li><li class="row"><span class="n">5</span><span class="av" aria-hidden="true">M</span><span class="nm">Mariam T.</span><span class="pt">360</span></li><li class="row"><span class="n">6</span><span class="av" aria-hidden="true">H</span><span class="nm">Hana E.</span><span class="pt">330</span></li><li class="row"><span class="n">7</span><span class="av" aria-hidden="true">A</span><span class="nm">Ali R.</span><span class="pt">290</span></li><li class="row"><span class="n">8</span><span class="av" aria-hidden="true">N</span><span class="nm">Nour A.</span><span class="pt">240</span></li><li class="row"><span class="n">9</span><span class="av" aria-hidden="true">L</span><span class="nm">Laila G.</span><span class="pt">220</span></li><li class="row"><span class="n">10</span><span class="av" aria-hidden="true">A</span><span class="nm">Adam F.</span><span class="pt">190</span></li></ol>
+    <section aria-labelledby="la-join" style="position:relative;overflow:hidden;background:#EBD8CB;color:#1F2E24;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px">
+      <span class="la-shine" aria-hidden="true"></span>
+      <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-24px;top:-18px;height:100px;width:auto;opacity:.14">
+      <h2 id="la-join" style="position:relative;margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.03em;color:#2F4536">Want to see your name <span style="color:#B4553E">here?</span></h2>
+      <p style="position:relative;margin:0;font-size:14px;line-height:1.5;color:#2F4536">Join Ruh Circle, check in at your table and collect points every visit.</p>
+      <a href="WalkInJoin.dc.html" style="position:relative;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:999px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-weight:700;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg>Join with WhatsApp</a>
+      <p style="position:relative;margin:0;text-align:center;font-size:13px;color:#4F5C52">Already a member? <a href="CheckInSignIn.dc.html" style="color:#2F4536;font-weight:700">Sign in and check in</a></p>
+    </section>
+    <p style="position:relative;margin:0;display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.5;color:#5C6B60"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Ranked by Ruh Circle points. First name and initial only. The top 3 win private prizes, shown only in their own profile.</p>
+  </div>
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-LeaderboardA2">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+<script>window.RUH_PAGE={"views": [{"auth": true, "m": "LeaderboardA"}, {"m": "LeaderboardA2"}], "bp": 760};</script>
+<script src="js/ruh.js"></script>
+</body>
+</html>

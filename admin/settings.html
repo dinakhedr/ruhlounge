@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh admin · Settings</title>
+<link rel="icon" href="images/logo.png">
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl-AdminSettings"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+.nav{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;color:#EBD8CB;text-decoration:none;font-size:15px;font-weight:600}
+.nav:hover{background:rgba(235,216,203,.08);color:#FFF8EE}
+.nav.on{background:#F6F0E6;color:#1F2E24}
+.nav svg{flex:none}
+.sub{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 46px;border-radius:10px;color:#C9D3CB;text-decoration:none;font-size:14px;font-weight:500}
+.sub:hover{color:#FFF8EE}
+.sub.on{color:#FFF8EE;font-weight:700;background:rgba(235,216,203,.1)}
+.bdg{margin-left:auto;min-width:24px;height:24px;padding:0 7px;box-sizing:border-box;border-radius:999px;background:#B4553E;color:#FFF;font-size:12px;font-weight:700;display:grid;place-items:center}
+.card{background:#FBF7F0;border:1px solid #E6DACA;border-radius:22px;padding:24px;box-sizing:border-box;min-width:0}
+.panel{background:#FFF;border:1px solid #E6DACA;border-radius:24px;padding:26px;box-sizing:border-box;min-width:0;box-shadow:0 18px 40px rgba(31,46,36,.08)}
+.h2{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;color:#1F2E24}
+.h3{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.03em;color:#1F2E24}
+.k{margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7A5530}
+.mut{color:#5C6B60}
+.big{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#1F2E24}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.p-green{background:#E3EADF;color:#26382C}.p-terra{background:#F2DED3;color:#8A3B28}.p-wood{background:#EEDFC9;color:#6B4520}.p-blue{background:#DCE3EC;color:#26384C}.p-grey{background:#E9E2D8;color:#5A4A3A}.p-dark{background:#2F4536;color:#FFF8EE}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;border:0;background:#B4553E;color:#FFF8EE;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:#2F4536;color:#FFF8EE}
+.btn:disabled{background:#CDBFAC;color:#5A4A3A;cursor:not-allowed}
+.btn.sm{min-height:38px;padding:0 14px;font-size:13px}
+.btn.green{background:#2F4536}.btn.green:hover{background:#B4553E}
+.ghost{background:transparent;color:#2F4536;border:1.5px solid #CDBFAC}
+.ghost:hover{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #D9CBB8;background:transparent;font-family:inherit;font-size:14px;font-weight:700;color:#2F4536;cursor:pointer}
+.tab:hover{border-color:#2F4536}
+.tab.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.tab .n{font-size:12px;opacity:.8}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid #D9CBB8;background:#FFF;font-family:inherit;font-size:14px;font-weight:600;color:#2F4536;cursor:pointer}
+.chip:hover{border-color:#2F4536}
+.chip.on{background:#1F2E24;border-color:#1F2E24;color:#FFF8EE}
+.inp{font-family:inherit;font-size:15px;font-weight:600;color:#1F2A22;background:#FFF;border:1.5px solid #E2D5C3;border-radius:14px;min-height:48px;padding:0 14px;box-sizing:border-box;width:100%}
+.inp:focus{outline:none;border-color:#B4553E;box-shadow:0 0 0 4px rgba(180,85,62,.14)}
+textarea.inp{padding:12px 14px;min-height:96px;resize:vertical;line-height:1.5;font-weight:500}
+.fl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#2F4536}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-top:1px solid #EADFD0}
+.rowb{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border:0;border-top:1px solid #EADFD0;background:transparent;font-family:inherit;font-size:14px;color:#1F2A22;cursor:pointer}
+.rowb:hover{background:#F3EBDF}
+.rowb.sel{background:#FFF;box-shadow:inset 4px 0 0 #B4553E}
+.th{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A5530;background:#F3EBDF}
+.bar{height:10px;border-radius:999px;background:#EADFD0;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px;background:#2F4536}
+.wa{background:#E8F0E4;border-radius:18px 18px 18px 4px;padding:14px 16px;font-size:14px;line-height:1.55;color:#1F2A22;white-space:pre-line}
+.sw{position:relative;width:46px;height:28px;flex:none;border-radius:999px;border:0;background:#CDBFAC;cursor:pointer;padding:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#FFF;transition:left .2s}
+.sw.on{background:#2F4536}
+.sw.on::after{left:21px}
+.ph{background:repeating-linear-gradient(135deg,#EFE6D8 0 10px,#E8DCCB 10px 20px);display:grid;place-items:center;color:#7A5530}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@keyframes ad-in{0%{transform:translateY(6px)}100%{transform:translateY(0)}}
+.in{animation:ad-in .35s ease-out}
+@keyframes ad-pulse{0%,100%{box-shadow:0 0 0 0 rgba(180,85,62,.45)}50%{box-shadow:0 0 0 7px rgba(180,85,62,0)}}
+.live{width:9px;height:9px;border-radius:50%;background:#B4553E;animation:ad-pulse 2s ease-in-out infinite;flex:none}
+@media (prefers-reduced-motion:reduce){.in,.live{animation:none}}
+
+.tbl{height:56px;border-radius:12px;border:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-family:inherit;cursor:pointer}
+.a-in{background:#2F4536;color:#FFF8EE}.a-ga{background:#B9834A;color:#1F2E24}.a-pe{background:#F2B9A6;color:#1F2E24}.a-off{background:#E9E2D8;color:#5A4A3A;border:1px dashed #8C8173}
+</style>
+</helmet>
+<div style="position:relative;min-height:1500px;display:flex;flex-wrap:wrap;background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+<aside style="flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:12px;padding:0 8px"><img src="images/logo.png" alt="Ruh" style="height:40px;width:auto"><span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB">Admin</span></div>
+<nav aria-label="Admin" style="display:flex;flex-direction:column;gap:4px">
+<a class="nav" href="AdminDashA.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Dashboard</a>
+<a class="nav" href="AdminBookings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>Bookings<span class="bdg">4</span></a>
+<a class="nav" href="AdminEvents.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>Events<span class="bdg">3</span></a>
+<a class="nav" href="AdminHome.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3 8l9 5 9-5M12 13v8"></path></svg>Ruh at Home<span class="bdg">2</span></a>
+<a class="nav" href="AdminCheckins.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 7h6M9 11h6M9 15h4"></path></svg>Check-ins<span class="bdg">3</span></a>
+<a class="nav" href="AdminCircle.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z"></path></svg>Ruh Circle</a>
+<a class="nav" href="AdminMenu.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"></path><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"></path></svg>Content</a>
+<a class="sub" href="AdminMenu.dc.html">Menu &amp; prices</a>
+<a class="sub" href="AdminMedia.dc.html">Dish photos &amp; reels</a>
+<a class="sub" href="AdminProgramme.dc.html">Events programme</a>
+</nav><div style="height:1px;background:rgba(235,216,203,.14)"></div>
+<p style="margin:0 8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A9B8AC">Owner only</p>
+<nav aria-label="Owner" style="display:flex;flex-direction:column;gap:4px">
+<a class="nav" href="AdminTeam.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21a7 7 0 0 1 14 0"></path><path d="M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7"></path></svg>Team</a>
+<a class="nav on" href="AdminSettings.dc.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>Settings</a>
+</nav>
+<div style="margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)"><span style="width:40px;height:40px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center;font-weight:700">RO</span><span style="display:flex;flex-direction:column;min-width:0"><strong style="font-size:14px;color:#FFF8EE">Ruh owner</strong><span style="font-size:12px;color:#C9D3CB">Super admin · full access</span></span></div>
+</aside>
+<main style="flex:999 1 560px;min-width:0;padding:30px 36px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px"><div style="display:flex;flex-direction:column;gap:6px"><p class="k">Owner only · details used across the website and admin</p><h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;line-height:1;letter-spacing:-.035em;color:#1F2E24">Settings<span style="color:#B4553E">.</span></h1></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><button type="button" class="btn green">Save settings</button></div></header>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start">
+  <section class="card" aria-labelledby="s1" style="display:flex;flex-direction:column;gap:12px">
+    <h2 class="h2" id="s1">Ruh Lounge details</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+      <label class="fl">Opens<input class="inp" value="11:00 AM"></label>
+      <label class="fl">Closes<input class="inp" value="2:00 AM"></label>
+      <label class="fl">WhatsApp number<input class="inp" value="0104 4055999"></label>
+      <label class="fl">Instagram<input class="inp" value="@ruhlounge"></label>
+    </div>
+    <label class="fl">Address<input class="inp" value="Izar Plaza, Sheikh Zayed"></label>
+    <label class="fl">Google Maps link<input class="inp" value="https://maps.app.goo.gl/S6GhMiyUsmuUvEjm8"></label>
+    <label class="fl">Google Business Profile (reviews)<input class="inp" value="" placeholder="[LINK TO CONFIRM]"></label>
+  </section>
+
+  <section class="card" aria-labelledby="s2" style="display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+      <h2 class="h2" id="s2">Tables</h2>
+      <span style="display:flex;align-items:center;gap:8px"><button type="button" class="chip" aria-label="Remove a table" onClick="{{less}}">−</button><strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;min-width:40px;text-align:center">{{count}}</strong><button type="button" class="chip" aria-label="Add a table" onClick="{{more}}">+</button></span>
+    </div>
+    <p style="margin:0;font-size:14px;line-height:1.5" class="mut">Numbers match the QR card on each table. Tap a table to switch its area; tables marked "Off" are not offered for bookings.</p>
+    <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px">
+      <sc-for list="{{tables}}" as="t" hint-placeholder-count="24">
+        <button type="button" class="{{t.cls}}" onClick="{{t.pick}}" aria-label="{{t.aria}}"><strong style="font-size:16px">{{t.n}}</strong><span style="font-size:10px;font-weight:700">{{t.area}}</span></button>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;font-size:12px" class="mut">
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:#2F4536"></span>Indoor</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:#B9834A"></span>Garden</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:#F2B9A6"></span>Pergola</span>
+      <span style="display:flex;align-items:center;gap:6px"><span style="width:14px;height:14px;border-radius:4px;background:#E9E2D8;border:1px dashed #8C8173;box-sizing:border-box"></span>Off</span>
+    </div>
+    <p style="margin:0;font-size:12px" class="mut">Table count and areas are samples [TO CONFIRM with Ruh].</p>
+  </section>
+
+  <section class="card" aria-labelledby="s3" style="display:flex;flex-direction:column;gap:12px">
+    <h2 class="h2" id="s3">Bookings</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+      <label class="fl">Guests can book up to<input class="inp" value="30 days ahead"></label>
+      <label class="fl">Time slots every<input class="inp" value="30 minutes"></label>
+      <label class="fl">Reply to requests within<input class="inp" value="1 hour"></label>
+      <label class="fl">Hold a confirmed table for<input class="inp" value="20 minutes [TO CONFIRM]"></label>
+    </div>
+    <label class="fl">Deposit policy<input class="inp" value="" placeholder="[DEPOSIT POLICY TO CONFIRM]"></label>
+    <label class="fl">Cancellation policy<input class="inp" value="" placeholder="[CANCELLATION POLICY TO CONFIRM]"></label>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px"><span style="font-size:14px;font-weight:600">Let guests choose a preferred table number</span><button type="button" class="sw on" aria-pressed="true" aria-label="Preferred table"></button></div>
+  </section>
+
+  <section class="card" aria-labelledby="s4" style="display:flex;flex-direction:column;gap:12px">
+    <h2 class="h2" id="s4">Ruh at Home</h2>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+      <label class="fl">Order at least<input class="inp" value="1 day ahead [TO CONFIRM]"></label>
+      <label class="fl">Pick-up hours<input class="inp" value="12 PM – 11 PM [TO CONFIRM]"></label>
+    </div>
+    <div style="border:1px solid #EADFD0;border-radius:16px;overflow:hidden;background:#FFF">
+      <div class="row th" style="padding:10px 14px"><span style="flex:1">Delivery area</span><span style="width:100px">Fee (EGP)</span></div>
+      <div class="row" style="padding:8px 14px"><span style="flex:1;font-weight:600">Sheikh Zayed</span><input class="inp" value="[FEE]" style="width:100px;min-height:38px"></div>
+      <div class="row" style="padding:8px 14px"><span style="flex:1;font-weight:600">Palm Hills / Beverly Hills</span><input class="inp" value="[FEE]" style="width:100px;min-height:38px"></div>
+      <div class="row" style="padding:8px 14px"><span style="flex:1;font-weight:600">6th of October</span><input class="inp" value="[FEE]" style="width:100px;min-height:38px"></div>
+    </div>
+    <label class="fl">Payment<input class="inp" value="" placeholder="[PAYMENT METHOD TO CONFIRM]"></label>
+  </section>
+
+  <section class="card" aria-labelledby="s5" style="display:flex;flex-direction:column;gap:10px;grid-column:1 / -1">
+    <h2 class="h2" id="s5">WhatsApp messages</h2>
+    <p style="margin:0;font-size:14px" class="mut">Ready messages used by the admin buttons. [name], [date], [table] fill in automatically.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+      <sc-for list="{{templates}}" as="m" hint-placeholder-count="6">
+        <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:18px;background:#FFF;border:1px solid #EADFD0"><strong style="font-size:14px">{{m.t}}</strong><div class="wa" style="font-size:13px">{{m.b}}</div><button type="button" class="btn ghost sm" style="align-self:flex-start">Edit</button></div>
+      </sc-for>
+    </div>
+  </section>
+</div>
+
+</main>
+
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-AdminSettings">
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { count: 24, area: {} };
+  }
+  renderVals() {
+    const S = this.state;
+    const order = ['in', 'ga', 'pe', 'off'];
+    const names = { in: 'Indoor', ga: 'Garden', pe: 'Pergola', off: 'Off' };
+    const def = (n) => n <= 10 ? 'in' : (n <= 18 ? 'ga' : 'pe');
+    const tables = [];
+    for (let n = 1; n <= S.count; n++) {
+      const a = S.area[n] || def(n);
+      tables.push({ n, area: names[a], cls: 'tbl a-' + a, aria: 'Table ' + n + ', ' + names[a] + '. Change area',
+        pick: () => { const o = Object.assign({}, S.area); o[n] = order[(order.indexOf(a) + 1) % 4]; this.setState({ area: o }); } });
+    }
+    return {
+      count: S.count, tables,
+      less: () => this.setState({ count: Math.max(1, S.count - 1) }),
+      more: () => this.setState({ count: Math.min(60, S.count + 1) }),
+      templates: [
+        ['Booking confirmed', 'Hi [name], your table at Ruh is confirmed. [date], [time] · [guests] guests · Table [table].'],
+        ['Booking declined', 'Hi [name], sorry, we are fully booked at [time]. Reply here and we will find you another time.'],
+        ['Event confirmed', 'Hi [name], your place at [event] on [date] is confirmed. See you there!'],
+        ['Waitlist seat', 'Hi [name], a seat opened up at [event] on [date]. Reply YES within 2 hours to take it.'],
+        ['Box update', 'Hi [name], your Ruh box [ref] is [ready for pick-up / on its way].'],
+        ['Points credited', 'Hi [name], you earned +[points] Ruh Circle points tonight ([total] in total).']
+      ].map(([t, b]) => ({ t, b }))
+    };
+  }
+}
+
+</script>
+
+<script>window.ADM_PAGE={"view": "AdminSettings", "owner": true, "sidebars": {"owner": "<aside style=\"flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px\">\n<div style=\"display:flex;align-items:center;gap:12px;padding:0 8px\"><img src=\"images/logo.png\" alt=\"Ruh\" style=\"height:40px;width:auto\"><span style=\"font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB\">Admin</span></div>\n<nav aria-label=\"Admin\" style=\"display:flex;flex-direction:column;gap:4px\">\n<a class=\"nav\" href=\"AdminDashA.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"></rect><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"></rect><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"></rect><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"></rect></svg>Dashboard</a>\n<a class=\"nav\" href=\"AdminBookings.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"></rect><path d=\"M16 3v4M8 3v4M3 10h18\"></path></svg>Bookings<span class=\"bdg\">4</span></a>\n<a class=\"nav\" href=\"AdminEvents.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18V5l12-2v13\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><circle cx=\"18\" cy=\"16\" r=\"3\"></circle></svg>Events<span class=\"bdg\">3</span></a>\n<a class=\"nav\" href=\"AdminHome.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8l-9-5-9 5v8l9 5 9-5z\"></path><path d=\"M3 8l9 5 9-5M12 13v8\"></path></svg>Ruh at Home<span class=\"bdg\">2</span></a>\n<a class=\"nav\" href=\"AdminCheckins.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 2h12v20l-3-2-3 2-3-2-3 2z\"></path><path d=\"M9 7h6M9 11h6M9 15h4\"></path></svg>Check-ins<span class=\"bdg\">3</span></a>\n<a class=\"nav\" href=\"AdminCircle.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z\"></path></svg>Ruh Circle</a>\n<a class=\"nav\" href=\"AdminMenu.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z\"></path><path d=\"M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5\"></path></svg>Content</a>\n<a class=\"sub\" href=\"AdminMenu.dc.html\">Menu &amp; prices</a>\n<a class=\"sub\" href=\"AdminMedia.dc.html\">Dish photos &amp; reels</a>\n<a class=\"sub\" href=\"AdminProgramme.dc.html\">Events programme</a>\n</nav><div style=\"height:1px;background:rgba(235,216,203,.14)\"></div>\n<p style=\"margin:0 8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A9B8AC\">Owner only</p>\n<nav aria-label=\"Owner\" style=\"display:flex;flex-direction:column;gap:4px\">\n<a class=\"nav\" href=\"AdminTeam.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"8\" r=\"4\"></circle><path d=\"M2 21a7 7 0 0 1 14 0\"></path><path d=\"M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7\"></path></svg>Team</a>\n<a class=\"nav on\" href=\"AdminSettings.dc.html\" aria-current=\"page\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12\"></path><circle cx=\"16\" cy=\"6\" r=\"2\"></circle><circle cx=\"10\" cy=\"12\" r=\"2\"></circle><circle cx=\"18\" cy=\"18\" r=\"2\"></circle></svg>Settings</a>\n</nav>\n<div style=\"margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)\"><span style=\"width:40px;height:40px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center;font-weight:700\">RO</span><span style=\"display:flex;flex-direction:column;min-width:0\"><strong style=\"font-size:14px;color:#FFF8EE\">Ruh owner</strong><span style=\"font-size:12px;color:#C9D3CB\">Super admin · full access</span></span></div>\n</aside>", "staff": "<aside style=\"flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px\">\n<div style=\"display:flex;align-items:center;gap:12px;padding:0 8px\"><img src=\"images/logo.png\" alt=\"Ruh\" style=\"height:40px;width:auto\"><span style=\"font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB\">Requests</span></div>\n<nav aria-label=\"Requests\" style=\"display:flex;flex-direction:column;gap:4px\">\n<a class=\"nav\" href=\"AdminBookings.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"></rect><path d=\"M16 3v4M8 3v4M3 10h18\"></path></svg>Bookings<span class=\"bdg\">4</span></a>\n<a class=\"nav\" href=\"AdminEvents.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18V5l12-2v13\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><circle cx=\"18\" cy=\"16\" r=\"3\"></circle></svg>Events<span class=\"bdg\">3</span></a>\n<a class=\"nav\" href=\"AdminHome.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8l-9-5-9 5v8l9 5 9-5z\"></path><path d=\"M3 8l9 5 9-5M12 13v8\"></path></svg>Ruh at Home<span class=\"bdg\">2</span></a>\n<a class=\"nav\" href=\"AdminCheckins.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 2h12v20l-3-2-3 2-3-2-3 2z\"></path><path d=\"M9 7h6M9 11h6M9 15h4\"></path></svg>Check-ins<span class=\"bdg\">3</span></a>\n</nav>\n<div style=\"padding:14px;border-radius:14px;border:1px dashed rgba(235,216,203,.25);display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:#C9D3CB\"><svg style=\"flex:none;margin-top:1px\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"11\" width=\"16\" height=\"10\" rx=\"2\"></rect><path d=\"M8 11V7a4 4 0 0 1 8 0v4\"></path></svg><span>Dashboard figures, Ruh Circle, Content, Team and Settings are for the owner.</span></div>\n<div style=\"margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)\"><span style=\"width:40px;height:40px;border-radius:50%;background:#B9834A;color:#1F2E24;display:grid;place-items:center;font-weight:700\">SK</span><span style=\"display:flex;flex-direction:column;min-width:0\"><strong style=\"font-size:14px;color:#FFF8EE\">Salma K.</strong><span style=\"font-size:12px;color:#C9D3CB\">Staff · requests only</span></span></div>\n</aside>"}};</script>
+<script src="js/adm.js"></script>
+</body>
+</html>

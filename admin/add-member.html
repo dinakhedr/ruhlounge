@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh admin · Add a member</title>
+<link rel="icon" href="images/logo.png">
+</head>
+<body>
+<div id="bg"></div>
+<template id="tpl-AdminCircle"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+.nav{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;color:#EBD8CB;text-decoration:none;font-size:15px;font-weight:600}
+.nav:hover{background:rgba(235,216,203,.08);color:#FFF8EE}
+.nav.on{background:#F6F0E6;color:#1F2E24}
+.nav svg{flex:none}
+.sub{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 46px;border-radius:10px;color:#C9D3CB;text-decoration:none;font-size:14px;font-weight:500}
+.sub:hover{color:#FFF8EE}
+.sub.on{color:#FFF8EE;font-weight:700;background:rgba(235,216,203,.1)}
+.bdg{margin-left:auto;min-width:24px;height:24px;padding:0 7px;box-sizing:border-box;border-radius:999px;background:#B4553E;color:#FFF;font-size:12px;font-weight:700;display:grid;place-items:center}
+.card{background:#FBF7F0;border:1px solid #E6DACA;border-radius:22px;padding:24px;box-sizing:border-box;min-width:0}
+.panel{background:#FFF;border:1px solid #E6DACA;border-radius:24px;padding:26px;box-sizing:border-box;min-width:0;box-shadow:0 18px 40px rgba(31,46,36,.08)}
+.h2{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;color:#1F2E24}
+.h3{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.03em;color:#1F2E24}
+.k{margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7A5530}
+.mut{color:#5C6B60}
+.big{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#1F2E24}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.p-green{background:#E3EADF;color:#26382C}.p-terra{background:#F2DED3;color:#8A3B28}.p-wood{background:#EEDFC9;color:#6B4520}.p-blue{background:#DCE3EC;color:#26384C}.p-grey{background:#E9E2D8;color:#5A4A3A}.p-dark{background:#2F4536;color:#FFF8EE}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;border:0;background:#B4553E;color:#FFF8EE;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:#2F4536;color:#FFF8EE}
+.btn:disabled{background:#CDBFAC;color:#5A4A3A;cursor:not-allowed}
+.btn.sm{min-height:38px;padding:0 14px;font-size:13px}
+.btn.green{background:#2F4536}.btn.green:hover{background:#B4553E}
+.ghost{background:transparent;color:#2F4536;border:1.5px solid #CDBFAC}
+.ghost:hover{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #D9CBB8;background:transparent;font-family:inherit;font-size:14px;font-weight:700;color:#2F4536;cursor:pointer}
+.tab:hover{border-color:#2F4536}
+.tab.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.tab .n{font-size:12px;opacity:.8}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid #D9CBB8;background:#FFF;font-family:inherit;font-size:14px;font-weight:600;color:#2F4536;cursor:pointer}
+.chip:hover{border-color:#2F4536}
+.chip.on{background:#1F2E24;border-color:#1F2E24;color:#FFF8EE}
+.inp{font-family:inherit;font-size:15px;font-weight:600;color:#1F2A22;background:#FFF;border:1.5px solid #E2D5C3;border-radius:14px;min-height:48px;padding:0 14px;box-sizing:border-box;width:100%}
+.inp:focus{outline:none;border-color:#B4553E;box-shadow:0 0 0 4px rgba(180,85,62,.14)}
+textarea.inp{padding:12px 14px;min-height:96px;resize:vertical;line-height:1.5;font-weight:500}
+.fl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#2F4536}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-top:1px solid #EADFD0}
+.rowb{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border:0;border-top:1px solid #EADFD0;background:transparent;font-family:inherit;font-size:14px;color:#1F2A22;cursor:pointer}
+.rowb:hover{background:#F3EBDF}
+.rowb.sel{background:#FFF;box-shadow:inset 4px 0 0 #B4553E}
+.th{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A5530;background:#F3EBDF}
+.bar{height:10px;border-radius:999px;background:#EADFD0;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px;background:#2F4536}
+.wa{background:#E8F0E4;border-radius:18px 18px 18px 4px;padding:14px 16px;font-size:14px;line-height:1.55;color:#1F2A22;white-space:pre-line}
+.sw{position:relative;width:46px;height:28px;flex:none;border-radius:999px;border:0;background:#CDBFAC;cursor:pointer;padding:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#FFF;transition:left .2s}
+.sw.on{background:#2F4536}
+.sw.on::after{left:21px}
+.ph{background:repeating-linear-gradient(135deg,#EFE6D8 0 10px,#E8DCCB 10px 20px);display:grid;place-items:center;color:#7A5530}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@keyframes ad-in{0%{transform:translateY(6px)}100%{transform:translateY(0)}}
+.in{animation:ad-in .35s ease-out}
+@keyframes ad-pulse{0%,100%{box-shadow:0 0 0 0 rgba(180,85,62,.45)}50%{box-shadow:0 0 0 7px rgba(180,85,62,0)}}
+.live{width:9px;height:9px;border-radius:50%;background:#B4553E;animation:ad-pulse 2s ease-in-out infinite;flex:none}
+@media (prefers-reduced-motion:reduce){.in,.live{animation:none}}
+</style>
+</helmet>
+<div style="position:relative;min-height:1400px;display:flex;flex-wrap:wrap;background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+<aside style="flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:12px;padding:0 8px"><img src="images/logo.png" alt="Ruh" style="height:40px;width:auto"><span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB">Admin</span></div>
+<nav aria-label="Admin" style="display:flex;flex-direction:column;gap:4px">
+<a class="nav" href="AdminDashA.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Dashboard</a>
+<a class="nav" href="AdminBookings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>Bookings<span class="bdg">4</span></a>
+<a class="nav" href="AdminEvents.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>Events<span class="bdg">3</span></a>
+<a class="nav" href="AdminHome.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3 8l9 5 9-5M12 13v8"></path></svg>Ruh at Home<span class="bdg">2</span></a>
+<a class="nav" href="AdminCheckins.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 7h6M9 11h6M9 15h4"></path></svg>Check-ins<span class="bdg">3</span></a>
+<a class="nav on" href="AdminCircle.dc.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z"></path></svg>Ruh Circle</a>
+<a class="nav" href="AdminMenu.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"></path><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"></path></svg>Content</a>
+<a class="sub" href="AdminMenu.dc.html">Menu &amp; prices</a>
+<a class="sub" href="AdminMedia.dc.html">Dish photos &amp; reels</a>
+<a class="sub" href="AdminProgramme.dc.html">Events programme</a>
+</nav><div style="height:1px;background:rgba(235,216,203,.14)"></div>
+<p style="margin:0 8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A9B8AC">Owner only</p>
+<nav aria-label="Owner" style="display:flex;flex-direction:column;gap:4px">
+<a class="nav" href="AdminTeam.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21a7 7 0 0 1 14 0"></path><path d="M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7"></path></svg>Team</a>
+<a class="nav" href="AdminSettings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>Settings</a>
+</nav>
+<div style="margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)"><span style="width:40px;height:40px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center;font-weight:700">RO</span><span style="display:flex;flex-direction:column;min-width:0"><strong style="font-size:14px;color:#FFF8EE">Ruh owner</strong><span style="font-size:12px;color:#C9D3CB">Super admin · full access</span></span></div>
+</aside>
+<main style="flex:999 1 560px;min-width:0;padding:30px 36px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px"><div style="display:flex;flex-direction:column;gap:6px"><p class="k">Members, points and rewards</p><h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;line-height:1;letter-spacing:-.035em;color:#1F2E24">Ruh Circle<span style="color:#B4553E">.</span></h1></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><label style="display:flex;align-items:center;gap:10px;min-height:46px;padding:0 16px;border-radius:999px;background:#FBF7F0;border:1px solid #E2D5C3;color:#5C6B60;width:300px;max-width:100%;box-sizing:border-box"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg><span class="sr">Search</span><input type="search" placeholder="Name or mobile" style="border:0;background:transparent;font-family:inherit;font-size:14px;flex:1;min-width:0;outline:none;color:#1F2A22"></label><a class="btn green" href="AdminAddMember.dc.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Add member</a></div></header>
+<section aria-label="Circle in numbers" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
+  <div class="card" style="background:#2F4536;border-color:#2F4536;color:#FFF8EE;display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:700;color:#EBD8CB">Members</span><span class="big" style="color:#FFF8EE">612</span><span style="font-size:13px;color:#C9D3CB">+46 this month</span></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:700;color:#4F5C52">By level</span><span style="font-size:15px"><strong>410</strong> Friend · <strong>168</strong> Regular · <strong>34</strong> Family</span><div style="display:flex;height:10px;border-radius:999px;overflow:hidden"><span style="width:67%;background:#EBD8CB"></span><span style="width:27%;background:#B9834A"></span><span style="width:6%;background:#2F4536"></span></div></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:700;color:#4F5C52">Points credited · November</span><span class="big">18.4k</span><span class="mut" style="font-size:13px">from 312 check-ins, events and boxes</span></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:8px"><span style="font-size:13px;font-weight:700;color:#4F5C52">Leaderboard resets</span><span class="big">18 days</span><span style="font-size:13px;color:#8A3B28;font-weight:700">Prizes not set yet</span></div>
+</section>
+
+<div role="tablist" aria-label="Ruh Circle sections" style="display:flex;flex-wrap:wrap;gap:10px">
+  <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+    <button type="button" role="tab" class="{{t.cls}}" aria-selected="{{t.on}}" onClick="{{t.pick}}">{{t.label}}</button>
+  </sc-for>
+</div>
+
+<sc-if value="{{isMembers}}" hint-placeholder-val="{{true}}">
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+    <section aria-label="Members" style="flex:1.5 1 560px;min-width:0;display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{levels}}" as="l" hint-placeholder-count="4">
+          <button type="button" class="{{l.cls}}" aria-pressed="{{l.on}}" onClick="{{l.pick}}">{{l.label}}</button>
+        </sc-for>
+      </div>
+      <div style="background:#FBF7F0;border:1px solid #E6DACA;border-radius:20px;overflow:hidden"><div style="overflow-x:auto"><div style="min-width:640px">
+        <div class="row th" aria-hidden="true"><span style="flex:1">Member</span><span style="width:96px">Level</span><span style="width:80px">Points</span><span style="width:60px">Visits</span><span style="width:110px">Last visit</span></div>
+        <sc-for list="{{members}}" as="m" hint-placeholder-count="8">
+          <button type="button" class="{{m.cls}}" onClick="{{m.pick}}">
+            <span style="flex:1;min-width:0;display:flex;align-items:center;gap:10px"><span style="width:34px;height:34px;flex:none;border-radius:50%;background:#EBD8CB;color:#1F2E24;display:grid;place-items:center;font-weight:700;font-size:13px">{{m.ini}}</span><span style="display:flex;flex-direction:column;min-width:0"><strong style="font-size:15px">{{m.name}}</strong><span class="mut" style="font-size:12px">{{m.phone}}</span></span></span>
+            <span style="width:96px"><span class="{{m.lvlCls}}">{{m.level}}</span></span>
+            <span style="width:80px;font-weight:700">{{m.ptsStr}}</span>
+            <span style="width:60px">{{m.visits}}</span>
+            <span style="width:110px" class="mut">{{m.last}}</span>
+          </button>
+        </sc-for>
+      </div></div></div>
+      <p style="margin:0;font-size:13px" class="mut">Showing 10 of 612 members. Export to Excel for the full list.</p>
+    </section>
+
+    <section class="panel in" aria-labelledby="mb-h" style="flex:1 1 380px;display:flex;flex-direction:column;gap:18px">
+      <div style="border-radius:22px;background:#1F2E24;color:#FFF8EE;padding:20px;display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center"><img src="images/logo.png" alt="Ruh" style="height:30px;width:auto"><span class="pill" style="background:#F2B9A6;color:#1F2E24">{{cur.level}}</span></div>
+        <h2 id="mb-h" style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;letter-spacing:-.03em">{{cur.name}}</h2>
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:#C9D3CB"><span>{{cur.phone}}</span><span>Member since {{cur.since}}</span></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:13px"><strong style="font-size:20px;font-family:'Bricolage Grotesque',sans-serif">{{cur.ptsStr}} pts</strong><span style="color:#EBD8CB">{{cur.toNext}}</span></div><div style="height:8px;border-radius:999px;background:rgba(235,216,203,.18);overflow:hidden"><span style="display:block;height:100%;width:{{cur.pct}};background:#F2B9A6;border-radius:999px"></span></div></div>
+      </div>
+      <dl style="margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px">
+        <div style="padding:12px;border-radius:14px;background:#F6F0E6"><dt style="font-size:12px;font-weight:700;color:#7A5530">Visits</dt><dd style="margin:4px 0 0;font-weight:700">{{cur.visits}}</dd></div>
+        <div style="padding:12px;border-radius:14px;background:#F6F0E6"><dt style="font-size:12px;font-weight:700;color:#7A5530">This month</dt><dd style="margin:4px 0 0;font-weight:700">#{{cur.rank}} · {{cur.month}} pts</dd></div>
+        <div style="padding:12px;border-radius:14px;background:#F6F0E6"><dt style="font-size:12px;font-weight:700;color:#7A5530">Leaderboard</dt><dd style="margin:4px 0 0;font-weight:700">{{cur.board}}</dd></div>
+      </dl>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <p class="k">Points history</p>
+        <sc-for list="{{history}}" as="h" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #EADFD0;font-size:14px"><span style="width:62px" class="mut">{{h.date}}</span><span style="flex:1;min-width:0">{{h.what}}</span><strong style="color:{{h.color}}">{{h.pts}}</strong></div>
+        </sc-for>
+      </div>
+      <div style="padding:16px;border-radius:18px;border:1.5px dashed #CDBFAC;display:flex;flex-direction:column;gap:10px">
+        <strong style="font-size:15px">Adjust points <span class="mut" style="font-weight:500">· owner only</span></strong>
+        <div style="display:grid;grid-template-columns:110px minmax(0,1fr);gap:10px"><label class="fl">Points<input class="inp" value="+100" ></label><label class="fl">Reason<input class="inp" value="" placeholder="e.g. Missed check-in on 9 Nov"></label></div>
+        <button type="button" class="btn green sm" style="align-self:flex-start">Save adjustment</button>
+      </div>
+    </section>
+  </div>
+</sc-if>
+
+<sc-if value="{{isHistory}}" hint-placeholder-val="{{false}}">
+  <section style="background:#FBF7F0;border:1px solid #E6DACA;border-radius:20px;overflow:hidden">
+    <div style="display:flex;flex-wrap:wrap;gap:8px;padding:16px">
+      <sc-for list="{{kinds}}" as="k" hint-placeholder-count="6">
+        <button type="button" class="{{k.cls}}" aria-pressed="{{k.on}}" onClick="{{k.pick}}">{{k.label}}</button>
+      </sc-for>
+    </div>
+    <div style="overflow-x:auto"><div style="min-width:720px">
+      <div class="row th" aria-hidden="true"><span style="width:130px">When</span><span style="width:170px">Member</span><span style="flex:1">What</span><span style="width:90px">Points</span><span style="width:150px">By</span></div>
+      <sc-for list="{{log}}" as="g" hint-placeholder-count="10">
+        <div class="row" style="font-size:14px"><span style="width:130px" class="mut">{{g.when}}</span><strong style="width:170px">{{g.who}}</strong><span style="flex:1;min-width:0"><span class="{{g.kCls}}">{{g.kind}}</span> {{g.what}}</span><strong style="width:90px;color:{{g.color}}">{{g.pts}}</strong><span style="width:150px" class="mut">{{g.by}}</span></div>
+      </sc-for>
+    </div></div>
+  </section>
+</sc-if>
+
+<sc-if value="{{isBoard}}" hint-placeholder-val="{{false}}">
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+    <section class="card" aria-labelledby="lb-h" style="flex:1.2 1 480px;display:flex;flex-direction:column;gap:6px">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px"><h2 class="h2" id="lb-h">November 2026 · by points</h2><span class="mut" style="font-size:13px">Public view shows first name + initial · 14 members opted out</span></div>
+      <sc-for list="{{board}}" as="b" hint-placeholder-count="10">
+        <div style="display:flex;align-items:center;gap:14px;padding:12px 4px;border-top:1px solid #EADFD0;font-size:15px"><span style="width:34px;height:34px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:800;background:{{b.bg}};color:#1F2E24">{{b.rank}}</span><strong style="flex:1">{{b.name}}</strong><span class="mut" style="font-size:13px">{{b.visits}} visits</span><strong style="width:90px;text-align:right">{{b.pts}}</strong></div>
+      </sc-for>
+    </section>
+    <section class="panel" aria-labelledby="pz-h" style="flex:1 1 380px;display:flex;flex-direction:column;gap:16px">
+      <h2 class="h2" id="pz-h">Prizes for November</h2>
+      <p style="margin:0;font-size:14px;line-height:1.5" class="mut">Private: winners hear about their prize on WhatsApp. Guests only see "surprise prizes" on the website.</p>
+      <label class="fl">1st place<input class="inp" value="" placeholder="[PRIZE TO CONFIRM]"></label>
+      <label class="fl">2nd place<input class="inp" value="" placeholder="[PRIZE TO CONFIRM]"></label>
+      <label class="fl">3rd place<input class="inp" value="" placeholder="[PRIZE TO CONFIRM]"></label>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EADFD0"><span style="font-size:14px;font-weight:600">Reset on the 1st of every month</span><button type="button" class="sw on" aria-pressed="true" aria-label="Monthly reset"></button></div>
+      <div class="wa">Congratulations [name]! You finished #1 on Ruh's November leaderboard. Your prize: [PRIZE]. Show this message at Ruh to claim it before [DATE].</div>
+      <button type="button" class="btn" disabled="disabled"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg>Message winners on 1 Dec</button>
+    </section>
+  </div>
+</sc-if>
+
+<sc-if value="{{isRules}}" hint-placeholder-val="{{false}}">
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start">
+    <section class="card" aria-labelledby="lv-h" style="flex:1 1 460px;display:flex;flex-direction:column;gap:14px">
+      <h2 class="h2" id="lv-h">Levels</h2>
+      <sc-for list="{{lvlRows}}" as="v" hint-placeholder-count="3">
+        <div style="display:grid;grid-template-columns:120px 150px minmax(0,1fr);gap:12px;align-items:center;padding:14px;border-radius:16px;background:#FFF;border:1px solid #EADFD0">
+          <span class="{{v.cls}}" style="justify-self:start">{{v.name}}</span>
+          <span style="display:flex;gap:6px;align-items:center"><input class="inp" value="{{v.from}}" aria-label="{{v.aria}}" style="min-height:40px;width:80px"><span class="mut" style="font-size:13px">{{v.to}}</span></span>
+          <span style="font-size:14px" class="mut">{{v.perk}}</span>
+        </div>
+      </sc-for>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:6px"><span style="font-size:14px;font-weight:600">Keep a level for 12 months</span><button type="button" class="sw on" aria-pressed="true" aria-label="Keep level for 12 months"></button></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><span style="font-size:14px;font-weight:600">Points expire after [TO CONFIRM]</span><button type="button" class="sw" aria-pressed="false" aria-label="Points expire"></button></div>
+    </section>
+    <section class="card" aria-labelledby="er-h" style="flex:1 1 460px;display:flex;flex-direction:column;gap:10px">
+      <h2 class="h2" id="er-h">Ways to earn</h2>
+      <sc-for list="{{earn}}" as="e" hint-placeholder-count="7">
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #EADFD0"><span style="flex:1;font-size:15px;font-weight:600">{{e.label}}</span><input class="inp" value="{{e.val}}" aria-label="{{e.label}}" style="width:110px;min-height:40px;text-align:right"><button type="button" class="{{e.swCls}}" aria-pressed="{{e.on}}" aria-label="{{e.label}} on or off" onClick="{{e.toggle}}"></button></div>
+      </sc-for>
+      <button type="button" class="btn green" style="align-self:flex-start;margin-top:6px">Save rules</button>
+      <p style="margin:0;font-size:12px" class="mut">Changes show on the Ruh Circle page. All values are samples [TO CONFIRM].</p>
+    </section>
+  </div>
+</sc-if>
+<p style="margin:0;font-size:12px" class="mut">Sample members and points. Press Play: switch tabs, filter members and open a profile.</p>
+
+</main>
+
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-AdminCircle">
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'members', lvl: 'all', sel: 'm3', kind: 'all', off: {} };
+  }
+  renderVals() {
+    const S = this.state;
+    const fmt = (n) => n.toLocaleString('en-US');
+    const M = [
+      { id: 'm1', name: 'Mariam Saeed', phone: '+20 100 118 4420', pts: 2240, month: 1240, visits: 34, last: 'Today', since: 'Aug 2026', board: 'Shown' },
+      { id: 'm2', name: 'Ahmed Reda', phone: '+20 101 334 2289', pts: 1105, month: 1105, visits: 14, last: 'Today', since: 'Sep 2026', board: 'Shown' },
+      { id: 'm3', name: 'Nour Hassan', phone: '+20 100 571 6027', pts: 820, month: 780, visits: 11, last: 'Mon 9 Nov', since: 'Sep 2026', board: 'Shown' },
+      { id: 'm4', name: 'Karim Fawzy', phone: '+20 100 774 2291', pts: 640, month: 600, visits: 9, last: 'Today', since: 'Oct 2026', board: 'Shown' },
+      { id: 'm5', name: 'Omar Khalil', phone: '+20 106 552 0173', pts: 1720, month: 610, visits: 27, last: 'Sat 7 Nov', since: 'Aug 2026', board: 'Opted out' },
+      { id: 'm6', name: 'Farida Magdy', phone: '+20 122 811 9046', pts: 1560, month: 540, visits: 24, last: 'Today', since: 'Aug 2026', board: 'Shown' },
+      { id: 'm7', name: 'Rana Aly', phone: '+20 100 902 1187', pts: 710, month: 420, visits: 8, last: 'Thu 5 Nov', since: 'Oct 2026', board: 'Shown' },
+      { id: 'm8', name: 'Hana Samir', phone: '+20 109 330 6612', pts: 432, month: 390, visits: 5, last: 'Today', since: 'Oct 2026', board: 'Shown' },
+      { id: 'm9', name: 'Youssef Adel', phone: '+20 111 234 8890', pts: 120, month: 120, visits: 2, last: 'Today', since: 'Nov 2026', board: 'Shown' },
+      { id: 'm10', name: 'Mona Tarek', phone: '+20 115 640 2287', pts: 0, month: 0, visits: 1, last: 'Today', since: 'Nov 2026', board: 'Shown' }
+    ];
+    const lvlOf = (p) => p >= 1500 ? 'Family' : (p >= 500 ? 'Regular' : 'Friend');
+    const lvlCls = { Family: 'pill p-dark', Regular: 'pill p-wood', Friend: 'pill p-terra' };
+    const ranked = M.slice().sort((a, b) => b.month - a.month);
+    const all = M.map((m) => {
+      const level = lvlOf(m.pts);
+      const nxt = level === 'Friend' ? 500 : (level === 'Regular' ? 1500 : null);
+      const lo = level === 'Friend' ? 0 : (level === 'Regular' ? 500 : 1500);
+      return Object.assign({}, m, { level, lvlCls: lvlCls[level], ptsStr: fmt(m.pts), ini: m.name.split(' ').map((x) => x[0]).join(''), rank: ranked.indexOf(m) + 1,
+        toNext: nxt ? fmt(nxt - m.pts) + ' to ' + (level === 'Friend' ? 'Regular' : 'Family') : 'Top level',
+        pct: nxt ? Math.round((m.pts - lo) / (nxt - lo) * 100) + '%' : '100%' });
+    });
+    const vis = all.filter((m) => S.lvl === 'all' || m.level === S.lvl);
+    const cur = all.find((m) => m.id === S.sel) || all[0];
+    const H = [['12 Nov', 'Visit · Table 11 · bill EGP 1,540', '+204'], ['9 Nov', 'Oud night (event)', '+30'], ['6 Nov', 'Ruh at Home box BX-301', '+40'], ['2 Nov', 'Google review', '+20'], ['28 Oct', 'Brought a friend · Hana S.', '+100'], ['20 Oct', 'Visit · Table 4 · bill EGP 980', '+148'], ['14 Oct', 'Owner adjustment · missed check-in', '+50']];
+    const LOG = [
+      ['Today 9:24 PM', 'Nour H.', 'Visit', 'Table 11 · bill EGP 1,540', '+204', 'Salma K.'],
+      ['Today 8:12 PM', 'Hana S.', 'Visit', 'Table 8 · bill EGP 1,220', '+172', 'Salma K.'],
+      ['Today 7:02 PM', 'Farida M.', 'Visit', 'Table 2 · bill EGP 1,950', '+245', 'Salma K.'],
+      ['Today 6:40 PM', 'Mariam S.', 'Event', 'Karaoke night', '+30', 'Automatic'],
+      ['Today 3:15 PM', 'Omar K.', 'Ruh at Home', 'Box BX-310 delivered', '+40', 'Hossam E.'],
+      ['Today 1:02 PM', 'Mona T.', 'Welcome', 'Joined Ruh Circle', '+0', 'Automatic'],
+      ['Wed 11 Nov', 'Ahmed R.', 'Friend', 'Invited Seif E.', '+100', 'Automatic'],
+      ['Wed 11 Nov', 'Rana A.', 'Review', 'Google review', '+20', 'Ruh owner'],
+      ['Tue 10 Nov', 'Karim F.', 'Adjustment', 'Missed check-in on 8 Nov', '+120', 'Ruh owner'],
+      ['Tue 10 Nov', 'Youssef A.', 'Visit', 'Table 6 · bill EGP 700', '+120', 'Salma K.']
+    ];
+    const kCls = { Visit: 'pill p-green', Event: 'pill p-terra', 'Ruh at Home': 'pill p-wood', Review: 'pill p-blue', Friend: 'pill p-blue', Adjustment: 'pill p-grey', Welcome: 'pill p-grey' };
+    const kinds = ['all', 'Visit', 'Event', 'Ruh at Home', 'Review', 'Friend', 'Adjustment'];
+    const EARN = [['visit', 'Visit (checked in)', '+50'], ['bill', 'Per EGP 10 on the bill', '+1'], ['event', 'Event attended', '+30'], ['box', 'Ruh at Home box', '+40'], ['review', 'Google review', '+20'], ['friend', 'Bring a friend who joins', '+100'], ['bday', 'Birthday month', '×2']];
+    const bgs = ['#B9834A', '#EBD8CB', '#F2B9A6'];
+    return {
+      tabs: [['members', 'Members'], ['history', 'Points history'], ['board', 'Leaderboard & prizes'], ['rules', 'Levels & rules']].map(([k, l]) => ({ label: l, on: S.tab === k, cls: S.tab === k ? 'tab on' : 'tab', pick: () => this.setState({ tab: k }) })),
+      isMembers: S.tab === 'members', isHistory: S.tab === 'history', isBoard: S.tab === 'board', isRules: S.tab === 'rules',
+      levels: [['all', 'All levels'], ['Friend', 'Friend'], ['Regular', 'Regular'], ['Family', 'Family']].map(([k, l]) => ({ label: l, on: S.lvl === k, cls: S.lvl === k ? 'chip on' : 'chip', pick: () => this.setState({ lvl: k }) })),
+      members: vis.map((m) => Object.assign({}, m, { cls: m.id === cur.id ? 'rowb sel' : 'rowb', pick: () => this.setState({ sel: m.id }) })),
+      cur,
+      history: H.map(([d, w, p]) => ({ date: d, what: w, pts: p, color: '#26382C' })),
+      kinds: kinds.map((k) => ({ label: k === 'all' ? 'All' : k, on: S.kind === k, cls: S.kind === k ? 'chip on' : 'chip', pick: () => this.setState({ kind: k }) })),
+      log: LOG.filter((g) => S.kind === 'all' || g[2] === S.kind).map(([w, who, k, what, p, by]) => ({ when: w, who, kind: k, kCls: kCls[k], what, pts: p, by, color: '#26382C' })),
+      board: ranked.filter((m) => m.board !== 'Opted out').map((m, i) => ({ rank: i + 1, name: m.name.split(' ')[0] + ' ' + m.name.split(' ')[1][0] + '.', pts: fmt(m.month) + ' pts', visits: Math.max(1, Math.round(m.visits / 3)), bg: bgs[i] || '#F6F0E6' })),
+      lvlRows: [['Friend', '0', 'to 499', 'Welcome drink [TO CONFIRM]', 'pill p-terra'], ['Regular', '500', 'to 1,499 · ≈10 visits', '[PERK TO CONFIRM]', 'pill p-wood'], ['Family', '1500', 'and above · ≈30 visits', '[PERK TO CONFIRM]', 'pill p-dark']].map(([n, f, t, p, c]) => ({ name: n, from: f, to: t, perk: p, cls: c, aria: n + ' starts at points' })),
+      earn: EARN.map(([k, l, v]) => { const on = !S.off[k]; return { label: l, val: v, on, swCls: on ? 'sw on' : 'sw', toggle: () => { const o = Object.assign({}, S.off); o[k] = on; this.setState({ off: o }); } }; })
+    };
+  }
+}
+
+</script>
+<div id="app"></div>
+<template id="tpl-AdminAddMember"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+.nav{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;color:#EBD8CB;text-decoration:none;font-size:15px;font-weight:600}
+.nav:hover{background:rgba(235,216,203,.08);color:#FFF8EE}
+.nav.on{background:#F6F0E6;color:#1F2E24}
+.nav svg{flex:none}
+.sub{display:flex;align-items:center;gap:8px;min-height:36px;padding:0 14px 0 46px;border-radius:10px;color:#C9D3CB;text-decoration:none;font-size:14px;font-weight:500}
+.sub:hover{color:#FFF8EE}
+.sub.on{color:#FFF8EE;font-weight:700;background:rgba(235,216,203,.1)}
+.bdg{margin-left:auto;min-width:24px;height:24px;padding:0 7px;box-sizing:border-box;border-radius:999px;background:#B4553E;color:#FFF;font-size:12px;font-weight:700;display:grid;place-items:center}
+.card{background:#FBF7F0;border:1px solid #E6DACA;border-radius:22px;padding:24px;box-sizing:border-box;min-width:0}
+.panel{background:#FFF;border:1px solid #E6DACA;border-radius:24px;padding:26px;box-sizing:border-box;min-width:0;box-shadow:0 18px 40px rgba(31,46,36,.08)}
+.h2{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;color:#1F2E24}
+.h3{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.03em;color:#1F2E24}
+.k{margin:0;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7A5530}
+.mut{color:#5C6B60}
+.big{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#1F2E24}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.p-green{background:#E3EADF;color:#26382C}.p-terra{background:#F2DED3;color:#8A3B28}.p-wood{background:#EEDFC9;color:#6B4520}.p-blue{background:#DCE3EC;color:#26384C}.p-grey{background:#E9E2D8;color:#5A4A3A}.p-dark{background:#2F4536;color:#FFF8EE}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border-radius:999px;border:0;background:#B4553E;color:#FFF8EE;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:#2F4536;color:#FFF8EE}
+.btn:disabled{background:#CDBFAC;color:#5A4A3A;cursor:not-allowed}
+.btn.sm{min-height:38px;padding:0 14px;font-size:13px}
+.btn.green{background:#2F4536}.btn.green:hover{background:#B4553E}
+.ghost{background:transparent;color:#2F4536;border:1.5px solid #CDBFAC}
+.ghost:hover{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #D9CBB8;background:transparent;font-family:inherit;font-size:14px;font-weight:700;color:#2F4536;cursor:pointer}
+.tab:hover{border-color:#2F4536}
+.tab.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.tab .n{font-size:12px;opacity:.8}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid #D9CBB8;background:#FFF;font-family:inherit;font-size:14px;font-weight:600;color:#2F4536;cursor:pointer}
+.chip:hover{border-color:#2F4536}
+.chip.on{background:#1F2E24;border-color:#1F2E24;color:#FFF8EE}
+.inp{font-family:inherit;font-size:15px;font-weight:600;color:#1F2A22;background:#FFF;border:1.5px solid #E2D5C3;border-radius:14px;min-height:48px;padding:0 14px;box-sizing:border-box;width:100%}
+.inp:focus{outline:none;border-color:#B4553E;box-shadow:0 0 0 4px rgba(180,85,62,.14)}
+textarea.inp{padding:12px 14px;min-height:96px;resize:vertical;line-height:1.5;font-weight:500}
+.fl{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#2F4536}
+.row{display:flex;align-items:center;gap:14px;padding:14px 16px;border-top:1px solid #EADFD0}
+.rowb{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:14px 16px;border:0;border-top:1px solid #EADFD0;background:transparent;font-family:inherit;font-size:14px;color:#1F2A22;cursor:pointer}
+.rowb:hover{background:#F3EBDF}
+.rowb.sel{background:#FFF;box-shadow:inset 4px 0 0 #B4553E}
+.th{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A5530;background:#F3EBDF}
+.bar{height:10px;border-radius:999px;background:#EADFD0;overflow:hidden}
+.bar span{display:block;height:100%;border-radius:999px;background:#2F4536}
+.wa{background:#E8F0E4;border-radius:18px 18px 18px 4px;padding:14px 16px;font-size:14px;line-height:1.55;color:#1F2A22;white-space:pre-line}
+.sw{position:relative;width:46px;height:28px;flex:none;border-radius:999px;border:0;background:#CDBFAC;cursor:pointer;padding:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#FFF;transition:left .2s}
+.sw.on{background:#2F4536}
+.sw.on::after{left:21px}
+.ph{background:repeating-linear-gradient(135deg,#EFE6D8 0 10px,#E8DCCB 10px 20px);display:grid;place-items:center;color:#7A5530}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@keyframes ad-in{0%{transform:translateY(6px)}100%{transform:translateY(0)}}
+.in{animation:ad-in .35s ease-out}
+@keyframes ad-pulse{0%,100%{box-shadow:0 0 0 0 rgba(180,85,62,.45)}50%{box-shadow:0 0 0 7px rgba(180,85,62,0)}}
+.live{width:9px;height:9px;border-radius:50%;background:#B4553E;animation:ad-pulse 2s ease-in-out infinite;flex:none}
+@media (prefers-reduced-motion:reduce){.in,.live{animation:none}}
+
+.ov{position:absolute;inset:0;background:rgba(20,30,24,.58);display:flex;justify-content:center;align-items:flex-start;padding:48px 24px;box-sizing:border-box;z-index:5}
+.dlg{width:100%;max-width:1000px;background:#FBF7F0;border-radius:28px;box-shadow:0 40px 90px rgba(10,16,12,.45);overflow:hidden;display:flex;flex-direction:column}
+.dh{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 28px;background:#1F2E24;color:#FFF8EE}
+.dx{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:rgba(251,247,240,.1);color:#FFF8EE;text-decoration:none}
+.dx:hover{background:#B4553E;color:#FFF8EE}
+.db{display:flex;flex-wrap:wrap;gap:24px;padding:26px 28px}
+.df{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 28px;border-top:1px solid #E6DACA;background:#F6F0E6;flex-wrap:wrap}
+.req{color:#B4553E}
+.slot{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;border:2px dashed #CDBFAC;background:#FFF;font-family:inherit;font-size:14px;font-weight:700;color:#2F4536;cursor:pointer;text-align:left;width:100%}
+.slot:hover{border-color:#2F4536}
+.slot.ok{border-style:solid;border-color:#2F4536;background:#E3EADF}
+.skel{border-radius:20px;background:#EFE6D8}
+.step{width:44px;height:44px;border-radius:50%;border:1.5px solid #D9CBB8;background:#FFF;font-family:inherit;font-size:20px;font-weight:700;color:#2F4536;cursor:pointer}
+.step:hover{border-color:#2F4536}
+.mb{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:#EFE6D8;color:#9C8B76}
+.mb.ok{background:#E3EADF;color:#26382C}
+</style>
+</helmet>
+<div style="position:relative;min-height:1400px;display:flex;flex-wrap:wrap;background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+<aside style="flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;align-items:center;gap:12px;padding:0 8px"><img src="images/logo.png" alt="Ruh" style="height:40px;width:auto"><span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB">Admin</span></div>
+<nav aria-label="Admin" style="display:flex;flex-direction:column;gap:4px">
+<a class="nav" href="AdminDashA.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Dashboard</a>
+<a class="nav" href="AdminBookings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>Bookings<span class="bdg">4</span></a>
+<a class="nav" href="AdminEvents.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>Events<span class="bdg">3</span></a>
+<a class="nav" href="AdminHome.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"></path><path d="M3 8l9 5 9-5M12 13v8"></path></svg>Ruh at Home<span class="bdg">2</span></a>
+<a class="nav" href="AdminCheckins.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2z"></path><path d="M9 7h6M9 11h6M9 15h4"></path></svg>Check-ins<span class="bdg">3</span></a>
+<a class="nav on" href="AdminCircle.dc.html" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z"></path></svg>Ruh Circle</a>
+<a class="nav" href="AdminMenu.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"></path><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"></path></svg>Content</a>
+<a class="sub" href="AdminMenu.dc.html">Menu &amp; prices</a>
+<a class="sub" href="AdminMedia.dc.html">Dish photos &amp; reels</a>
+<a class="sub" href="AdminProgramme.dc.html">Events programme</a>
+</nav><div style="height:1px;background:rgba(235,216,203,.14)"></div>
+<p style="margin:0 8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A9B8AC">Owner only</p>
+<nav aria-label="Owner" style="display:flex;flex-direction:column;gap:4px">
+<a class="nav" href="AdminTeam.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="4"></circle><path d="M2 21a7 7 0 0 1 14 0"></path><path d="M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7"></path></svg>Team</a>
+<a class="nav" href="AdminSettings.dc.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>Settings</a>
+</nav>
+<div style="margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)"><span style="width:40px;height:40px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center;font-weight:700">RO</span><span style="display:flex;flex-direction:column;min-width:0"><strong style="font-size:14px;color:#FFF8EE">Ruh owner</strong><span style="font-size:12px;color:#C9D3CB">Super admin · full access</span></span></div>
+</aside>
+<main style="flex:999 1 560px;min-width:0;padding:30px 36px 44px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+<header style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px"><div style="display:flex;flex-direction:column;gap:6px"><p class="k">Members, points and rewards</p><h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;line-height:1;letter-spacing:-.035em;color:#1F2E24">Ruh Circle<span style="color:#B4553E">.</span></h1></div><div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"></div></header>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px" aria-hidden="true">
+  <div class="skel" style="height:120px"></div><div class="skel" style="height:120px"></div><div class="skel" style="height:120px"></div>
+</div>
+<div style="display:flex;gap:20px" aria-hidden="true"><div class="skel" style="flex:1.4;height:640px"></div><div class="skel" style="flex:1;height:640px"></div></div>
+
+</main>
+
+<div class="ov">
+  <div class="dlg in" role="dialog" aria-modal="true" aria-labelledby="am-h">
+    <div class="dh">
+      <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E7C9A8">Ruh Circle · Members</span><h2 id="am-h" style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.03em">Add a member</h2></div>
+      <a class="dx" href="AdminCircle.dc.html" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></a>
+    </div>
+    <sc-if value="{{editing}}" hint-placeholder-val="{{true}}">
+      <div class="db">
+        <div style="flex:1.3 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px"><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px"><label class="fl"><span>Full name <span class="req">*</span></span><input class="inp" value="{{f.name}}" onChange="{{set.name}}" placeholder="e.g. Laila Mansour" ></label><label class="fl"><span>Mobile (WhatsApp) <span class="req">*</span></span><input class="inp" inputmode="numeric" value="{{f.mobile}}" onChange="{{set.mobile}}" placeholder="+20 1xx xxx xxxx" ></label></div><div class="fl"><span>Birthday month <span class="mut" style="font-weight:500">· points ×2 that month</span></span><div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{months}}" as="m" hint-placeholder-count="12"><button type="button" class="{{m.cls}}" aria-pressed="{{m.on}}" onClick="{{m.pick}}">{{m.label}}</button></sc-for></div></div><div class="fl">Joined from<div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{froms}}" as="j" hint-placeholder-count="4"><button type="button" class="{{j.cls}}" aria-pressed="{{j.on}}" onClick="{{j.pick}}">{{j.label}}</button></sc-for></div></div><div style="display:grid;grid-template-columns:160px minmax(0,1fr);gap:12px"><label class="fl">Starting points<input class="inp" inputmode="numeric" value="{{f.pts}}" onChange="{{set.pts}}" placeholder="0" ></label><label class="fl">Reason (if any)<input class="inp" value="{{f.reason}}" onChange="{{set.reason}}" placeholder="e.g. Visit today, bill entered later" ></label></div><label class="fl">Invited by (member mobile, optional)<input class="inp" value="{{f.inviter}}" onChange="{{set.inviter}}" placeholder="Gives the inviter +100 when this member joins" ></label><div><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #EADFD0"><span style="display:flex;flex-direction:column;font-size:14px;font-weight:600">Show on the monthly leaderboard<span class="mut" style="font-size:12px;font-weight:500">First name + initial only</span></span><button type="button" class="{{tg.board.cls}}" aria-pressed="{{tg.board.on}}" aria-label="Show on the monthly leaderboard" onClick="{{tg.board.flip}}"></button></div><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #EADFD0"><span style="display:flex;flex-direction:column;font-size:14px;font-weight:600">Send welcome message on WhatsApp</span><button type="button" class="{{tg.send.cls}}" aria-pressed="{{tg.send.on}}" aria-label="Send welcome message on WhatsApp" onClick="{{tg.send.flip}}"></button></div></div></div>
+        <aside style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:12px"><p class="k">Preview</p>
+<div style="border-radius:22px;background:#1F2E24;color:#FFF8EE;padding:20px;display:flex;flex-direction:column;gap:14px">
+  <div style="display:flex;justify-content:space-between;align-items:center"><img src="images/logo.png" alt="Ruh" style="height:28px;width:auto"><span class="pill" style="background:#F2B9A6;color:#1F2E24">{{level}}</span></div>
+  <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;letter-spacing:-.03em">{{pvName}}</strong>
+  <div style="display:flex;justify-content:space-between;font-size:13px;color:#C9D3CB"><span>{{pvMobile}}</span><span>Member since Nov 2026</span></div>
+  <div style="display:flex;flex-direction:column;gap:6px"><div style="display:flex;justify-content:space-between;font-size:13px"><strong style="font-size:18px;font-family:'Bricolage Grotesque',sans-serif">{{ptsStr}} pts</strong><span style="color:#EBD8CB">{{toNext}}</span></div><div style="height:8px;border-radius:999px;background:rgba(235,216,203,.18);overflow:hidden"><span style="display:block;height:100%;width:{{pct}};background:#F2B9A6;border-radius:999px"></span></div></div>
+</div>
+<sc-if value="{{sendOn}}" hint-placeholder-val="{{true}}"><p class="k" style="margin-top:6px">Welcome message</p><div class="wa">{{msg}}</div></sc-if>
+</aside>
+      </div>
+      <div class="df">
+        <span class="mut" style="font-size:13px"><span class="req">*</span> Required · {{missing}}</span>
+        <span style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn ghost" href="AdminCircle.dc.html">Cancel</a><button type="button" class="btn" disabled="{{cantSave}}" onClick="{{save}}">Add member</button></span>
+      </div>
+    </sc-if>
+    <sc-if value="{{saved}}" hint-placeholder-val="{{false}}">
+      <div style="padding:56px 28px;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center">
+        <span style="width:72px;height:72px;border-radius:50%;background:#2F4536;color:#FFF8EE;display:grid;place-items:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>
+        <h3 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:32px;letter-spacing:-.03em;color:#1F2E24">{{pvName}} joined Ruh Circle.</h3>
+        <p style="margin:0;font-size:16px;line-height:1.6;max-width:520px" class="mut">{{successBody}}</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center"><a class="btn green" href="AdminCircle.dc.html">Back to Ruh Circle</a><button type="button" class="btn ghost" onClick="{{again}}">Add another</button></div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-AdminAddMember">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.init = { name: '', mobile: '', month: '', from: 'table', pts: '', reason: '', inviter: '', board: true, send: true };
+    this.state = Object.assign({ saved: false }, this.init);
+  }
+
+  baseVals(fields, toggles) {
+    const S = this.state;
+    const set = {}; fields.forEach((k) => { set[k] = (e) => this.setState({ [k]: String(e.target.value || '') }); });
+    const tg = {}; toggles.forEach((k) => { const on = !!S[k]; tg[k] = { on, cls: on ? 'sw on' : 'sw', flip: () => this.setState({ [k]: !on }) }; });
+    const f = {}; fields.forEach((k) => { f[k] = S[k] || ''; });
+    return { set, tg, f };
+  }
+  chipList(key, opts, multi) {
+    const S = this.state;
+    return opts.map((o) => {
+      const v = Array.isArray(o) ? o[0] : o; const l = Array.isArray(o) ? o[1] : o;
+      const on = multi ? (S[key] || []).indexOf(v) >= 0 : S[key] === v;
+      return { label: l, on, cls: on ? 'chip on' : 'chip', pick: () => {
+        if (multi) { const a = (S[key] || []).slice(); const i = a.indexOf(v); if (i >= 0) a.splice(i, 1); else a.push(v); this.setState({ [key]: a }); }
+        else this.setState({ [key]: v });
+      } };
+    });
+  }
+
+  renderVals() {
+    const S = this.state;
+
+    const b = this.baseVals(['name', 'mobile', 'pts', 'reason', 'inviter'], ['board', 'send']);
+    const p = parseInt(String(S.pts).replace(/[^0-9]/g, '') || '0', 10);
+    const lvl = p >= 1500 ? 'Family' : (p >= 500 ? 'Regular' : 'Friend');
+    const nxt = lvl === 'Friend' ? 500 : (lvl === 'Regular' ? 1500 : null), lo = lvl === 'Friend' ? 0 : (lvl === 'Regular' ? 500 : 1500);
+    const digits = String(S.mobile).replace(/[^0-9]/g, '');
+    const miss = []; if (!S.name.trim()) miss.push('name'); if (digits.length < 10) miss.push('mobile');
+    const first = S.name.trim().split(' ')[0] || '[name]';
+    return Object.assign(b, {
+      editing: !S.saved, saved: S.saved,
+      months: this.chipList('month', ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]),
+      froms: this.chipList('from', [['table', 'At the table (QR)'], ['event', 'Event'], ['home', 'Ruh at Home'], ['phone', 'Phone / WhatsApp']]),
+      level: lvl, pvName: S.name.trim() || 'Member name', pvMobile: S.mobile || '+20 •••', ptsStr: p.toLocaleString('en-US'),
+      toNext: nxt ? (nxt - p).toLocaleString('en-US') + ' to ' + (lvl === 'Friend' ? 'Regular' : 'Family') : 'Top level', pct: nxt ? Math.round((p - lo) / (nxt - lo) * 100) + '%' : '100%',
+      sendOn: !!S.send,
+      msg: 'Welcome to Ruh Circle, ' + first + '! You have ' + p + ' points. Scan the QR on your table at every visit to earn more, and climb this month\'s leaderboard.' + (S.month ? ' Your points double every ' + S.month + '.' : '') + '\nReply STOP to opt out of news.',
+      missing: miss.length ? 'Still needed: ' + miss.join(', ') : 'Ready to add', cantSave: miss.length > 0,
+      successBody: 'Level ' + lvl + ' with ' + p + ' points.' + (S.inviter ? ' The inviter gets +100 points.' : '') + (S.send ? ' WhatsApp opens with the welcome message.' : '') + ' Next time they scan a table QR, they sign in with this mobile.',
+      save: () => this.setState({ saved: true }),
+      again: () => this.setState(Object.assign({ saved: false }, this.init))
+    });
+  }
+}
+
+</script>
+
+<script>window.ADM_PAGE={"view": "AdminAddMember", "owner": true, "sidebars": {"owner": "<aside style=\"flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px\">\n<div style=\"display:flex;align-items:center;gap:12px;padding:0 8px\"><img src=\"images/logo.png\" alt=\"Ruh\" style=\"height:40px;width:auto\"><span style=\"font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB\">Admin</span></div>\n<nav aria-label=\"Admin\" style=\"display:flex;flex-direction:column;gap:4px\">\n<a class=\"nav\" href=\"AdminDashA.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"></rect><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1.5\"></rect><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"></rect><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1.5\"></rect></svg>Dashboard</a>\n<a class=\"nav\" href=\"AdminBookings.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"></rect><path d=\"M16 3v4M8 3v4M3 10h18\"></path></svg>Bookings<span class=\"bdg\">4</span></a>\n<a class=\"nav\" href=\"AdminEvents.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18V5l12-2v13\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><circle cx=\"18\" cy=\"16\" r=\"3\"></circle></svg>Events<span class=\"bdg\">3</span></a>\n<a class=\"nav\" href=\"AdminHome.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8l-9-5-9 5v8l9 5 9-5z\"></path><path d=\"M3 8l9 5 9-5M12 13v8\"></path></svg>Ruh at Home<span class=\"bdg\">2</span></a>\n<a class=\"nav\" href=\"AdminCheckins.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 2h12v20l-3-2-3 2-3-2-3 2z\"></path><path d=\"M9 7h6M9 11h6M9 15h4\"></path></svg>Check-ins<span class=\"bdg\">3</span></a>\n<a class=\"nav on\" href=\"AdminCircle.dc.html\" aria-current=\"page\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z\"></path></svg>Ruh Circle</a>\n<a class=\"nav\" href=\"AdminMenu.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z\"></path><path d=\"M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5\"></path></svg>Content</a>\n<a class=\"sub\" href=\"AdminMenu.dc.html\">Menu &amp; prices</a>\n<a class=\"sub\" href=\"AdminMedia.dc.html\">Dish photos &amp; reels</a>\n<a class=\"sub\" href=\"AdminProgramme.dc.html\">Events programme</a>\n</nav><div style=\"height:1px;background:rgba(235,216,203,.14)\"></div>\n<p style=\"margin:0 8px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#A9B8AC\">Owner only</p>\n<nav aria-label=\"Owner\" style=\"display:flex;flex-direction:column;gap:4px\">\n<a class=\"nav\" href=\"AdminTeam.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"9\" cy=\"8\" r=\"4\"></circle><path d=\"M2 21a7 7 0 0 1 14 0\"></path><path d=\"M17 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-5-6.7\"></path></svg>Team</a>\n<a class=\"nav\" href=\"AdminSettings.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12\"></path><circle cx=\"16\" cy=\"6\" r=\"2\"></circle><circle cx=\"10\" cy=\"12\" r=\"2\"></circle><circle cx=\"18\" cy=\"18\" r=\"2\"></circle></svg>Settings</a>\n</nav>\n<div style=\"margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)\"><span style=\"width:40px;height:40px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center;font-weight:700\">RO</span><span style=\"display:flex;flex-direction:column;min-width:0\"><strong style=\"font-size:14px;color:#FFF8EE\">Ruh owner</strong><span style=\"font-size:12px;color:#C9D3CB\">Super admin · full access</span></span></div>\n</aside>", "staff": "<aside style=\"flex:1 1 256px;max-width:280px;background:#1F2E24;color:#EBD8CB;padding:28px 18px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px\">\n<div style=\"display:flex;align-items:center;gap:12px;padding:0 8px\"><img src=\"images/logo.png\" alt=\"Ruh\" style=\"height:40px;width:auto\"><span style=\"font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C9D3CB\">Requests</span></div>\n<nav aria-label=\"Requests\" style=\"display:flex;flex-direction:column;gap:4px\">\n<a class=\"nav\" href=\"AdminBookings.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"2\"></rect><path d=\"M16 3v4M8 3v4M3 10h18\"></path></svg>Bookings<span class=\"bdg\">4</span></a>\n<a class=\"nav\" href=\"AdminEvents.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18V5l12-2v13\"></path><circle cx=\"6\" cy=\"18\" r=\"3\"></circle><circle cx=\"18\" cy=\"16\" r=\"3\"></circle></svg>Events<span class=\"bdg\">3</span></a>\n<a class=\"nav\" href=\"AdminHome.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 8l-9-5-9 5v8l9 5 9-5z\"></path><path d=\"M3 8l9 5 9-5M12 13v8\"></path></svg>Ruh at Home<span class=\"bdg\">2</span></a>\n<a class=\"nav\" href=\"AdminCheckins.dc.html\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M6 2h12v20l-3-2-3 2-3-2-3 2z\"></path><path d=\"M9 7h6M9 11h6M9 15h4\"></path></svg>Check-ins<span class=\"bdg\">3</span></a>\n</nav>\n<div style=\"padding:14px;border-radius:14px;border:1px dashed rgba(235,216,203,.25);display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;color:#C9D3CB\"><svg style=\"flex:none;margin-top:1px\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"11\" width=\"16\" height=\"10\" rx=\"2\"></rect><path d=\"M8 11V7a4 4 0 0 1 8 0v4\"></path></svg><span>Dashboard figures, Ruh Circle, Content, Team and Settings are for the owner.</span></div>\n<div style=\"margin-top:auto;display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(235,216,203,.07)\"><span style=\"width:40px;height:40px;border-radius:50%;background:#B9834A;color:#1F2E24;display:grid;place-items:center;font-weight:700\">SK</span><span style=\"display:flex;flex-direction:column;min-width:0\"><strong style=\"font-size:14px;color:#FFF8EE\">Salma K.</strong><span style=\"font-size:12px;color:#C9D3CB\">Staff · requests only</span></span></div>\n</aside>"}, "under": "AdminCircle"};</script>
+<script src="js/adm.js"></script>
+</body>
+</html>

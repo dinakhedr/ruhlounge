@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh · My profile</title>
+<link rel="icon" href="images/logo.png">
+<style>
+html.ruh-narrow,html.ruh-narrow body{overflow-x:hidden}
+html.ruh-narrow [style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}
+html.ruh-narrow [style*="padding:56px 5vw"],html.ruh-narrow [style*="padding:48px 5vw"],html.ruh-narrow [style*="padding:84px 5vw"],html.ruh-narrow [style*="padding:80px 5vw"],html.ruh-narrow [style*="padding:60px 5vw"],html.ruh-narrow [style*="padding:64px 5vw"],html.ruh-narrow [style*="padding:40px 5vw"]{padding:28px 16px!important}
+html.ruh-narrow h1{font-size:40px!important;line-height:.98!important}
+html.ruh-narrow h2{font-size:30px!important}
+html.ruh-narrow [style*="font-size:84px"],html.ruh-narrow [style*="font-size:80px"],html.ruh-narrow [style*="font-size:72px"],html.ruh-narrow [style*="font-size:68px"],html.ruh-narrow [style*="font-size:64px"],html.ruh-narrow [style*="font-size:60px"]{font-size:40px!important}
+html.ruh-narrow [style*="font-size:56px"],html.ruh-narrow [style*="font-size:52px"],html.ruh-narrow [style*="font-size:50px"],html.ruh-narrow [style*="font-size:48px"],html.ruh-narrow [style*="font-size:44px"]{font-size:32px!important}
+html.ruh-narrow [style*="font-size:40px"],html.ruh-narrow [style*="font-size:38px"],html.ruh-narrow [style*="font-size:36px"]{font-size:28px!important}
+html.ruh-narrow [style*="min-height:720px"],html.ruh-narrow [style*="min-height:640px"],html.ruh-narrow [style*="min-height:700px"],html.ruh-narrow [style*="min-height:600px"],html.ruh-narrow [style*="min-height:560px"],html.ruh-narrow [style*="min-height:520px"],html.ruh-narrow [style*="min-height:480px"],html.ruh-narrow [style*="min-height:420px"]{min-height:0!important}
+html.ruh-narrow header nav[aria-label="Main"]{display:none!important}
+html.ruh-narrow header{flex-wrap:nowrap!important;padding:12px 16px!important;gap:10px!important}
+html.ruh-narrow header img{height:40px!important}
+html.ruh-narrow header a[href="book.html"]{padding:10px 14px!important;font-size:13px!important}
+html.ruh-narrow header a[aria-current="page"]:has(> span){font-size:0!important;gap:0!important}
+html.ruh-narrow header a[aria-current="page"] > span{font-size:15px!important}
+html.ruh-narrow header a[aria-current="page"][href="book.html"],html.ruh-narrow header a[href="book.html"]{white-space:nowrap}
+html.ruh-narrow header a.nav-a[href^="sign-in"],html.ruh-narrow header a.nav-a[href="profile.html"]{display:none!important}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"]{display:flex!important;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"] > *{flex:0 0 74px}
+html.ruh-narrow aside[style*="position:sticky"]{position:static!important}
+html.ruh-narrow [style*="flex:1 1 "]{flex-basis:100%!important}
+html.ruh-narrow [style*="width:62%"]{width:80%!important}
+html.ruh-narrow table{display:block;overflow-x:auto}
+html.ruh-narrow div[role="group"],html.ruh-narrow div[role="tablist"]{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;scrollbar-width:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl-ProfilePending"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+@keyframes pf-fill{from{width:20%}to{width:60%}}
+@keyframes pf-spin{to{transform:rotate(360deg)}}
+@keyframes pf-glow{0%{box-shadow:0 0 0 0 rgba(242,185,166,.6)}100%{box-shadow:0 0 0 14px rgba(242,185,166,0)}}
+.pf-fill{width:60%;animation:pf-fill 2.2s cubic-bezier(.2,.7,.2,1) infinite alternate}
+.pf-spin{animation:pf-spin 70s linear infinite}
+.pf-glow{animation:pf-glow 2.2s ease-out infinite}
+@keyframes pf-pend{0%{box-shadow:0 0 0 0 rgba(180,85,62,.55)}100%{box-shadow:0 0 0 8px rgba(180,85,62,0)}}
+.pf-pend{width:8px;height:8px;border-radius:50%;background:#B4553E;animation:pf-pend 1.8s ease-out infinite}
+.nav-a{color:#FFF8EE;text-decoration:none;font-size:15px;font-weight:600;transition:color .25s}
+.nav-a:hover{color:#F2B9A6}
+.card{background:#FBF7F0;border-radius:28px;padding:28px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:18px;min-width:0}
+.eb{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9A6A3C}
+.h2{margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;letter-spacing:-.03em;line-height:1.05;color:#2F4536}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-weight:700;font-size:15px;min-height:48px;padding:0 22px;border-radius:999px;transition:background .3s,transform .3s}
+.btn:hover{background:#2F4536;color:#FFF8EE;transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1.5px solid #2F4536;color:#2F4536}
+.btn.ghost:hover{background:#2F4536;color:#FFF8EE}
+.tab{text-decoration:none;font-size:15px;font-weight:700;color:rgba(255,248,238,.8);padding:12px 18px;border-radius:999px;transition:all .25s}
+.tab:hover{color:#FFF8EE;background:rgba(255,248,238,.08)}
+.tab.on{background:#F2B9A6;color:#1F2E24}
+.chip{font-family:inherit;font-size:14px;font-weight:600;color:#2F4536;background:#F6F0E6;border:1.5px solid #E2D5C3;border-radius:999px;min-height:44px;padding:0 16px}
+.chip.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.sw{position:relative;flex:none;width:52px;height:30px;border-radius:999px;border:0;background:#CDBFAD}
+.sw::after{content:"";position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:50%;background:#FFF}
+.sw.on{background:#B4553E}
+.sw.on::after{left:26px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #E2D5C3}
+@media (prefers-reduced-motion:reduce){.pf-fill,.pf-spin,.pf-glow,.pf-pend{animation:none}}
+</style>
+</helmet>
+<div style="background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+
+  <header style="background:#1F2E24;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:20px 5vw">
+    <a href="#" aria-label="Ruh home" style="display:flex"><img src="images/logo.png" alt="Ruh" style="height:52px;width:auto;display:block"></a>
+    <nav aria-label="Main" style="display:flex;flex-wrap:wrap;gap:30px"><a href="#" class="nav-a">Menu</a><a href="#" class="nav-a">Hangouts</a><a href="#" class="nav-a">Celebrations</a><a href="#" class="nav-a">Workshops</a><a href="#" class="nav-a">Ruh at Home</a></nav>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="#" aria-current="page" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#FFF8EE;font-weight:700;font-size:15px"><span style="width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800">N</span>Nour</a>
+      <a href="BookTable.dc.html" style="text-decoration:none;font-size:15px;font-weight:700;color:#1F2E24;background:#F2B9A6;padding:13px 22px;border-radius:999px">Book a table</a>
+    </div>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:#26382C;color:#FFF8EE;padding:56px 5vw 130px">
+    <img class="pf-spin" src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-100px;top:-120px;height:480px;width:auto;opacity:.05">
+    <div style="position:relative;max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px">
+      <div style="display:flex;align-items:center;gap:24px">
+        <span class="pf-glow" style="width:104px;height:104px;flex:none;border-radius:50%;display:grid;place-items:center;background:#F2B9A6;color:#1F2E24;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px">N</span>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#E7C9A8">Ruh Circle member · since Oct 2026</p>
+          <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:72px;line-height:.95;letter-spacing:-.04em">Hi, <span style="color:#F2B9A6">Nour.</span></h1>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:320px;background:rgba(255,248,238,.07);border:1px solid rgba(255,248,238,.16);border-radius:24px;padding:22px 24px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px"><span style="font-size:14px;font-weight:600;color:rgba(255,248,238,.8)">Your points</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:40px;font-weight:800;color:#F2B9A6">240</span></div>
+        <div aria-hidden="true" style="height:10px;border-radius:999px;background:rgba(255,248,238,.14);overflow:hidden"><div class="pf-fill" style="height:100%;border-radius:999px;background:#F2B9A6"></div></div>
+        <span style="font-size:13px;color:rgba(255,248,238,.75)">Next reward: [REWARD TO CONFIRM]</span>
+      </div>
+    </div>
+    <nav aria-label="Profile sections" style="position:relative;max-width:1240px;margin:34px auto 0;display:flex;flex-wrap:wrap;gap:6px">
+      <a href="#" class="tab on" aria-current="page">Overview</a><a href="#" class="tab">Bookings</a><a href="#" class="tab">Ruh at Home orders</a><a href="#" class="tab">Rewards</a><a href="#" class="tab">Preferences</a>
+    </nav>
+  </section>
+
+  <main style="position:relative;max-width:1240px;margin:-80px auto 0;padding:0 5vw 100px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px">
+
+    <section aria-labelledby="pf-up" class="card" style="grid-column:span 2">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:6px"><span class="eb">Upcoming</span><h2 id="pf-up" class="h2">Your next <span style="color:#B4553E">visit.</span></h2></div><a href="BookTable.dc.html" class="btn ghost">Book another table</a></div>
+      <div style="display:flex;gap:20px;align-items:stretch;background:#F6F0E6;border-radius:22px;padding:18px;border:1.5px dashed #D7B9A6">
+        <div style="flex:none;width:96px;border-radius:18px;background:#FBF7F0;border:2px solid #B4553E;color:#B4553E;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px"><span style="font-size:13px;font-weight:700">SAT</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:40px;font-weight:800;line-height:1">14</span><span style="font-size:13px;font-weight:700">NOV</span></div>
+        <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px"><strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;color:#2F4536">8:00 PM · Birthday</strong><span style="display:inline-flex;align-items:center;gap:8px;background:rgba(180,85,62,.12);color:#8A4A35;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px"><span class="pf-pend"></span>Awaiting confirmation</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:600;color:#2F4536"><span style="background:#FBF7F0;border-radius:999px;padding:7px 12px">4 guests</span><span style="background:#FBF7F0;border-radius:999px;padding:7px 12px">Pergola</span><span style="background:#FBF7F0;border-radius:999px;padding:7px 12px">Cake + Table décor</span><span style="background:#FBF7F0;border-radius:999px;padding:7px 12px;color:#B4553E">Surprise mode on</span></div>
+          <ol aria-label="Request status" style="list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700">
+            <li style="display:flex;align-items:center;gap:6px;color:#2F4536"><span style="width:22px;height:22px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>Received</li>
+            <li aria-hidden="true" style="width:28px;height:3px;border-radius:3px;background:#B4553E"></li>
+            <li aria-current="step" style="display:flex;align-items:center;gap:6px;color:#B4553E"><span style="width:22px;height:22px;box-sizing:border-box;border-radius:50%;border:3px solid #B4553E;background:#FFF"></span>Confirming on WhatsApp</li>
+            <li aria-hidden="true" style="width:28px;height:3px;border-radius:3px;background:#E2D5C3"></li>
+            <li style="display:flex;align-items:center;gap:6px;color:#5C6B60"><span style="width:22px;height:22px;border-radius:50%;background:#E2D5C3"></span>See you soon</li>
+          </ol>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#5C6B60">Request RUH-2481 · Your table number will appear here once we confirm on WhatsApp.</p>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;font-size:14px;font-weight:700"><a href="#">Chat with us on WhatsApp</a><a href="#">Change request</a><a href="#" style="margin-left:auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #8A4A35;color:#8A4A35;text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>Cancel request</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="pf-ci" class="card" style="background:#1F2E24;color:#FFF8EE;position:relative;overflow:hidden">
+      <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-40px;bottom:-40px;height:190px;width:auto;opacity:.07">
+      <span class="eb" style="color:#F2B9A6">At Ruh today?</span>
+      <h2 id="pf-ci" class="h2" style="color:#FFF8EE">Check in at your <span style="color:#F2B9A6">table.</span></h2>
+      <p style="position:relative;margin:0;font-size:15px;line-height:1.55;color:rgba(255,248,238,.8)">Scan the code on your table with your phone camera to collect points. No app needed.</p>
+      <div style="position:relative;display:flex;align-items:center;gap:14px"><span style="width:64px;height:64px;border-radius:16px;background:#FBF7F0;color:#1F2E24;display:grid;place-items:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20h2M20 14v2"></path></svg></span><span style="font-size:14px;font-weight:600;color:rgba(255,248,238,.85)">Look for the Ruh Circle card on every table.</span></div>
+    </section>
+
+    <section aria-labelledby="pf-past" class="card">
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="eb">Past visits</span><h2 id="pf-past" class="h2">Good <span style="color:#B4553E">times.</span></h2></div>
+      <div style="display:flex;flex-direction:column">
+        <div class="row"><span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;color:#2F4536">Sun 25 Oct · Lounge sofas</strong><span style="font-size:13px;color:#5C6B60">6 guests · Just hanging out</span></span><span style="font-size:14px;font-weight:700;color:#B4553E">+60 pts</span></div>
+        <div class="row"><span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:15px;color:#2F4536">Fri 16 Oct · Pergola</strong><span style="font-size:13px;color:#5C6B60">2 guests · Date night</span></span><span style="font-size:14px;font-weight:700;color:#B4553E">+40 pts</span></div>
+      </div>
+      <a href="#" style="font-size:14px;font-weight:700">See all bookings</a>
+    </section>
+
+    <section aria-labelledby="pf-ord" class="card">
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="eb">Ruh at Home</span><h2 id="pf-ord" class="h2">Your <span style="color:#B4553E">orders.</span></h2></div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;background:#F6F0E6;border-radius:22px;padding:26px 18px">
+        <span style="width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:rgba(180,85,62,.12);color:#B4553E"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"></path></svg></span>
+        <strong style="font-size:16px;color:#2F4536">No orders yet</strong>
+        <span style="font-size:14px;color:#5C6B60">Ruh's flavors, ready to cook at home.</span>
+        <a href="#" class="btn">Build your box</a>
+      </div>
+    </section>
+
+    <section aria-labelledby="pf-bd" class="card" style="background:#EBD8CB;box-shadow:none">
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="eb" style="color:#8A4A35">Your birthday</span><h2 id="pf-bd" class="h2">Let us <span style="color:#B4553E">celebrate.</span></h2></div>
+      <p style="margin:0;font-size:15px;line-height:1.55;color:#2F4536">Add your birthday so we can make your next visit a little extra.</p>
+      <div style="display:flex;gap:10px">
+        <label style="flex:1;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#2F4536">Day<select style="font-family:inherit;font-size:16px;font-weight:600;min-height:50px;border-radius:14px;border:1.5px solid #D7C2B2;background:#FFF;padding:0 12px;color:#2F4536"><option>12</option></select></label>
+        <label style="flex:2;display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:700;color:#2F4536">Month<select style="font-family:inherit;font-size:16px;font-weight:600;min-height:50px;border-radius:14px;border:1.5px solid #D7C2B2;background:#FFF;padding:0 12px;color:#2F4536"><option>March</option></select></label>
+      </div>
+      <a href="#" class="btn" style="align-self:flex-start">Save birthday</a>
+    </section>
+
+    <section aria-labelledby="pf-pref" class="card" style="grid-column:span 2">
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="eb">Preferences</span><h2 id="pf-pref" class="h2">How you like <span style="color:#B4553E">it.</span></h2></div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px">
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:14px;font-weight:700;color:#2F4536">Favorite seating</span><div style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" class="chip on" aria-pressed="true">Pergola</button><button type="button" class="chip" aria-pressed="false">Lounge sofas</button><button type="button" class="chip" aria-pressed="false">Indoor</button></div></div>
+        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:14px;font-weight:700;color:#2F4536">Food notes</span><div style="display:flex;flex-wrap:wrap;gap:8px"><button type="button" class="chip" aria-pressed="false">Vegetarian</button><button type="button" class="chip on" aria-pressed="true">No nuts</button><button type="button" class="chip" aria-pressed="false">Less spicy</button><button type="button" class="chip" aria-pressed="false">+ Add a note</button></div></div>
+      </div>
+      <div style="display:flex;flex-direction:column">
+        <div class="row"><span style="display:flex;flex-direction:column;gap:2px"><strong id="pf-n1" style="font-size:15px;color:#2F4536">Booking updates on WhatsApp</strong><span style="font-size:13px;color:#5C6B60">Confirmations and reminders</span></span><button type="button" class="sw on" role="switch" aria-checked="true" aria-labelledby="pf-n1"></button></div>
+        <div class="row" style="border-bottom:0"><span style="display:flex;flex-direction:column;gap:2px"><strong id="pf-n2" style="font-size:15px;color:#2F4536">Workshops and events on WhatsApp</strong><span style="font-size:13px;color:#5C6B60">Hear first about what's on at Ruh</span></span><button type="button" class="sw on" role="switch" aria-checked="true" aria-labelledby="pf-n2"></button></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="pf-acc" class="card">
+      <div style="display:flex;flex-direction:column;gap:6px"><span class="eb">Account</span><h2 id="pf-acc" class="h2">Your <span style="color:#B4553E">details.</span></h2></div>
+      <div style="display:flex;flex-direction:column">
+        <div class="row"><span style="font-size:14px;color:#5C6B60">Name</span><strong style="font-size:15px;color:#2F4536">Nour Ahmed</strong></div>
+        <div class="row"><span style="font-size:14px;color:#5C6B60">WhatsApp</span><strong style="font-size:15px;color:#2F4536">+20 104 ••• 5999</strong></div>
+        <div class="row" style="border-bottom:0"><span style="font-size:14px;color:#5C6B60">Sign-in</span><strong style="font-size:15px;color:#2F4536">WhatsApp code</strong></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;font-size:14px;font-weight:700"><a href="#">Edit details</a><a href="SignIn.dc.html">Sign out</a></div>
+    </section>
+  </main>
+
+  <footer style="background:#1F2E24;color:rgba(255,248,238,.7);font-size:14px;padding:26px 5vw;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center">
+    <img src="images/logo.png" alt="Ruh" style="height:40px;width:auto">
+    <span>Izar Plaza, Sheikh Zayed · Every day 11:00 AM – 2:00 AM · WhatsApp 0104 4055999</span>
+  </footer>
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-ProfilePending">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+<script>window.RUH_PAGE={"views": [{"d": "ProfilePending"}], "bp": 760, "gate": true, "narrowFix": true, "section": "circle.html"};</script>
+<script src="js/ruh.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh · Ruh at Home</title>
+<link rel="icon" href="images/logo.png">
+<style>
+html.ruh-narrow,html.ruh-narrow body{overflow-x:hidden}
+html.ruh-narrow [style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}
+html.ruh-narrow [style*="padding:56px 5vw"],html.ruh-narrow [style*="padding:48px 5vw"],html.ruh-narrow [style*="padding:84px 5vw"],html.ruh-narrow [style*="padding:80px 5vw"],html.ruh-narrow [style*="padding:60px 5vw"],html.ruh-narrow [style*="padding:64px 5vw"],html.ruh-narrow [style*="padding:40px 5vw"]{padding:28px 16px!important}
+html.ruh-narrow h1{font-size:40px!important;line-height:.98!important}
+html.ruh-narrow h2{font-size:30px!important}
+html.ruh-narrow [style*="font-size:84px"],html.ruh-narrow [style*="font-size:80px"],html.ruh-narrow [style*="font-size:72px"],html.ruh-narrow [style*="font-size:68px"],html.ruh-narrow [style*="font-size:64px"],html.ruh-narrow [style*="font-size:60px"]{font-size:40px!important}
+html.ruh-narrow [style*="font-size:56px"],html.ruh-narrow [style*="font-size:52px"],html.ruh-narrow [style*="font-size:50px"],html.ruh-narrow [style*="font-size:48px"],html.ruh-narrow [style*="font-size:44px"]{font-size:32px!important}
+html.ruh-narrow [style*="font-size:40px"],html.ruh-narrow [style*="font-size:38px"],html.ruh-narrow [style*="font-size:36px"]{font-size:28px!important}
+html.ruh-narrow [style*="min-height:720px"],html.ruh-narrow [style*="min-height:640px"],html.ruh-narrow [style*="min-height:700px"],html.ruh-narrow [style*="min-height:600px"],html.ruh-narrow [style*="min-height:560px"],html.ruh-narrow [style*="min-height:520px"],html.ruh-narrow [style*="min-height:480px"],html.ruh-narrow [style*="min-height:420px"]{min-height:0!important}
+html.ruh-narrow header nav[aria-label="Main"]{display:none!important}
+html.ruh-narrow header{flex-wrap:nowrap!important;padding:12px 16px!important;gap:10px!important}
+html.ruh-narrow header img{height:40px!important}
+html.ruh-narrow header a[href="book.html"]{padding:10px 14px!important;font-size:13px!important}
+html.ruh-narrow header a[aria-current="page"]:has(> span){font-size:0!important;gap:0!important}
+html.ruh-narrow header a[aria-current="page"] > span{font-size:15px!important}
+html.ruh-narrow header a[aria-current="page"][href="book.html"],html.ruh-narrow header a[href="book.html"]{white-space:nowrap}
+html.ruh-narrow header a.nav-a[href^="sign-in"],html.ruh-narrow header a.nav-a[href="profile.html"]{display:none!important}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"]{display:flex!important;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"] > *{flex:0 0 74px}
+html.ruh-narrow aside[style*="position:sticky"]{position:static!important}
+html.ruh-narrow [style*="flex:1 1 "]{flex-basis:100%!important}
+html.ruh-narrow [style*="width:62%"]{width:80%!important}
+html.ruh-narrow table{display:block;overflow-x:auto}
+html.ruh-narrow div[role="group"],html.ruh-narrow div[role="tablist"]{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;scrollbar-width:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl-BuildBox"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+@keyframes bb-pan{0%{transform:scale(1.1) translateX(0)}100%{transform:scale(1.1) translateX(-3%)}}
+@keyframes bb-pop{0%{transform:scale(.6)}70%{transform:scale(1.08)}100%{transform:scale(1)}}
+@keyframes bb-bob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes bb-live{0%{box-shadow:0 0 0 0 rgba(242,185,166,.75)}100%{box-shadow:0 0 0 10px rgba(242,185,166,0)}}
+.bb-pan{animation:bb-pan 18s ease-in-out infinite alternate}
+.bb-pop{animation:bb-pop .45s cubic-bezier(.2,.7,.2,1)}
+.bb-bob{animation:bb-bob 5s ease-in-out infinite}
+.bb-live{width:9px;height:9px;border-radius:50%;background:#F2B9A6;animation:bb-live 1.8s ease-out infinite}
+.nav-a{color:#FFF8EE;text-decoration:none;font-size:15px;font-weight:600;transition:color .25s}
+.nav-a:hover{color:#F2B9A6}
+.chip{font-family:inherit;font-size:15px;font-weight:600;color:#2F4536;background:#FBF7F0;border:1.5px solid #E2D5C3;border-radius:999px;min-height:44px;padding:0 18px;cursor:pointer;transition:all .25s}
+.chip:hover{border-color:#B4553E}
+.chip.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.pc{display:flex;flex-direction:column;background:#FBF7F0;border-radius:26px;overflow:hidden;box-shadow:0 16px 40px rgba(38,56,44,.08);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.pc:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(38,56,44,.16)}
+.pc.in{box-shadow:0 0 0 3px #B4553E,0 16px 40px rgba(38,56,44,.12)}
+.pc .ph{position:relative;height:210px;overflow:hidden}
+.pc .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.pc:hover .ph img{transform:scale(1.07)}
+.tag{position:absolute;left:12px;top:12px;background:rgba(251,247,240,.94);color:#2F4536;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px}
+.qty{position:absolute;right:12px;top:12px;min-width:34px;height:34px;padding:0 8px;box-sizing:border-box;border-radius:999px;background:#B4553E;color:#FFF8EE;display:grid;place-items:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px}
+.add{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:0;background:#B4553E;color:#FFF8EE;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;transition:background .25s}
+.add:hover{background:#2F4536}
+.st{width:44px;height:44px;border-radius:50%;border:1.5px solid #2F4536;background:transparent;color:#2F4536;font-family:inherit;font-size:20px;font-weight:700;cursor:pointer;transition:all .25s}
+.st:hover{background:#2F4536;color:#FFF8EE}
+.st.sm{width:34px;height:34px;font-size:16px;border-color:rgba(255,248,238,.4);color:#FFF8EE}
+.st.sm:hover{background:#F2B9A6;color:#1F2E24;border-color:#F2B9A6}
+.pre{display:flex;flex-direction:column;text-align:left;font-family:inherit;background:#FBF7F0;border:0;border-radius:24px;padding:0;overflow:hidden;cursor:pointer;box-shadow:0 12px 30px rgba(38,56,44,.08);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.pre:hover{transform:translateY(-6px);box-shadow:0 24px 44px rgba(38,56,44,.18)}
+.pre .strip{position:relative;display:flex;height:150px;gap:3px;background:#FBF7F0}
+.pre .strip img{flex:1;min-width:0;height:100%;object-fit:cover;transition:transform .8s}
+.pre:hover .strip img{transform:scale(1.06)}
+.pre .badge{position:absolute;left:12px;top:12px;background:rgba(31,46,36,.88);color:#FFF8EE;font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px}
+.pre .it{display:inline-flex;align-items:center;gap:6px;background:#F6F0E6;border-radius:999px;padding:5px 10px;font-size:12px;font-weight:600;color:#2F4536}
+.pre .it b{color:#B4553E}
+.pre .go{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:999px;background:#B4553E;color:#FFF8EE;font-size:14px;font-weight:700;transition:background .25s}
+.pre:hover .go{background:#2F4536}
+.seg{flex:1;font-family:inherit;font-size:14px;font-weight:700;min-height:44px;border:0;border-radius:999px;background:transparent;color:rgba(255,248,238,.8);cursor:pointer}
+.seg.on{background:#F2B9A6;color:#1F2E24}
+.pill{font-family:inherit;font-size:13px;font-weight:700;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid rgba(255,248,238,.25);background:transparent;color:#FFF8EE;cursor:pointer}
+.pill.on{background:#FFF8EE;color:#1F2E24;border-color:#FFF8EE}
+.slot{width:100%;aspect-ratio:1;border-radius:16px;background:rgba(255,248,238,.07);border:1.5px dashed rgba(255,248,238,.22);box-sizing:border-box;overflow:hidden;display:grid;place-items:center;color:rgba(255,248,238,.35);font-size:20px;font-weight:700}
+.slot img{width:100%;height:100%;object-fit:cover}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-family:inherit;font-weight:700;font-size:16px;min-height:56px;padding:0 24px;border-radius:999px;transition:background .3s,transform .3s}
+.btn:hover{background:#F2B9A6;color:#1F2E24;transform:translateY(-2px)}
+.menu{position:relative;background:#FBF7F0;border-radius:28px;padding:30px 32px 26px;box-shadow:0 20px 50px rgba(38,56,44,.1)}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) 150px 150px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px dashed #D9CDBD}
+.mrow.in .nm{color:#B4553E}
+.thumb img{transition:transform .6s}
+.mrow:hover .thumb img{transform:scale(1.12)}
+.mrow.in .thumb{box-shadow:0 0 0 3px #B4553E}
+.sz{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:46px;padding:0 6px 0 14px;border-radius:999px;border:1.5px solid #E2D5C3;background:#F6F0E6;font-family:inherit;cursor:pointer;transition:all .25s}
+.sz:hover{border-color:#B4553E}
+.sz.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.sz .p{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:inherit}
+.sz .pl{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#B4553E;color:#FFF8EE;font-weight:800;font-size:15px}
+.sz.on .pl{background:#F2B9A6;color:#1F2E24}
+.tray{width:100%;aspect-ratio:1;border-radius:14px;background:#EBD8CB;box-sizing:border-box;position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}
+.tray .band{position:absolute;left:50%;top:0;bottom:0;width:26%;transform:translateX(-50%);background:#2F4536;display:grid;place-items:center}
+.tray .band img{width:80%;height:auto}
+.tray .lb{position:relative;margin-bottom:4px;background:rgba(251,247,240,.92);color:#2F4536;font-size:9px;font-weight:800;padding:2px 5px;border-radius:6px;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.bb-pan,.bb-pop,.bb-bob,.bb-live{animation:none}.pc,.pc .ph img{transition:none}}
+</style>
+</helmet>
+<div style="background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+
+  <header style="background:#1F2E24;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:20px 5vw">
+    <a href="#" aria-label="Ruh home" style="display:flex"><img src="images/logo.png" alt="Ruh" style="height:52px;width:auto;display:block"></a>
+    <nav aria-label="Main" style="display:flex;flex-wrap:wrap;gap:30px"><a href="#" class="nav-a">Menu</a><a href="#" class="nav-a">Hangouts</a><a href="#" class="nav-a">Celebrations</a><a href="#" class="nav-a">Workshops</a><a href="#" class="nav-a" aria-current="page" style="color:#F2B9A6">Ruh at Home</a></nav>
+    <div style="display:flex;align-items:center;gap:18px"><a href="SignIn.dc.html" class="nav-a">Sign in</a><a href="BookTable.dc.html" style="text-decoration:none;font-size:15px;font-weight:700;color:#1F2E24;background:#F2B9A6;padding:13px 22px;border-radius:999px">Book a table</a></div>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:#26382C;color:#FFF8EE;min-height:420px;display:flex;align-items:center">
+    <img class="bb-pan" src="images/spread.jpg" alt="" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%">
+    <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,30,23,.92),rgba(20,30,23,.55) 55%,rgba(20,30,23,.2)),linear-gradient(to bottom,rgba(38,56,44,0) 65%,#26382C)"></div>
+    <div style="position:relative;width:100%;max-width:1240px;margin:0 auto;padding:56px 5vw 130px;box-sizing:border-box;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:20px;max-width:620px">
+        <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#F2B9A6">Ruh at Home</p>
+        <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(56px,6vw,92px);line-height:.95;letter-spacing:-.04em">Build your <span style="color:#F2B9A6">box.</span></h1>
+        <p style="margin:0;font-size:19px;line-height:1.6;color:rgba(255,248,238,.86)">The Freezer: Ruh favourites, packed frozen and ready to cook, all year round. Fill your box by the half kilo or kilo. We confirm your order on WhatsApp.</p>
+        <ol style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px">
+          <li style="display:flex;align-items:center;gap:10px;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.16);border-radius:999px;padding:9px 16px 9px 9px;font-size:14px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#B4553E;font-size:13px;font-weight:800">1</span>Fill your box</li>
+          <li style="display:flex;align-items:center;gap:10px;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.16);border-radius:999px;padding:9px 16px 9px 9px;font-size:14px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#B4553E;font-size:13px;font-weight:800">2</span>Pick-up or delivery</li>
+          <li style="display:flex;align-items:center;gap:10px;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.16);border-radius:999px;padding:9px 16px 9px 9px;font-size:14px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#B4553E;font-size:13px;font-weight:800">3</span>We confirm on WhatsApp</li>
+        </ol>
+      </div>
+      <div class="bb-bob" aria-hidden="true" style="position:relative;width:200px;height:200px">
+        <span style="position:absolute;left:50%;top:6px;width:90px;height:70px;transform:translateX(-50%);border:10px solid #B4553E;border-bottom:0;border-radius:50px 50px 0 0;box-sizing:border-box"></span>
+        <span style="position:absolute;left:0;right:0;bottom:0;height:150px;border-radius:30px;background:#B4553E;box-shadow:0 30px 60px rgba(0,0,0,.35);display:grid;place-items:center"><img src="images/logo.png" alt="" style="width:110px;height:auto"></span>
+        <span style="position:absolute;right:-8px;top:40px;min-width:46px;height:46px;padding:0 10px;box-sizing:border-box;border-radius:999px;background:#F2B9A6;color:#1F2E24;display:grid;place-items:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;box-shadow:0 10px 20px rgba(0,0,0,.25)">{{count}}</span>
+      </div>
+    </div>
+  </section>
+
+  <main style="position:relative;max-width:1240px;margin:-80px auto 0;padding:0 5vw 110px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+    <div style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:26px">
+
+      <section aria-labelledby="bb-pre" style="background:#EBD8CB;border-radius:28px;padding:26px 28px;display:flex;flex-direction:column;gap:16px">
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A4A35">Short on time?</span><h2 id="bb-pre" style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.03em;color:#2F4536">Start with a ready-made <span style="color:#B4553E">box.</span></h2></div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch">
+          <sc-for list="{{presets}}" as="b" hint-placeholder-count="3">
+            <button type="button" class="pre" onClick="{{b.pick}}" aria-label="Add the {{b.name}} box, EGP {{b.total}}">
+              <span class="strip"><sc-for list="{{b.imgs}}" as="im" hint-placeholder-count="2"><img src="{{im}}" alt=""></sc-for><span class="badge">{{b.packs}}</span></span>
+              <span style="display:flex;flex-direction:column;gap:12px;padding:16px 18px 18px;flex:1">
+                <strong style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.02em;color:#2F4536">{{b.name}}</strong>
+                <span style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{b.list}}" as="it" hint-placeholder-count="2"><span class="it">{{it.n}} <b>{{it.s}}</b></span></sc-for></span>
+                <span style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:#2F4536">EGP {{b.total}}</span><span class="go">+ Add box</span></span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </section>
+
+      <section aria-labelledby="bb-all" class="menu" style="display:flex;flex-direction:column;gap:14px">
+        <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:26px;top:24px;height:64px;width:auto;opacity:.12;filter:brightness(0)">
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A6A3C">Ready to cook</span><h2 id="bb-all" style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:38px;letter-spacing:-.03em;color:#2F4536">The Freezer <span style="color:#B4553E">menu.</span></h2></div>
+        <div role="group" aria-label="Filter" style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{filters}}" as="f" hint-placeholder-count="4"><button type="button" class="{{f.cls}}" aria-pressed="{{f.on}}" onClick="{{f.pick}}">{{f.n}}</button></sc-for></div>
+        <div class="mrow" style="padding:6px 0;border-bottom:1.5px solid #2F4536"><span style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2F4536">Item</span><span style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2F4536;text-align:center">½ kg</span><span style="font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#2F4536;text-align:center">1 kg</span></div>
+        <div style="display:flex;flex-direction:column">
+          <sc-for list="{{shown}}" as="p" hint-placeholder-count="9">
+            <div class="{{p.cls}}">
+              <span style="display:flex;align-items:center;gap:14px;min-width:0"><span class="thumb" style="width:76px;height:76px;flex:none;border-radius:18px;overflow:hidden;background:#EBD8CB;display:grid;place-items:center"><sc-if value="{{p.hasImg}}" hint-placeholder-val="{{false}}"><img src="{{p.img}}" alt="" style="width:100%;height:100%;object-fit:cover"></sc-if><sc-if value="{{p.noImg}}" hint-placeholder-val="{{true}}"><span style="width:30%;height:100%;background:#2F4536"></span></sc-if></span><span style="display:flex;flex-direction:column;gap:2px;min-width:0"><strong class="nm" style="font-size:17px;color:#2F4536">{{p.name}}</strong><span style="font-size:13px;color:#5C6B60">{{p.cat}}{{p.inBox}}</span></span></span>
+              <button type="button" class="{{p.hCls}}" aria-label="Add half a kilo of {{p.name}}, EGP {{p.half}}" onClick="{{p.addH}}"><span class="p">{{p.half}} <small style="font-size:11px">EGP</small></span><span class="pl">{{p.hLbl}}</span></button>
+              <button type="button" class="{{p.kCls}}" aria-label="Add one kilo of {{p.name}}, EGP {{p.kilo}}" onClick="{{p.addK}}"><span class="p">{{p.kilo}} <small style="font-size:11px">EGP</small></span><span class="pl">{{p.kLbl}}</span></button>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:13px;color:#5C6B60">Packed frozen in Ruh containers with the green Ruh band.</p>
+      </section>
+    </div>
+
+    <aside aria-label="Your box" style="flex:1 1 360px;min-width:0;position:sticky;top:24px">
+      <div style="position:relative;overflow:hidden;background:#1F2E24;color:#FFF8EE;border-radius:28px;padding:26px;box-shadow:0 30px 60px rgba(31,46,36,.3);display:flex;flex-direction:column;gap:18px">
+        <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-50px;bottom:-40px;height:220px;width:auto;opacity:.05">
+        <div style="position:relative;display:flex;justify-content:space-between;align-items:center"><p style="margin:0;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F2B9A6"><span class="bb-live"></span>Your box</p><span aria-live="polite" style="font-size:14px;font-weight:700;color:rgba(255,248,238,.8)">{{countLabel}}</span></div>
+
+        <div aria-hidden="true" style="position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;background:rgba(180,85,62,.18);border:1.5px solid rgba(242,185,166,.3);border-radius:22px;padding:10px">
+          <sc-for list="{{slots}}" as="sl" hint-placeholder-count="8"><sc-if value="{{sl.full}}" hint-placeholder-val="{{false}}"><span class="tray bb-pop"><img src="{{sl.img}}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><span class="band"><img src="images/logo.png" alt=""></span><span class="lb">{{sl.lb}}</span></span></sc-if><sc-if value="{{sl.empty}}" hint-placeholder-val="{{true}}"><span class="slot">+</span></sc-if></sc-for>
+        </div>
+
+        <sc-if value="{{hasItems}}" hint-placeholder-val="{{true}}">
+          <ul style="position:relative;list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
+            <sc-for list="{{lines}}" as="l" hint-placeholder-count="2">
+              <li style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,248,238,.12)"><span style="flex:1;display:flex;flex-direction:column"><strong style="font-size:15px">{{l.name}}</strong><span style="font-size:13px;color:rgba(255,248,238,.65)">{{l.size}} · EGP {{l.total}}</span></span><button type="button" class="st sm" aria-label="Remove one {{l.name}}" onClick="{{l.dec}}">−</button><span style="min-width:18px;text-align:center;font-weight:800">{{l.q}}</span><button type="button" class="st sm" aria-label="Add one {{l.name}}" onClick="{{l.inc}}">+</button></li>
+            </sc-for>
+          </ul>
+        </sc-if>
+        <sc-if value="{{noItems}}" hint-placeholder-val="{{false}}"><p style="position:relative;margin:0;font-size:15px;color:rgba(255,248,238,.75)">Your box is empty. Add a few favourites to get started.</p></sc-if>
+
+        <div style="position:relative;display:flex;flex-direction:column;gap:10px">
+          <div role="group" aria-label="Pick-up or delivery" style="display:flex;gap:4px;background:rgba(255,248,238,.08);border-radius:999px;padding:4px"><button type="button" class="{{pickCls}}" aria-pressed="{{isPick}}" onClick="{{toPick}}">Pick-up at Ruh</button><button type="button" class="{{delCls}}" aria-pressed="{{isDel}}" onClick="{{toDel}}">Delivery</button></div>
+          <sc-if value="{{isPick}}" hint-placeholder-val="{{true}}"><span style="font-size:13px;color:rgba(255,248,238,.72)">Collect from Izar Plaza, Sheikh Zayed.</span></sc-if>
+          <sc-if value="{{isDel}}" hint-placeholder-val="{{false}}"><span style="font-size:13px;color:rgba(255,248,238,.72)">Delivery areas and fee: [TO CONFIRM]. We'll ask for your address on WhatsApp.</span></sc-if>
+        </div>
+
+        <div style="position:relative;display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,248,238,.65)">When?</span>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{days}}" as="d" hint-placeholder-count="3"><button type="button" class="{{d.cls}}" aria-pressed="{{d.on}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{times}}" as="t" hint-placeholder-count="4"><button type="button" class="{{t.cls}}" aria-pressed="{{t.on}}" onClick="{{t.pick}}">{{t.n}}</button></sc-for></div>
+        </div>
+
+        <div style="position:relative;display:flex;justify-content:space-between;align-items:baseline;padding-top:14px;border-top:1px solid rgba(255,248,238,.14)"><span style="font-size:15px;color:rgba(255,248,238,.8)">Subtotal</span><span aria-live="polite" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px">EGP {{subtotal}}</span></div>
+        <a href="BoxConfirm.dc.html" class="btn" style="position:relative"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg>Send my box on WhatsApp</a>
+        <p style="position:relative;margin:0;font-size:13px;line-height:1.55;color:rgba(255,248,238,.7)">No payment now. Our team confirms your order, timing and total on WhatsApp. Payment: [TO CONFIRM]. Kept frozen, cook within [STORAGE GUIDANCE]. Ruh Circle members collect points on Ruh at Home orders.</p>
+      </div>
+    </aside>
+  </main>
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-BuildBox">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { q: { 'bonbon|h': 2, 'burger|k': 1, 'mac|h': 1 }, f: 'All', mode: 'pick', day: 'Tomorrow', time: '7:00 PM' };
+  }
+  renderVals() {
+    const S = this.state;
+    const set = (p) => this.setState(p);
+    const P = [
+      { id: 'fillet', name: 'US beef fillet', short: 'Fillet', cat: 'Beef', half: 700, kilo: 1400, img: 'images/freezer-us-beef-fillet.jpg' },
+      { id: 'schnitzel', name: 'Fillet schnitzel', short: 'Schnitzel', cat: 'Beef', half: 550, kilo: 1050, img: 'images/freezer-fillet-schnitzel.jpg' },
+      { id: 'burger', name: 'Beef burger', short: 'Burger', cat: 'Beef', half: 400, kilo: 800, img: 'images/freezer-beef-burger.jpg' },
+      { id: 'pane', name: 'Chicken pane', short: 'Pane', cat: 'Chicken', half: 350, kilo: 650, img: 'images/freezer-chicken-pane.jpg' },
+      { id: 'tenders', name: 'Chicken tenders', short: 'Tenders', cat: 'Chicken', half: 350, kilo: 650, img: 'images/freezer-chicken-tenders.jpg' },
+      { id: 'bonbon', name: 'Crispy bonbon', short: 'Bonbon', cat: 'Chicken', half: 300, kilo: 550, img: 'images/freezer-crispy-bonbon.jpg' },
+      { id: 'tawook', name: 'Shish tawook', short: 'Tawook', cat: 'Chicken', half: 350, kilo: 650, img: 'images/freezer-shish-tawook.jpg' },
+      { id: 'nuggets', name: 'Chicken nuggets', short: 'Nuggets', cat: 'Chicken', half: 350, kilo: 650, img: 'images/freezer-chicken-nuggets.jpg' },
+      { id: 'mac', name: 'Mac & cheese', short: 'Mac', cat: 'Sides', half: 300, kilo: 550, img: 'images/freezer-mac-cheese.jpg' }
+    ];
+    const fmt = (n) => n.toLocaleString('en-US');
+    const qOf = (k) => S.q[k] || 0;
+    const setQ = (k, v) => set({ q: Object.assign({}, S.q, { [k]: Math.max(0, v) }) });
+    const filters = ['All', 'Beef', 'Chicken', 'Sides'].map((n) => ({ n, on: S.f === n, cls: S.f === n ? 'chip on' : 'chip', pick: () => set({ f: n }) }));
+    const shown = P.filter((p) => S.f === 'All' || p.cat === S.f).map((p) => {
+      const h = qOf(p.id + '|h'), k = qOf(p.id + '|k');
+      const parts = [];
+      if (h) parts.push(h + ' × ½ kg');
+      if (k) parts.push(k + ' × 1 kg');
+      return {
+        name: p.name, cat: p.cat, half: fmt(p.half), kilo: fmt(p.kilo), img: p.img || '', hasImg: !!p.img, noImg: !p.img,
+        inBox: parts.length ? ' · In your box: ' + parts.join(', ') : '',
+        cls: (h || k) ? 'mrow in' : 'mrow',
+        hCls: h ? 'sz on' : 'sz', kCls: k ? 'sz on' : 'sz',
+        hLbl: h ? '×' + h : '+', kLbl: k ? '×' + k : '+',
+        addH: () => setQ(p.id + '|h', h + 1), addK: () => setQ(p.id + '|k', k + 1)
+      };
+    });
+    const byId = {}; P.forEach((p) => { byId[p.id] = p; });
+    const presetDefs = [
+      { name: 'Burger night', desc: 'Beef burger 1 kg + Mac & cheese ½ kg', items: { 'burger|k': 1, 'mac|h': 1 }, imgs: ['burger', 'mac'] },
+      { name: 'Kids\' favourites', desc: 'Nuggets, tenders + mac & cheese, ½ kg each', items: { 'nuggets|h': 1, 'tenders|h': 1, 'mac|h': 1 }, imgs: ['nuggets', 'tenders', 'mac'] },
+      { name: 'Family grill', desc: 'Shish tawook 1 kg + beef fillet ½ kg', items: { 'tawook|k': 1, 'fillet|h': 1 }, imgs: ['tawook', 'fillet'] }
+    ];
+    const price = (key) => { const [id, sz] = key.split('|'); return sz === 'h' ? byId[id].half : byId[id].kilo; };
+    const presets = presetDefs.map((b) => ({
+      name: b.name, desc: b.desc, imgs: b.imgs.map((id) => byId[id].img),
+      list: Object.keys(b.items).map((key) => { const [id, sz] = key.split('|'); return { n: byId[id].name, s: (b.items[key] > 1 ? b.items[key] + ' × ' : '') + (sz === 'h' ? '½ kg' : '1 kg') }; }),
+      packs: Object.keys(b.items).reduce((a, key) => a + b.items[key], 0) + ' packs',
+      total: fmt(Object.keys(b.items).reduce((a, key) => a + price(key) * b.items[key], 0)),
+      pick: () => { const n = Object.assign({}, S.q); Object.keys(b.items).forEach((key) => { n[key] = (n[key] || 0) + b.items[key]; }); set({ q: n }); }
+    }));
+    const lines = Object.keys(S.q).filter((key) => S.q[key] > 0).map((key) => {
+      const [id, sz] = key.split('|');
+      return { name: byId[id].name, short: byId[id].short, img: byId[id].img, size: sz === 'h' ? '½ kg' : '1 kg', q: S.q[key], total: fmt(S.q[key] * price(key)), raw: S.q[key] * price(key), inc: () => setQ(key, S.q[key] + 1), dec: () => setQ(key, S.q[key] - 1) };
+    });
+    const count = lines.reduce((a, l) => a + l.q, 0);
+    const trays = [];
+    lines.forEach((l) => { for (let i = 0; i < l.q; i++) trays.push({ lb: l.short + ' ' + l.size, img: l.img }); });
+    const slots = [0, 1, 2, 3, 4, 5, 6, 7].map((i) => ({ full: i < trays.length, empty: i >= trays.length, lb: trays[i] ? trays[i].lb : '', img: trays[i] ? trays[i].img : '' }));
+    const subtotal = lines.reduce((a, l) => a + l.raw, 0);
+    const days = ['Today', 'Tomorrow', 'Pick a date'].map((n) => ({ n, on: S.day === n, cls: S.day === n ? 'pill on' : 'pill', pick: () => set({ day: n }) }));
+    const times = ['1:00 PM', '4:00 PM', '7:00 PM', '10:00 PM'].map((n) => ({ n, on: S.time === n, cls: S.time === n ? 'pill on' : 'pill', pick: () => set({ time: n }) }));
+    return {
+      filters, shown, presets, lines, slots, days, times,
+      count, countLabel: count === 1 ? '1 pack' : count + ' packs',
+      hasItems: count > 0, noItems: count === 0,
+      subtotal: fmt(subtotal),
+      isPick: S.mode === 'pick', isDel: S.mode === 'del',
+      pickCls: S.mode === 'pick' ? 'seg on' : 'seg', delCls: S.mode === 'del' ? 'seg on' : 'seg',
+      toPick: () => set({ mode: 'pick' }), toDel: () => set({ mode: 'del' })
+    };
+  }
+}
+</script>
+<script>window.RUH_PAGE={"views": [{"d": "BuildBox"}], "bp": 760, "narrowFix": true};</script>
+<script src="js/ruh.js"></script>
+</body>
+</html>

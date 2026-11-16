@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh · Book a table</title>
+<link rel="icon" href="images/logo.png">
+<style>
+html.ruh-narrow,html.ruh-narrow body{overflow-x:hidden}
+html.ruh-narrow [style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}
+html.ruh-narrow [style*="padding:56px 5vw"],html.ruh-narrow [style*="padding:48px 5vw"],html.ruh-narrow [style*="padding:84px 5vw"],html.ruh-narrow [style*="padding:80px 5vw"],html.ruh-narrow [style*="padding:60px 5vw"],html.ruh-narrow [style*="padding:64px 5vw"],html.ruh-narrow [style*="padding:40px 5vw"]{padding:28px 16px!important}
+html.ruh-narrow h1{font-size:40px!important;line-height:.98!important}
+html.ruh-narrow h2{font-size:30px!important}
+html.ruh-narrow [style*="font-size:84px"],html.ruh-narrow [style*="font-size:80px"],html.ruh-narrow [style*="font-size:72px"],html.ruh-narrow [style*="font-size:68px"],html.ruh-narrow [style*="font-size:64px"],html.ruh-narrow [style*="font-size:60px"]{font-size:40px!important}
+html.ruh-narrow [style*="font-size:56px"],html.ruh-narrow [style*="font-size:52px"],html.ruh-narrow [style*="font-size:50px"],html.ruh-narrow [style*="font-size:48px"],html.ruh-narrow [style*="font-size:44px"]{font-size:32px!important}
+html.ruh-narrow [style*="font-size:40px"],html.ruh-narrow [style*="font-size:38px"],html.ruh-narrow [style*="font-size:36px"]{font-size:28px!important}
+html.ruh-narrow [style*="min-height:720px"],html.ruh-narrow [style*="min-height:640px"],html.ruh-narrow [style*="min-height:700px"],html.ruh-narrow [style*="min-height:600px"],html.ruh-narrow [style*="min-height:560px"],html.ruh-narrow [style*="min-height:520px"],html.ruh-narrow [style*="min-height:480px"],html.ruh-narrow [style*="min-height:420px"]{min-height:0!important}
+html.ruh-narrow header nav[aria-label="Main"]{display:none!important}
+html.ruh-narrow header{flex-wrap:nowrap!important;padding:12px 16px!important;gap:10px!important}
+html.ruh-narrow header img{height:40px!important}
+html.ruh-narrow header a[href="book.html"]{padding:10px 14px!important;font-size:13px!important}
+html.ruh-narrow header a[aria-current="page"]:has(> span){font-size:0!important;gap:0!important}
+html.ruh-narrow header a[aria-current="page"] > span{font-size:15px!important}
+html.ruh-narrow header a[aria-current="page"][href="book.html"],html.ruh-narrow header a[href="book.html"]{white-space:nowrap}
+html.ruh-narrow header a.nav-a[href^="sign-in"],html.ruh-narrow header a.nav-a[href="profile.html"]{display:none!important}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"]{display:flex!important;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"] > *{flex:0 0 74px}
+html.ruh-narrow aside[style*="position:sticky"]{position:static!important}
+html.ruh-narrow [style*="flex:1 1 "]{flex-basis:100%!important}
+html.ruh-narrow [style*="width:62%"]{width:80%!important}
+html.ruh-narrow table{display:block;overflow-x:auto}
+html.ruh-narrow div[role="group"],html.ruh-narrow div[role="tablist"]{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;scrollbar-width:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl-BookTable"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+@keyframes bt-float{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-4deg) translateY(-12px)}}
+@keyframes bt-float2{0%,100%{transform:rotate(5deg) translateY(0)}50%{transform:rotate(5deg) translateY(10px)}}
+@keyframes bt-live{0%{box-shadow:0 0 0 0 rgba(242,185,166,.75)}100%{box-shadow:0 0 0 10px rgba(242,185,166,0)}}
+@keyframes bt-spin{to{transform:rotate(360deg)}}
+.bt-f1{animation:bt-float 7s ease-in-out infinite}
+.bt-f2{animation:bt-float2 8s ease-in-out infinite}
+.bt-live{width:9px;height:9px;border-radius:50%;background:#F2B9A6;animation:bt-live 1.8s ease-out infinite}
+.bt-spin{animation:bt-spin 60s linear infinite}
+.nav-a{color:#FFF8EE;text-decoration:none;font-size:15px;font-weight:600;transition:color .25s}
+.nav-a:hover{color:#F2B9A6}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-family:inherit;font-weight:700;font-size:16px;min-height:54px;padding:0 26px;border-radius:999px;border:0;cursor:pointer;transition:background .3s,transform .3s}
+.btn:hover{background:#F2B9A6;color:#1F2E24;transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:#2F4536;border:1.5px solid #2F4536}
+.btn.ghost:hover{background:#2F4536;color:#FFF8EE}
+.day{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:86px;border-radius:20px;border:1.5px solid #E2D5C3;background:#F6F0E6;color:#2F4536;font-family:inherit;cursor:pointer;transition:all .25s}
+.day:hover{border-color:#B4553E;transform:translateY(-2px)}
+.day.on{background:#B4553E;border-color:#B4553E;color:#FFF8EE;box-shadow:0 12px 24px rgba(180,85,62,.28)}
+.chip{font-family:inherit;font-size:15px;font-weight:600;color:#2F4536;background:#F6F0E6;border:1.5px solid #E2D5C3;border-radius:999px;min-height:44px;padding:0 18px;cursor:pointer;transition:all .25s}
+.chip:hover{border-color:#B4553E}
+.chip.on{background:#2F4536;border-color:#2F4536;color:#FFF8EE}
+.seat,.addon{display:flex;gap:16px;align-items:flex-start;text-align:left;font-family:inherit;color:#1F2A22;background:#F6F0E6;border:1.5px solid #E2D5C3;border-radius:22px;padding:18px;cursor:pointer;transition:all .25s}
+.seat:hover,.addon:hover{border-color:#B4553E;transform:translateY(-2px)}
+.seat.on,.addon.on{background:#FFFFFF;border-color:#B4553E;box-shadow:0 0 0 4px rgba(180,85,62,.14)}
+.addon,.seat{flex-direction:column;gap:12px}
+.sw{position:relative;flex:none;width:56px;height:32px;border-radius:999px;border:0;background:#CDBFAD;cursor:pointer;transition:background .25s}
+.sw::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#FFF;transition:left .25s}
+.sw.on{background:#B4553E}
+.sw.on::after{left:28px}
+.tab{font-family:inherit;font-size:15px;font-weight:700;color:#2F4536;background:transparent;border:0;border-radius:999px;min-height:44px;padding:0 22px;cursor:pointer;transition:all .25s}
+.tab.on{background:#2F4536;color:#FFF8EE}
+.fld{display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:700;color:#2F4536}
+.inp{font-family:inherit;font-size:16px;font-weight:500;color:#1F2A22;background:#FFFFFF;border:1.5px solid #E2D5C3;border-radius:16px;min-height:52px;padding:0 16px;box-sizing:border-box;width:100%}
+.inp:focus{outline:none;border-color:#B4553E;box-shadow:0 0 0 4px rgba(180,85,62,.14)}
+.step{width:46px;height:46px;border-radius:50%;border:1.5px solid #2F4536;background:transparent;color:#2F4536;font-family:inherit;font-size:22px;font-weight:700;cursor:pointer;transition:all .25s}
+.step:hover{background:#2F4536;color:#FFF8EE}
+.wa{color:#F2B9A6;font-weight:700;text-decoration:none}
+.wa:hover{color:#FFF8EE}
+@media (prefers-reduced-motion:reduce){.bt-f1,.bt-f2,.bt-live,.bt-spin{animation:none}}
+</style>
+</helmet>
+<div style="background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+
+  <header style="background:#1F2E24;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:20px 5vw">
+    <a href="#" aria-label="Ruh home" style="display:flex"><img src="images/logo.png" alt="Ruh" style="height:52px;width:auto;display:block"></a>
+    <nav aria-label="Main" style="display:flex;flex-wrap:wrap;gap:30px">
+      <a href="#" class="nav-a">Menu</a><a href="#" class="nav-a">Hangouts</a><a href="#" class="nav-a">Celebrations</a><a href="#" class="nav-a">Workshops</a><a href="#" class="nav-a">Ruh at Home</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:18px">
+      <a href="SignIn.dc.html" class="nav-a">Sign in</a>
+      <a href="#" aria-current="page" style="text-decoration:none;font-size:15px;font-weight:700;color:#1F2E24;background:#F2B9A6;padding:13px 22px;border-radius:999px">Book a table</a>
+    </div>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:#26382C;color:#FFF8EE;padding:64px 5vw 150px">
+    <img class="bt-spin" src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-120px;top:-80px;height:520px;width:auto;opacity:.05">
+    <div style="position:relative;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:48px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#E7C9A8">Book a table</p>
+        <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(52px,6vw,92px);line-height:.95;letter-spacing:-.04em">Your table is <span style="color:#F2B9A6">waiting.</span></h1>
+        <p style="margin:0;max-width:520px;font-size:19px;line-height:1.6;color:rgba(255,248,238,.84)">Tell us when you're coming and who's with you. Our team reviews every request and confirms it with you on WhatsApp.</p>
+        <ol style="list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px">
+          <li style="display:flex;align-items:center;gap:10px;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.16);border-radius:999px;padding:9px 16px 9px 9px;font-size:14px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#B4553E;font-size:13px;font-weight:800">1</span>Send a request</li>
+          <li style="display:flex;align-items:center;gap:10px;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.16);border-radius:999px;padding:9px 16px 9px 9px;font-size:14px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#B4553E;font-size:13px;font-weight:800">2</span>We confirm on WhatsApp</li>
+          <li style="display:flex;align-items:center;gap:10px;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.16);border-radius:999px;padding:9px 16px 9px 9px;font-size:14px;font-weight:600"><span style="width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#B4553E;font-size:13px;font-weight:800">3</span>See you at Ruh</li>
+        </ol>
+      </div>
+      <div aria-hidden="true" style="position:relative;height:340px">
+        <img class="bt-f1" src="images/pergola1.jpg" alt="" style="position:absolute;left:0;top:10px;width:62%;height:280px;object-fit:cover;border-radius:28px;border:6px solid #FBF7F0;box-shadow:0 30px 60px rgba(0,0,0,.3)">
+        <img class="bt-f2" src="images/chairs.jpg" alt="" style="position:absolute;right:0;top:60px;width:52%;height:250px;object-fit:cover;border-radius:28px;border:6px solid #FBF7F0;box-shadow:0 30px 60px rgba(0,0,0,.3)">
+      </div>
+    </div>
+  </section>
+
+  <main style="position:relative;max-width:1240px;margin:-96px auto 0;padding:0 5vw 110px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+
+    <form aria-label="Booking request" style="flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:20px">
+
+      <fieldset style="margin:0;border:0;background:#FBF7F0;border-radius:28px;padding:32px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:22px">
+        <legend style="float:left;width:100%;padding:0;display:flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;color:#2F4536"><span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#FFF8EE;font-size:16px">1</span>When are you coming?</legend>
+        <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px">
+          <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+            <button type="button" class="{{d.cls}}" aria-pressed="{{d.on}}" onClick="{{d.pick}}"><span style="font-size:13px;font-weight:700">{{d.top}}</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;line-height:1">{{d.num}}</span><span style="font-size:12px;font-weight:600">Nov</span></button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <sc-for list="{{groups}}" as="grp" hint-placeholder-count="3">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">
+              <span style="flex:0 0 100%;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9A6A3C">{{grp.label}}</span>
+              <sc-for list="{{grp.slots}}" as="s" hint-placeholder-count="5">
+                <button type="button" class="{{s.cls}}" aria-pressed="{{s.on}}" onClick="{{s.pick}}">{{s.t}}</button>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:0;font-size:14px;color:#5C6B60">Open every day, 11:00 AM – 2:00 AM.</p>
+      </fieldset>
+
+      <fieldset style="margin:0;border:0;background:#FBF7F0;border-radius:28px;padding:32px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:22px">
+        <legend style="float:left;width:100%;padding:0;display:flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;color:#2F4536"><span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#FFF8EE;font-size:16px">2</span>Who's coming, and why?</legend>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:#F6F0E6;border-radius:22px;padding:16px 20px">
+          <span style="font-size:16px;font-weight:700;color:#2F4536">How many guests?</span>
+          <div style="display:flex;align-items:center;gap:18px">
+            <button type="button" class="step" aria-label="Fewer guests" onClick="{{dec}}">−</button>
+            <span aria-live="polite" style="min-width:40px;text-align:center;font-family:'Bricolage Grotesque',sans-serif;font-size:34px;font-weight:800;color:#2F4536">{{g}}</span>
+            <button type="button" class="step" aria-label="More guests" onClick="{{inc}}">+</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9A6A3C">Occasion</span>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <sc-for list="{{occs}}" as="o" hint-placeholder-count="7">
+              <button type="button" class="{{o.cls}}" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.o}}</button>
+            </sc-for>
+          </div>
+        </div>
+      </fieldset>
+
+      <sc-if value="{{showAddons}}" hint-placeholder-val="{{true}}">
+        <fieldset style="margin:0;border:0;position:relative;overflow:hidden;background:#EBD8CB;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:20px">
+          <legend style="float:left;width:100%;padding:0;display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A4A35">Celebrating {{occLower}}</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;letter-spacing:-.02em;color:#2F4536">Make it a little <span style="color:#B4553E">extra.</span></span></legend>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+            <sc-for list="{{addons}}" as="a" hint-placeholder-count="3">
+              <button type="button" class="{{a.cls}}" aria-pressed="{{a.on}}" onClick="{{a.pick}}">
+                <span style="display:flex;width:100%;justify-content:space-between;align-items:center"><span style="width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(180,85,62,.12);color:#B4553E"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{a.p}}"></path></svg></span><span style="font-size:13px;font-weight:700;color:#9A6A3C">{{a.state}}</span></span>
+                <span style="font-size:17px;font-weight:700;color:#2F4536">{{a.n}}</span>
+                <span style="font-size:14px;line-height:1.5;color:#4F5C52">{{a.d}}</span>
+                <span style="font-size:13px;font-weight:700;color:#8A4A35">[PRICE]</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#FBF7F0;border-radius:22px;padding:18px 22px">
+            <div style="display:flex;gap:14px;align-items:center"><span style="width:46px;height:46px;flex:none;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#F2B9A6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 4.6 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.3l5-.7z"></path></svg></span><div style="display:flex;flex-direction:column;gap:3px"><span id="sur-l" style="font-size:17px;font-weight:700;color:#2F4536">Surprise mode</span><span style="font-size:14px;line-height:1.5;color:#4F5C52">We keep it hush. The team won't mention the occasion until you give the signal.</span></div></div>
+            <button type="button" class="{{surCls}}" role="switch" aria-checked="{{surOn}}" aria-labelledby="sur-l" onClick="{{togSur}}"></button>
+          </div>
+        </fieldset>
+      </sc-if>
+
+      <fieldset style="margin:0;border:0;background:#FBF7F0;border-radius:28px;padding:32px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:22px">
+        <legend style="float:left;width:100%;padding:0;display:flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;color:#2F4536"><span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#FFF8EE;font-size:16px">3</span>Where would you like to sit?</legend>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px">
+          <sc-for list="{{seats}}" as="s" hint-placeholder-count="3">
+            <button type="button" class="{{s.cls}}" aria-pressed="{{s.on}}" onClick="{{s.pick}}">
+              <span style="width:52px;height:52px;flex:none;border-radius:16px;display:grid;place-items:center;background:#2F4536;color:#F2B9A6"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.p}}"></path></svg></span>
+              <span style="display:flex;flex-direction:column;gap:4px"><span style="font-size:17px;font-weight:700;color:#2F4536">{{s.n}}</span><span style="font-size:14px;line-height:1.5;color:#4F5C52">{{s.d}}</span></span>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;background:#F6F0E6;border:1.5px dashed #E2D5C3;border-radius:22px;padding:16px 20px">
+          <span style="width:46px;height:46px;flex:none;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#F2B9A6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h18M5 9v10M19 9v10M8 9V6h8v3M9 14h6"></path></svg></span>
+          <label for="bt-tno" style="flex:1 1 240px;display:flex;flex-direction:column;gap:3px;cursor:pointer"><span style="font-size:17px;font-weight:700;color:#2F4536">Have a favourite table? <span style="font-size:14px;font-weight:500;color:#5C6B60">(optional)</span></span><span style="font-size:14px;line-height:1.5;color:#4F5C52">Add its number and we'll try to keep it for you. You'll find it on the QR card at each table.</span></label>
+          <span style="display:flex;align-items:center;gap:8px"><span class="inp" style="width:auto;display:flex;align-items:center;font-weight:700;color:#2F4536;background:#EFE6D8">Table</span><input id="bt-tno" class="inp" type="text" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="e.g. 12" value="{{tno}}" onInput="{{setTno}}" style="width:110px"></span>
+        </div>
+        <p style="margin:0;font-size:14px;color:#5C6B60">Seating and table number are preferences. We'll do our best and confirm them on WhatsApp.</p>
+      </fieldset>
+
+
+      <fieldset style="margin:0;border:0;background:#FBF7F0;border-radius:28px;padding:32px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:16px">
+        <legend style="float:left;width:100%;padding:0;display:flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;color:#2F4536"><span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#FFF8EE;font-size:16px">4</span>Anything we should know?</legend>
+        <label class="fld">Special requests <span style="font-weight:500;color:#5C6B60">(optional)</span>
+          <textarea class="inp" rows="3" placeholder="High chair, allergies, a quiet corner, a song for the cake…" style="padding:14px 16px;min-height:110px;resize:vertical"></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset style="margin:0;border:0;background:#FBF7F0;border-radius:28px;padding:32px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:20px">
+        <legend style="float:left;width:100%;padding:0;display:flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em;color:#2F4536"><span style="width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#2F4536;color:#FFF8EE;font-size:16px">5</span>Your details</legend>
+        <div role="group" aria-label="How would you like to continue?" style="align-self:flex-start;display:inline-flex;gap:4px;background:#EFE6D8;border-radius:999px;padding:5px">
+          <button type="button" class="{{guestTab}}" aria-pressed="{{isGuest}}" onClick="{{toGuest}}">Continue as guest</button>
+          <button type="button" class="{{signTab}}" aria-pressed="{{isSign}}" onClick="{{toSign}}">Sign in</button>
+        </div>
+        <sc-if value="{{isGuest}}" hint-placeholder-val="{{true}}">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+            <label class="fld">Your name<input class="inp" type="text" autocomplete="name" placeholder="First and last name"></label>
+            <label class="fld">WhatsApp number<span style="display:flex;gap:8px"><span class="inp" style="width:auto;display:flex;align-items:center;font-weight:700;color:#2F4536;background:#EFE6D8">+20</span><input class="inp" type="tel" autocomplete="tel-national" placeholder="10X XXXX XXXX" style="flex:1;min-width:0;width:auto"></span></label>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#5C6B60">Your confirmation arrives on this WhatsApp number. After booking, you can save your details in one tap.</p>
+        </sc-if>
+        <sc-if value="{{isSign}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px">
+            <label class="fld" style="flex:1 1 280px">WhatsApp number<span style="display:flex;gap:8px"><span class="inp" style="width:auto;display:flex;align-items:center;font-weight:700;color:#2F4536;background:#EFE6D8">+20</span><input class="inp" type="tel" autocomplete="tel-national" placeholder="10X XXXX XXXX" style="flex:1;min-width:0;width:auto"></span></label>
+            <a href="SignIn.dc.html" class="btn ghost">Send code on WhatsApp</a>
+          </div>
+          <p style="margin:0;font-size:14px;line-height:1.5;color:#5C6B60">No passwords. We send a one-time code to your WhatsApp. Signed-in guests collect Ruh Circle points for this visit.</p>
+        </sc-if>
+      </fieldset>
+    </form>
+
+    <aside aria-label="Booking summary" style="flex:1 1 340px;min-width:0;position:sticky;top:24px">
+      <div style="position:relative;overflow:hidden;background:#1F2E24;color:#FFF8EE;border-radius:28px;padding:30px;box-shadow:0 30px 60px rgba(31,46,36,.3);display:flex;flex-direction:column;gap:20px">
+        <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-50px;bottom:-40px;height:240px;width:auto;opacity:.06">
+        <p style="margin:0;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F2B9A6"><span class="bt-live"></span>Your booking request</p>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span aria-live="polite" style="font-family:'Bricolage Grotesque',sans-serif;font-size:38px;font-weight:800;letter-spacing:-.03em;line-height:1">{{sumDate}}</span>
+          <span style="font-size:18px;font-weight:600;color:rgba(255,248,238,.85)">{{sumWhen}}</span>
+        </div>
+        <dl style="position:relative;margin:0;display:flex;flex-direction:column;gap:0;border-top:1px solid rgba(255,248,238,.14)">
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,248,238,.14)"><dt style="font-size:14px;color:rgba(255,248,238,.7)">Occasion</dt><dd style="margin:0;font-size:15px;font-weight:700;text-align:right">{{sumOcc}}</dd></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,248,238,.14)"><dt style="font-size:14px;color:rgba(255,248,238,.7)">Seating</dt><dd style="margin:0;font-size:15px;font-weight:700;text-align:right">{{sumSeat}}</dd></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,248,238,.14)"><dt style="font-size:14px;color:rgba(255,248,238,.7)">Preferred table</dt><dd style="margin:0;font-size:15px;font-weight:700;text-align:right">{{sumTable}}</dd></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,248,238,.14)"><dt style="font-size:14px;color:rgba(255,248,238,.7)">Add-ons</dt><dd style="margin:0;font-size:15px;font-weight:700;text-align:right">{{sumAddons}}</dd></div>
+          <sc-if value="{{showSur}}" hint-placeholder-val="{{true}}">
+            <div style="display:flex;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,248,238,.14)"><dt style="font-size:14px;color:rgba(255,248,238,.7)">Surprise mode</dt><dd style="margin:0;font-size:15px;font-weight:700;color:#F2B9A6">On · we'll keep it hush</dd></div>
+          </sc-if>
+        </dl>
+        <a href="BookConfirm.dc.html" class="btn" style="position:relative;width:100%;box-sizing:border-box">Send booking request <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        <p style="position:relative;margin:0;font-size:13px;line-height:1.55;color:rgba(255,248,238,.72)">No payment now. Deposit policy: [TO CONFIRM]. Your table is held once we confirm on WhatsApp.</p>
+        <p style="position:relative;margin:0;padding-top:16px;border-top:1px solid rgba(255,248,238,.14);font-size:14px;color:rgba(255,248,238,.8)">Questions? <a href="#" class="wa">Chat with us on WhatsApp</a></p>
+      </div>
+    </aside>
+  </main>
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-BookTable">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { d: 6, t: '8:00 PM', g: 4, o: 'Birthday', s: 'Pergola', a: { 'Cake': true, 'Table décor': true }, sur: true, mode: 'guest', tno: '' };
+  }
+  renderVals() {
+    const S = this.state;
+    const set = (p) => this.setState(p);
+    const wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const days = [0, 1, 2, 3, 4, 5, 6].map((i) => ({
+      top: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : wd[i], num: 8 + i,
+      on: S.d === i, cls: S.d === i ? 'day on' : 'day', pick: () => set({ d: i })
+    }));
+    const mk = (arr) => arr.map((t) => ({ t, on: S.t === t, cls: S.t === t ? 'chip on' : 'chip', pick: () => set({ t }) }));
+    const groups = [
+      { label: 'Lunch', slots: mk(['11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM']) },
+      { label: 'Evening', slots: mk(['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM']) },
+      { label: 'Late night', slots: mk(['9:00 PM', '10:00 PM', '11:00 PM', '12:00 AM', '1:00 AM']) }
+    ];
+    const occs = ['Just hanging out', 'Birthday', 'Anniversary', 'Date night', 'Graduation', 'Family gathering', 'Work outing']
+      .map((o) => ({ o, on: S.o === o, cls: S.o === o ? 'chip on' : 'chip', pick: () => set({ o }) }));
+    const addonDefs = [
+      { n: 'Cake', d: 'Pick a flavor and a message on top.', p: 'M4 20h16M5 20v-7h14v7M5 16c2 1.5 4 1.5 7 0s5-1.5 7 0M12 13V9M12 6.5V6' },
+      { n: 'Flowers', d: 'A fresh bouquet waiting at the table.', p: 'M12 21v-8M12 13c-3 0-5-2-5-5 3 0 5 2 5 5zm0 0c3 0 5-2 5-5-3 0-5 2-5 5zM9 21h6' },
+      { n: 'Table décor', d: 'Balloons, candles and a little sparkle.', p: 'M12 3a5 5 0 0 1 5 5c0 3.5-3 6-5 6s-5-2.5-5-6a5 5 0 0 1 5-5zM12 14v2M12 16c0 2-2 3-1 5' }
+    ];
+    const addons = addonDefs.map((x) => {
+      const on = !!S.a[x.n];
+      return { n: x.n, d: x.d, p: x.p, on, state: on ? 'Added ✓' : '+ Add', cls: on ? 'addon on' : 'addon', pick: () => set({ a: Object.assign({}, S.a, { [x.n]: !on }) }) };
+    });
+    const seatDefs = [
+      { n: 'Pergola', d: 'Open air in the shade of the wooden pergola.', p: 'M3 5h18M3 8h18M8 5v3M12 5v3M16 5v3M5 8v12M19 8v12' },
+      { n: 'Lounge sofas', d: 'Deep green sofas for long talks.', p: 'M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3M3 11h18v6H3zM5 17v2M19 17v2' },
+      { n: 'Indoor', d: 'Cozy and calm inside.', p: 'M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5' }
+    ];
+    const seats = seatDefs.map((x) => ({ n: x.n, d: x.d, p: x.p, on: S.s === x.n, cls: S.s === x.n ? 'seat on' : 'seat', pick: () => set({ s: x.n }) }));
+    const showAddons = S.o !== 'Just hanging out';
+    const chosen = addonDefs.filter((x) => S.a[x.n]).map((x) => x.n);
+    const guestsLabel = S.g + (S.g === 1 ? ' guest' : ' guests');
+    return {
+      days, groups, occs, addons, seats, showAddons,
+      occLower: S.o.toLowerCase(),
+      g: S.g,
+      dec: () => set({ g: Math.max(1, S.g - 1) }),
+      inc: () => set({ g: S.g + 1 }),
+      surOn: S.sur, surCls: S.sur ? 'sw on' : 'sw', togSur: () => set({ sur: !S.sur }),
+      isGuest: S.mode === 'guest', isSign: S.mode === 'sign',
+      guestTab: S.mode === 'guest' ? 'tab on' : 'tab', signTab: S.mode === 'sign' ? 'tab on' : 'tab',
+      toGuest: () => set({ mode: 'guest' }), toSign: () => set({ mode: 'sign' }),
+      sumDate: wd[S.d] + ' ' + (8 + S.d) + ' Nov',
+      sumWhen: S.t + ' · ' + guestsLabel,
+      sumOcc: S.o,
+      sumSeat: S.s,
+      tno: S.tno,
+      setTno: (e) => set({ tno: String(e.target.value || '').replace(/[^0-9]/g, '').slice(0, 3) }),
+      sumTable: S.tno ? 'Table ' + S.tno + ' (if free)' : 'Any table',
+      sumAddons: showAddons ? (chosen.length ? chosen.join(', ') : 'None yet') : 'None',
+      showSur: showAddons && S.sur
+    };
+  }
+}
+</script>
+<script>window.RUH_PAGE={"views": [{"d": "BookTable"}], "bp": 760, "narrowFix": true};</script>
+<script src="js/ruh.js"></script>
+</body>
+</html>

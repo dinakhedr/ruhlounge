@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh Lounge · Egyptian kitchen &amp; lounge in Sheikh Zayed</title>
+<meta name="description" content="Ruh Lounge at Izar Plaza, Sheikh Zayed: authentic Egyptian cuisine, hangouts, celebrations, workshops and Ruh at Home. Open daily 11 AM – 2 AM.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#16201A}
+a{color:inherit}a:hover{color:#F2D9C4}
+section,footer{scroll-margin-top:0}
+/* Hero */
+@keyframes ri-slide{0%{opacity:0;transform:scale(1)}4%{opacity:1}20%{opacity:1}25%{opacity:0;transform:scale(1.1)}100%{opacity:0;transform:scale(1.1)}}
+@keyframes ri-down{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:none}}
+@keyframes ri-in{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes ri-txt{0%{transform:translateY(110%)}3%{transform:translateY(0)}17%{transform:translateY(0)}20%{transform:translateY(-110%)}100%{transform:translateY(-110%)}}
+.ri-slide{animation:ri-slide 25s linear infinite}
+.ri-down{opacity:0;animation:ri-down .8s cubic-bezier(.2,.7,.2,1) forwards}
+.ri-in{opacity:0;animation:ri-in .9s cubic-bezier(.2,.7,.2,1) forwards}
+.ri-txt{display:block;transform:translateY(110%);animation:ri-txt 25s cubic-bezier(.65,0,.25,1) infinite}
+.ri-strip{position:relative;z-index:6;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding:9px 5vw;background:rgba(31,46,36,.78);color:#EBD8CB;font-size:13px;font-weight:600;border-bottom:1px solid rgba(255,248,238,.12)}
+.ri-strip span,.ri-strip a{display:inline-flex;align-items:center;gap:7px;color:#EBD8CB;text-decoration:none}
+.ri-strip a:hover{color:#F2B9A6}
+.desk-signin{text-decoration:none;font-size:15px;font-weight:700;color:#FFF8EE;padding:12px 18px;border-radius:999px;border:1.5px solid rgba(255,248,238,.45)}
+.desk-signin:hover{border-color:#F2B9A6;color:#F2B9A6}
+.ri-nav a{text-decoration:none;color:#FFF8EE}.ri-nav a:hover{color:#F2B9A6}
+/* About */
+@keyframes af-breathe{from{transform:translate(-50%,-50%) scale(1)}to{transform:translate(-50%,-50%) scale(1.07)}}
+@keyframes af-in{from{transform:translateY(24px)}to{transform:none}}
+@keyframes af-quote{from{transform:translateY(-20px) scale(.8)}to{transform:none}}
+@keyframes af-sign{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes af-rule{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.af-breathe{animation:af-breathe 14s ease-in-out infinite alternate}
+.af-in{animation:af-in 1s cubic-bezier(.2,.7,.2,1)}
+.af-quote{animation:af-quote 1s cubic-bezier(.2,.7,.2,1)}
+.af-sign{animation:af-sign 1.6s cubic-bezier(.7,0,.2,1) .9s backwards}
+.af-rule{transform-origin:left;animation:af-rule 1.2s cubic-bezier(.7,0,.2,1) .6s backwards}
+/* Plan */
+@keyframes pc-up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.pc-tile{position:relative;overflow:hidden;border-radius:26px;text-decoration:none;color:#FFF8EE;display:block;min-height:0;opacity:0;animation:pc-up .9s cubic-bezier(.2,.7,.2,1) forwards;transition:transform .35s ease,box-shadow .35s ease}
+.pc-tile img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.pc-tile:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(31,42,34,.22);color:#FFF8EE}
+.pc-tile:hover img{transform:scale(1.08)}
+.pc-tile .pc-arrow{transition:transform .35s ease,background .35s ease}
+.pc-tile:hover .pc-arrow{transform:rotate(-45deg);background:#B4553E;color:#FFF8EE}
+/* Menu */
+@keyframes m2-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes m2-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@keyframes m2-breathe{0%,100%{opacity:.05;transform:translate(-50%,-50%) scale(1)}50%{opacity:.09;transform:translate(-50%,-50%) scale(1.04)}}
+.m2-row{display:flex;gap:18px;width:max-content}
+.m2-row.l{animation:m2-left 60s linear infinite}
+.m2-row.r{animation:m2-right 70s linear infinite}
+.m2-wrap:hover .m2-row{animation-play-state:paused}
+.m2-item{position:relative;flex:none;width:300px;height:250px;border-radius:22px;overflow:hidden;text-decoration:none;color:#FFF8EE;background:#34493B}
+.m2-item.tall{width:230px}
+.m2-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding-bottom:40px;color:rgba(255,248,238,.5);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.m2-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.m2-item:hover img{transform:scale(1.1)}
+.m2-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,30,23,.78),rgba(20,30,23,0) 55%)}
+.m2-item:hover .m2-ph{transform:scale(1.1)}
+.m2-name{position:absolute;left:18px;right:18px;bottom:16px;z-index:1;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.01em;line-height:1.1}
+.m2-cta{display:inline-flex;align-items:center;gap:10px;background:#F2B9A6;color:#1F2E24;text-decoration:none;font-weight:700;font-size:17px;padding:16px 28px;border-radius:999px;transition:background .3s,transform .3s}
+.m2-cta:hover{background:#FFF8EE;color:#1F2E24;transform:translateY(-2px)}
+/* Events */
+.ev-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#2F4536;color:#FFF8EE;text-decoration:none;font-weight:700;font-size:16px;min-height:50px;padding:0 24px;border-radius:999px;transition:background .3s,transform .3s}
+.ev-btn:hover{background:#B4553E;color:#FFF8EE;transform:translateY(-2px)}
+.ev-link{color:#2F4536;font-weight:700;font-size:17px;text-decoration:none;border-bottom:2px solid #B4553E;padding-bottom:3px}
+.ev-link:hover{color:#B4553E}
+@keyframes ec-pulse{0%{box-shadow:0 0 0 0 rgba(180,85,62,.55)}100%{box-shadow:0 0 0 14px rgba(180,85,62,0)}}
+@keyframes ec-zoom{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes ec-row{from{transform:translateX(40px)}to{transform:none}}
+@keyframes ec-ring{0%,60%,100%{transform:rotate(0)}10%,30%{transform:rotate(14deg)}20%,40%{transform:rotate(-14deg)}}
+.ec-live{width:10px;height:10px;border-radius:50%;background:#B4553E;animation:ec-pulse 1.6s ease-out infinite}
+.ec-hero img{animation:ec-zoom 16s ease-in-out infinite}
+.ec-row{display:grid;grid-template-columns:84px minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 20px;border-radius:22px;background:#FBF7F0;text-decoration:none;color:#1F2A22;animation:ec-row .8s cubic-bezier(.2,.7,.2,1) backwards;transition:transform .35s,box-shadow .35s}
+.ec-row:hover{transform:translateX(-8px);box-shadow:0 16px 32px rgba(38,56,44,.12);color:#1F2A22}
+.ec-row .ec-go{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(47,69,54,.2);color:#2F4536;font-weight:700;transition:all .35s}
+.ec-row:hover .ec-go{background:#B4553E;border-color:#B4553E;color:#FFF8EE;transform:rotate(-45deg)}
+.ec-wa{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;background:#2F4536;color:#FFF8EE;border-radius:26px;padding:24px 30px}
+.ec-bell{width:56px;height:56px;border-radius:50%;background:rgba(242,185,166,.18);display:grid;place-items:center;font-size:26px;animation:ec-ring 3.5s ease-in-out infinite;transform-origin:50% 20%}
+.ec-notify{background:#F2B9A6!important;color:#1F2E24!important;min-height:56px;font-size:17px}
+.ec-notify:hover{background:#FFF8EE!important}
+/* Ruh at Home */
+@keyframes hs-in{from{transform:translateX(-24px)}to{transform:none}}
+@keyframes hd-pan{0%{transform:scale(1.12) translateX(0)}100%{transform:scale(1.12) translateX(-4%)}}
+@keyframes hb-dash{to{stroke-dashoffset:-200}}
+@keyframes hb-ride{0%{offset-distance:0%}100%{offset-distance:100%}}
+@keyframes hb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes hb-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hs-step{animation:hs-in .7s cubic-bezier(.2,.7,.2,1) backwards}
+.hd-bg{animation:hd-pan 18s ease-in-out infinite alternate}
+.hb-path{stroke-dasharray:10 12;animation:hb-dash 6s linear infinite}
+.hb-bag{offset-path:path("M 120 110 C 310 40, 490 40, 680 110 S 1050 180, 1240 110");animation:hb-ride 7s ease-in-out infinite alternate}
+.hb-node{animation:hb-float 4s ease-in-out infinite}
+.hb-row{display:flex;gap:22px;width:max-content;animation:hb-scroll 48s linear infinite}
+.hb-wrap:hover .hb-row{animation-play-state:paused}
+.he-card{flex:none;width:340px;display:flex;flex-direction:column;background:#FBF7F0;border-radius:26px;overflow:hidden;color:#1F2A22;text-decoration:none;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
+.he-card:hover{transform:translateY(-10px);box-shadow:0 28px 50px rgba(0,0,0,.3);color:#1F2A22}
+.he-ph{position:relative;height:250px;overflow:hidden;background:#E4D8C6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#7A6A55;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.he-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s}
+.he-card:hover .he-ph img{transform:scale(1.08)}
+.he-chip{position:absolute;left:14px;top:14px;background:rgba(251,247,240,.94);color:#2F4536;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;letter-spacing:0;text-transform:none}
+.he-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#F2B9A6;color:#1F2E24;text-decoration:none;font-weight:800;font-size:18px;min-height:60px;padding:0 32px;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 12px 26px rgba(242,185,166,.3)}
+.he-cta:hover{background:#FFF8EE;color:#1F2E24;transform:translateY(-3px)}
+.he-cta .box{display:grid;grid-template-columns:8px 8px;gap:2px}
+.he-cta .box i{width:8px;height:8px;border-radius:2px;background:#B4553E}
+/* Circle */
+.rc-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-weight:800;font-size:17px;min-height:58px;padding:0 30px;border-radius:999px;transition:background .3s,transform .3s}
+.rc-btn:hover{background:#2F4536;color:#FFF8EE;transform:translateY(-2px)}
+@keyframes rd-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes rd-toast{0%,12%{transform:translateY(-120%)}20%,80%{transform:translateY(0)}90%,100%{transform:translateY(-120%)}}
+@keyframes rd-scan{0%,100%{top:10%}50%{top:82%}}
+@keyframes rd-phone{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-10px)}}
+.rd-phone{animation:rd-phone 8s ease-in-out infinite}
+.rd-toast{animation:rd-toast 6s ease-in-out infinite}
+.rd-scan{position:absolute;left:8%;right:8%;height:3px;background:#B4553E;box-shadow:0 0 12px #B4553E;animation:rd-scan 2.6s ease-in-out infinite}
+.rd-b{position:absolute;display:flex;align-items:center;gap:10px;background:#FBF7F0;border-radius:18px;padding:12px 16px;box-shadow:0 16px 30px rgba(38,56,44,.14);font-weight:700;color:#2F4536;animation:rd-float 6s ease-in-out infinite}
+/* Reviews */
+.gm-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#2F4536;color:#FFF8EE;text-decoration:none;font-weight:700;font-size:16px;min-height:52px;padding:0 24px;border-radius:999px;transition:background .3s,transform .3s}
+.gm-btn:hover{background:#B4553E;color:#FFF8EE;transform:translateY(-2px)}
+.gm-btn.alt{background:transparent;color:#FFF8EE;border:1.5px solid rgba(255,248,238,.4)}
+.gm-btn.alt:hover{background:#FFF8EE;color:#2F4536}
+.gm-r{transition:transform .35s,box-shadow .35s}.gm-r:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.25)}
+@keyframes gx-spin{to{transform:rotate(360deg)}}
+@keyframes gx-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes gx-q{0%,30%{opacity:1;transform:none}33%,97%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+@keyframes gx-zoom{0%,100%{transform:scale(1.04)}50%{transform:scale(1.12)}}
+.gx-ring{animation:gx-spin 22s linear infinite}
+.gx-tick{display:flex;gap:16px;width:max-content;animation:gx-tick 50s linear infinite}
+.gx-tw:hover .gx-tick{animation-play-state:paused}
+.gx-q{position:absolute;inset:0;animation:gx-q 15s ease-in-out infinite}
+.gx-q:nth-child(2){animation-delay:-10s}.gx-q:nth-child(3){animation-delay:-5s}
+.gx-zoom{animation:gx-zoom 20s ease-in-out infinite}
+/* Visit + footer */
+@keyframes vp-pulse{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+@keyframes vp-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes vp-dash{to{stroke-dashoffset:-120}}
+@keyframes vp-live{0%{box-shadow:0 0 0 0 rgba(122,200,140,.7)}100%{box-shadow:0 0 0 10px rgba(122,200,140,0)}}
+.vp-ring{transform-box:fill-box;transform-origin:center;animation:vp-pulse 2.4s ease-out infinite}
+.vp-ring.b{animation-delay:1.2s}
+.vp-pin{animation:vp-bob 2.6s ease-in-out infinite}
+.vp-route{stroke-dasharray:8 10;animation:vp-dash 5s linear infinite}
+.vp-open{width:9px;height:9px;border-radius:50%;background:#7AC88C;animation:vp-live 1.8s ease-out infinite}
+.v-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-weight:700;font-size:16px;min-height:52px;padding:0 24px;border-radius:999px;transition:background .3s,transform .3s}
+.v-map:hover .v-map-btn{background:#B4553E!important}
+.v-map svg{transition:transform .6s}.v-map:hover svg{transform:scale(1.03)}
+.v-btn:hover{background:#2F4536;color:#FFF8EE;transform:translateY(-2px)}
+.v-btn.ghost{background:transparent;border:1.5px solid currentColor;color:#2F4536}
+.v-btn.ghost:hover{background:#F2B9A6;color:#1F2E24;border-color:#F2B9A6}
+.f-link{color:rgba(255,248,238,.78);text-decoration:none;font-size:15px;transition:color .25s,padding .25s}
+.f-link:hover{color:#F2B9A6;padding-left:4px}
+.f-soc{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,248,238,.25);color:#FFF8EE;text-decoration:none;transition:all .3s}
+.f-soc:hover{background:#F2B9A6;color:#1F2E24;border-color:#F2B9A6;transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){
+.ri-slide{animation:none}.ri-slide:not(:first-child){opacity:0}.ri-down,.ri-in{animation:none;opacity:1}.ri-txt{animation:none;transform:translateY(-110%)}h1 .ri-txt{transform:none}
+.af-breathe,.af-in,.af-quote,.af-sign,.af-rule{animation:none}
+.pc-tile{animation:none;opacity:1}.pc-tile,.pc-tile img,.pc-arrow{transition:none}
+.m2-row.l,.m2-row.r{animation:none}
+.ec-live,.ec-hero img,.ec-row,.ec-bell{animation:none}
+.hs-step,.hd-bg,.hb-path,.hb-bag,.hb-node,.hb-row{animation:none}.he-card{transition:none}
+.rd-phone,.rd-toast,.rd-scan,.rd-b{animation:none}
+.gx-ring,.gx-tick,.gx-q,.gx-zoom{animation:none}.gx-q:not(:first-child){display:none}
+.vp-ring,.vp-pin,.vp-route,.vp-open{animation:none}
+}
+
+/* ---------- Mobile header pieces (hidden on desktop) ---------- */
+.mob-actions{display:none;align-items:center;gap:8px}
+.mob-book{text-decoration:none;font-size:14px;font-weight:700;color:#2F4536!important;background:#FFF8EE;padding:11px 16px;border-radius:999px}
+.mn{position:relative}
+.mn summary{list-style:none;width:44px;height:44px;border-radius:50%;border:1.5px solid #FFF8EE;color:#FFF8EE;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box}
+.mn summary::-webkit-details-marker{display:none}
+.mn-panel{position:absolute;right:0;top:54px;z-index:20;width:230px;background:#FBF7F0;border-radius:22px;padding:10px;display:flex;flex-direction:column;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.mn-panel a{text-decoration:none;color:#2F4536!important;font-weight:700;font-size:16px;padding:13px 14px;border-radius:14px}
+.mn-panel a:hover{background:#EBD8CB}
+.route-m{display:none}
+img{max-width:100%}
+
+/* ---------- Tablet ---------- */
+@media (max-width:1100px){
+  #circle,#visit{gap:40px!important}
+  #reviews > div:first-child{gap:40px!important}
+}
+
+/* ---------- Phone ---------- */
+@media (max-width:760px){
+  /* Hero */
+  #top{min-height:100svh!important}
+  #top header{padding:16px 18px!important;flex-wrap:nowrap!important;z-index:5}
+  .ri-strip{padding:7px 18px;font-size:11.5px;justify-content:space-between;flex-wrap:nowrap;gap:10px;white-space:nowrap}
+  .ri-strip svg{width:12px;height:12px}
+  .ri-strip .st-loc{display:none}
+  #top header img{height:42px!important}
+  .ri-nav,.desk-book{display:none!important}
+  .mob-actions{display:flex}
+  #top > div:nth-of-type(3){padding:40px 20px 72px!important}
+  #top p.ri-in + div{font-size:40px!important}
+  #top h1,#top p.ri-in + div > p{font-size:40px!important}
+  #top .ri-in a{font-size:15px!important;padding:15px 20px!important}
+
+  /* About */
+  #about{padding:64px 24px 56px!important;gap:24px!important}
+  #about .af-breathe{font-size:360px!important}
+  #about > div:first-of-type{flex-direction:column!important;gap:20px!important}
+  #about .af-quote{font-size:110px!important;line-height:.6!important;height:54px}
+  #about > div:first-of-type > div{padding-top:0!important}
+  #about h2{font-size:40px!important}
+  #about > div:first-of-type p.af-in:last-child{font-size:21px!important;line-height:1.45!important}
+  #about > div:last-of-type{gap:16px!important}
+  #about > div:last-of-type > a{order:3;width:100%;text-align:center;box-sizing:border-box}
+  #about .af-sign{height:84px!important}
+
+  /* Plan */
+  #plan{padding:56px 18px 48px!important;gap:24px!important}
+  #plan h2{font-size:40px!important}
+  #plan > div:nth-of-type(2){grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:460px 200px 200px!important;gap:12px!important}
+  #plan .pc-tile:first-child{grid-row:span 1!important}
+  #plan .pc-tile:first-child > span:last-child{left:22px!important;right:22px!important;bottom:22px!important}
+  #plan .pc-tile:first-child > span:last-child > span:nth-child(2){font-size:32px!important}
+  #plan .pc-tile:not(:first-child) > span:nth-of-type(2){left:14px!important;bottom:14px!important}
+  #plan .pc-tile:not(:first-child) > span:nth-of-type(2) > span:last-child{font-size:19px!important}
+  #plan .pc-arrow{width:34px!important;height:34px!important;right:12px!important;top:12px!important}
+
+  /* Menu */
+  #menu{padding:64px 0!important;gap:32px!important}
+  #menu > div:nth-of-type(2){padding:0 22px!important}
+  #menu h2{font-size:44px!important}
+  #menu .m2-cta{width:100%;justify-content:center;box-sizing:border-box}
+  #menu > div:nth-of-type(2) > div:last-child{max-width:none!important;width:100%}
+  .m2-row{gap:12px!important}
+  .m2-item{width:190px!important;height:170px!important}
+  .m2-item.tall{width:146px!important}
+  .m2-name{font-size:15px!important;left:12px!important;right:12px!important;bottom:12px!important}
+  #menu > div:first-child{font-size:300px!important}
+
+  /* Events */
+  #events{padding:64px 20px!important;gap:26px!important}
+  #events h2{font-size:42px!important}
+  #events > div:nth-of-type(2){grid-template-columns:1fr!important;gap:14px!important}
+  .ec-hero{min-height:460px!important}
+  .ec-hero > div:nth-of-type(2){left:18px!important;top:18px!important}
+  .ec-hero > div:last-child{left:20px!important;right:20px!important;bottom:22px!important;flex-direction:column!important;align-items:flex-start!important;gap:16px!important}
+  .ec-hero h3{font-size:38px!important}
+  .ec-row{grid-template-columns:64px minmax(0,1fr) auto!important;gap:14px!important;padding:14px!important}
+  .ec-row > div:first-child > div:last-child{font-size:28px!important}
+  .ec-row > div:nth-child(2) > span:nth-child(2){font-size:18px!important}
+  .ec-row .ec-go{width:40px!important;height:40px!important}
+  .ec-wa{flex-direction:column!important;align-items:stretch!important;padding:22px 20px!important;gap:18px!important}
+  .ec-wa strong{font-size:22px!important}
+  .ec-notify{width:100%;box-sizing:border-box}
+
+  /* Ruh at Home */
+  #home > div:first-child{height:560px!important}
+  #home > div:first-child > img{object-position:50% 60%!important}
+  #home > div:first-child > div:nth-of-type(1){background:linear-gradient(to bottom,rgba(20,30,23,.35),rgba(20,30,23,.8) 55%),linear-gradient(to bottom,rgba(38,56,44,0) 60%,#26382C)!important}
+  #home > div:first-child > div:last-child{padding:0 20px 36px!important;justify-content:flex-end!important;gap:16px!important}
+  #home h2{font-size:46px!important}
+  #home > div:first-child p:last-of-type{font-size:16px!important}
+  #home .he-cta{width:100%;box-sizing:border-box}
+  .route-d{display:none}
+  .route-m{display:block}
+  .hb-wrap{padding:16px 0 26px 20px!important}
+  .hb-row{gap:14px!important;animation-duration:36s!important}
+  .he-card{width:250px!important}
+  .he-ph{height:190px!important}
+  .he-card strong{font-size:20px!important}
+  #home > div:last-child{padding:4px 20px 60px!important}
+
+  /* Circle */
+  #circle{grid-template-columns:1fr!important;padding:64px 20px 56px!important;gap:24px!important}
+  #circle h2{font-size:40px!important}
+  #circle .rc-btn{width:100%;box-sizing:border-box}
+  #circle > div:last-child{margin:0 -20px}
+  .rd-b{font-size:13px;padding:9px 12px!important}
+  .rd-b:nth-of-type(2){left:8px!important;top:90px!important}
+  .rd-b:nth-of-type(3){right:8px!important;top:330px!important}
+  .rd-b:nth-of-type(4){left:12px!important;bottom:40px!important}
+
+  /* Reviews */
+  #reviews{padding:64px 0!important;gap:40px!important}
+  #reviews > div:first-child{grid-template-columns:1fr!important;padding:0 20px!important;gap:40px!important}
+  #reviews h2{font-size:44px!important}
+  #reviews > div:first-child > div:first-child > div:first-of-type span:last-child{font-size:13px!important}
+  #reviews > div:first-child > div:last-child{height:560px!important}
+  #reviews > div:first-child > div:last-child > div:first-child{inset:0 0 170px 0!important;border-radius:28px!important}
+  #reviews > div:first-child > div:last-child > div:nth-child(2){left:12px!important;right:12px!important;bottom:0!important;width:auto!important;height:270px!important}
+  #reviews .gx-q p{font-size:21px!important;line-height:1.25!important}
+  #reviews .gx-ring{width:96px!important;height:96px!important;right:-6px!important;top:-30px!important}
+  .gx-tick > div{width:300px!important}
+
+  /* Visit */
+  #visit{grid-template-columns:1fr!important;padding:64px 20px!important;gap:28px!important}
+  #visit h2{font-size:44px!important}
+  #visit > div:first-child > div:last-child{flex-direction:column!important}
+  #visit > div:last-child{height:340px!important;border-radius:26px!important}
+
+  /* Footer */
+  footer > div:first-child{grid-template-columns:1fr 1fr!important;gap:30px 20px!important;padding:44px 20px 24px!important}
+  footer > div:first-child > div:first-child,footer > div:first-child > div:last-child{grid-column:span 2}
+  footer > div:last-child{flex-direction:column!important;padding:18px 20px 32px!important;gap:6px!important}
+}
+
+.hb-bag-m{offset-path:path("M 50 70 C 110 5, 150 135, 195 70 S 290 15, 340 70");animation:hb-ride 7s ease-in-out infinite alternate}
+@media (prefers-reduced-motion:reduce){.hb-bag-m{animation:none}}</style>
+</head>
+<body>
+<div style="font-family: Figtree, 'Segoe UI', sans-serif; background: #1F2E24">
+
+<!-- ============ 1 · HERO ============ -->
+<section id="top" style="position: relative; min-height: 900px; overflow: hidden; background: #16201A; color: #FFF8EE; display: flex; flex-direction: column">
+  <div aria-hidden="true" style="position: absolute; inset: 0">
+    <img class="ri-slide" src="images/pergola2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 45%; animation-delay: 0s">
+    <img class="ri-slide" src="images/sofa1.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%; animation-delay: -20s">
+    <img class="ri-slide" src="images/pergola1.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; animation-delay: -15s">
+    <img class="ri-slide" src="images/games.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; animation-delay: -10s">
+    <img class="ri-slide" src="images/friends2.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 50%; animation-delay: -5s">
+  </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(16,22,18,0.5)"></div>
+
+  <aside class="ri-strip ri-down" aria-label="Opening hours and contact" style="animation-delay:.05s"><span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Open daily 11 AM – 2 AM</span><span class="st-loc"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Izar Plaza, Sheikh Zayed</span><a href="https://wa.me/201044055999"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>WhatsApp 0104 4055999</a></aside>
+
+  <header class="ri-down" style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 5vw; animation-delay: .1s">
+    <a href="#top" aria-label="Ruh home" style="display: flex"><img src="images/logo.png" alt="Ruh" style="height: 58px; width: auto; display: block"></a>
+    <nav class="ri-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 32px; font-size: 15px; font-weight: 600">
+      <a href="menu.html">Menu</a>
+      <a href="whats-on.html">What's on</a>
+      <a href="ruh-at-home.html">Ruh at Home</a>
+      <a href="circle.html">Ruh Circle</a>
+    </nav>
+    <div class="desk-book" style="display: flex; align-items: center; gap: 12px"><a href="sign-in.html" class="desk-signin">Sign in</a><a href="book.html" style="text-decoration: none; font-size: 15px; font-weight: 700; color: #2F4536; background: #FFF8EE; padding: 13px 22px; border-radius: 999px">Book a table</a></div>
+    <div class="mob-actions"><a href="book.html" class="mob-book">Book</a><details class="mn"><summary aria-label="Open menu"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><nav class="mn-panel" aria-label="Mobile"><a href="menu.html">Menu</a><a href="whats-on.html">What's on</a><a href="ruh-at-home.html">Ruh at Home</a><a href="circle.html">Ruh Circle</a><a href="sign-in.html">Sign in</a><a href="#visit">Visit us</a></nav></details></div>
+  </header>
+
+  <div style="position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 28px; padding: 40px 5vw 72px">
+    <p class="ri-in" style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #E7C9A8; animation-delay: .3s">Izar Plaza · Sheikh Zayed</p>
+    <div style="position: relative; height: 3.15em; font-size: clamp(56px, 7.4vw, 118px); max-width: 1100px">
+      <h1 style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(56px, 7.4vw, 118px); line-height: 0.95; letter-spacing: -0.04em"><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: 0.0s">Where every</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: 0.12s">gathering finds</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: 0.24s">its <span style="color: #F2B9A6">soul.</span></span></span></h1>
+      <p aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(56px, 7.4vw, 118px); line-height: 0.95; letter-spacing: -0.04em"><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -20.0s">Long talks on</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -19.88s"><span style="color: #F2B9A6">green sofas.</span></span></span></p>
+      <p aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(56px, 7.4vw, 118px); line-height: 0.95; letter-spacing: -0.04em"><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -15.0s">Lunch in the</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -14.88s">shade of the</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -14.76s"><span style="color: #F2B9A6">pergola.</span></span></span></p>
+      <p aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(56px, 7.4vw, 118px); line-height: 0.95; letter-spacing: -0.04em"><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -10.0s">Game night?</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -9.88s">Bring the</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -9.76s">whole <span style="color: #F2B9A6">squad.</span></span></span></p>
+      <p aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(56px, 7.4vw, 118px); line-height: 0.95; letter-spacing: -0.04em"><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -5.0s">The soul of</span></span><span style="display: block; overflow: hidden; padding-bottom: 0.06em"><span class="ri-txt" style="animation-delay: -4.88s">every <span style="color: #F2B9A6">flavor.</span></span></span></p>
+    </div>
+    <div class="ri-in" style="display: flex; flex-wrap: wrap; gap: 14px; animation-delay: 1.3s">
+      <a href="book.html" style="text-decoration: none; font-size: 17px; font-weight: 700; color: #2F4536; background: #FFF8EE; padding: 18px 32px; border-radius: 999px">Book a table</a>
+      <a href="#plan" style="text-decoration: none; font-size: 17px; font-weight: 700; color: #FFF8EE; padding: 18px 28px; border-radius: 999px; border: 1.5px solid rgba(255,248,238,0.55)">Plan a Hangout</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · ABOUT ============ -->
+<section id="about" aria-labelledby="af-title" style="position: relative; overflow: hidden; background: #2F4536; color: #FFF8EE; padding: 96px 6vw 80px; display: flex; flex-direction: column; gap: 40px">
+  <span lang="ar" aria-hidden="true" class="af-breathe" style="position: absolute; left: 50%; top: 50%; font-family: 'Aref Ruqaa', serif; font-weight: 700; font-size: 640px; line-height: 1; color: rgba(255,248,238,0.05); white-space: nowrap; pointer-events: none; user-select: none">روح</span>
+  <div style="position: relative; display: flex; align-items: flex-start; gap: 28px; max-width: 1100px">
+    <span aria-hidden="true" class="af-quote" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 160px; line-height: 0.75; color: #B4553E">“</span>
+    <div style="display: flex; flex-direction: column; gap: 22px; padding-top: 14px">
+      <p class="af-in" style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E7C9A8">Our story</p>
+      <h2 id="af-title" class="af-in" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(44px, 4.6vw, 76px); line-height: 1; letter-spacing: -0.04em; color: #F2B9A6; animation-delay: .1s">A little soul in every flavor.</h2>
+      <p class="af-in" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.4; letter-spacing: -0.015em; color: #F3EEE4; animation-delay: .25s">Ruh started with a simple idea: a place that feels like the warmth of a family table. Authentic Egyptian cuisine, cooked with a thoughtful touch, in a calm, green space where friends and families stay a little longer.</p>
+    </div>
+  </div>
+  <div style="position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 10px">
+    <a class="af-in" href="#" style="text-decoration: none; font-size: 16px; font-weight: 700; color: #2F4536; background: #FFF8EE; padding: 15px 28px; border-radius: 999px; animation-delay: .4s">Read our story →</a>
+    <span aria-hidden="true" class="af-rule" style="flex: 1; min-width: 80px; height: 1.5px; background: rgba(255,248,238,0.3)"></span>
+    <div style="display: flex; align-items: center; gap: 16px">
+      <span style="font-size: 14px; color: #C9D2C2; font-style: italic">With love,</span>
+      <img class="af-sign" src="images/logo.png" alt="Ruh" style="height: 120px; width: auto; display: block">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · WHAT'S THE PLAN ============ -->
+<section id="plan" aria-labelledby="pc-title" style="background: #F6F0E6; color: #1F2A22; padding: 88px 5vw 96px; display: flex; flex-direction: column; gap: 40px">
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9A6A3C">Made for every plan</p>
+      <h2 id="pc-title" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(44px, 4.6vw, 72px); line-height: 0.98; letter-spacing: -0.035em; color: #2F4536">What's the plan today?</h2>
+    </div>
+    <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A5547; max-width: 380px">Five ways to enjoy Ruh. Pick yours and we'll take it from there.</p>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: 280px 280px; gap: 14px">
+    <a href="book.html" class="pc-tile" style="grid-column: span 2; grid-row: span 2; animation-delay: .05s">
+      <img src="images/friends.jpg" alt="Four friends laughing over shared plates on the green sofas" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: rgba(16,22,18,0.4)"></span>
+      <span style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #F2B9A6">01 · Hangout with friends</span>
+        <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; line-height: 1.02; letter-spacing: -0.025em">Long talks,<br>shared platters.</span>
+        <span style="font-size: 16px; line-height: 1.5; color: #EDE6DA; max-width: 420px">Let the group vote on the time with one link.</span>
+        <span style="align-self: flex-start; margin-top: 6px; font-size: 15px; font-weight: 700; color: #2F4536; background: #FFF8EE; padding: 13px 20px; border-radius: 999px">Plan a Hangout</span>
+      </span>
+    </a>
+    <a href="book.html" class="pc-tile" style="animation-delay: .15s">
+      <img src="images/birthday.jpg" alt="Friends clapping as the birthday girl blows out her candles" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: rgba(16,22,18,0.36)"></span>
+      <span style="position: absolute; left: 22px; bottom: 20px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F2B9A6">02</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 24px">Celebrating</span></span>
+      <span class="pc-arrow" aria-hidden="true" style="position: absolute; right: 18px; top: 18px; width: 44px; height: 44px; border-radius: 50%; background: #FFF8EE; color: #2F4536; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="book.html" class="pc-tile" style="animation-delay: .25s">
+      <img src="images/date-night.jpg" alt="A couple at a candlelit table at night" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 55%">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: rgba(16,22,18,0.36)"></span>
+      <span style="position: absolute; left: 22px; bottom: 20px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F2B9A6">03</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 24px">Date night</span></span>
+      <span class="pc-arrow" aria-hidden="true" style="position: absolute; right: 18px; top: 18px; width: 44px; height: 44px; border-radius: 50%; background: #FFF8EE; color: #2F4536; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="book.html" class="pc-tile" style="animation-delay: .35s">
+      <img src="images/family.jpg" alt="A three-generation family sharing a meal under the pergola" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: rgba(16,22,18,0.36)"></span>
+      <span style="position: absolute; left: 22px; bottom: 20px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F2B9A6">04</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 24px">Family time</span></span>
+      <span class="pc-arrow" aria-hidden="true" style="position: absolute; right: 18px; top: 18px; width: 44px; height: 44px; border-radius: 50%; background: #FFF8EE; color: #2F4536; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="whats-on.html" class="pc-tile" style="animation-delay: .45s">
+      <img src="images/paint.jpg" alt="Guests painting seaside canvases at a workshop" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%">
+      <span aria-hidden="true" style="position: absolute; inset: 0; background: rgba(16,22,18,0.36)"></span>
+      <span style="position: absolute; left: 22px; bottom: 20px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F2B9A6">05</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 24px">Workshops</span></span>
+      <span class="pc-arrow" aria-hidden="true" style="position: absolute; right: 18px; top: 18px; width: 44px; height: 44px; border-radius: 50%; background: #FFF8EE; color: #2F4536; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 4 · FROM OUR KITCHEN ============ -->
+<section id="menu" aria-labelledby="m2-t" style="position: relative; overflow: hidden; background: #26382C; color: #FFF8EE; padding: 84px 0 88px; display: flex; flex-direction: column; gap: 44px">
+  <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; font-family: 'Aref Ruqaa', serif; font-size: 620px; line-height: 1; color: #FFF8EE; opacity: .06; animation: m2-breathe 9s ease-in-out infinite; pointer-events: none">روح</div>
+  <div style="position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; padding: 0 5vw">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F2B9A6">From our kitchen</p>
+      <h2 id="m2-t" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin: 0; font-size: clamp(44px, 4.6vw, 72px)">The soul of every <span style="color: #F2B9A6">flavor.</span></h2>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 20px; max-width: 380px">
+      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(255,248,238,.78)">Egyptian classics, plates to share and something sweet to finish. Hover to take a closer look.</p>
+      <a href="menu.html" class="m2-cta">See the full menu <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="m2-wrap" style="position: relative; display: flex; flex-direction: column; gap: 18px">
+    <div class="m2-row l"><a href="menu.html" class="m2-item"><img src="images/bonbon.jpg" alt="Crispy bonbon balls" style="object-position:center 55%"><span class="m2-name">Crispy bonbon balls</span></a><a href="#" class="m2-item tall"><img src="images/feteer.jpg" alt="Feteer" style="object-position:center 50%"><span class="m2-name">Feteer</span></a><a href="menu.html" class="m2-item"><img src="images/salmon.jpg" alt="Salmon scotch" style="object-position:center 50%"><span class="m2-name">Salmon scotch</span></a><a href="menu.html" class="m2-item"><img src="images/breakfast.jpg" alt="Foul &amp; ta'ameya" style="object-position:center 50%"><span class="m2-name">Foul &amp; ta'ameya</span></a><a href="#" class="m2-item tall"><img src="images/pizza.jpg" alt="Pepperoni pizza" style="object-position:center 45%"><span class="m2-name">Pepperoni pizza</span></a><a href="menu.html" class="m2-item"><img src="images/chicken.jpg" alt="Chicken teriyaki" style="object-position:center 55%"><span class="m2-name">Chicken teriyaki</span></a><a href="menu.html" class="m2-item"><img src="images/bonbon.jpg" alt="Crispy bonbon balls" style="object-position:center 55%"><span class="m2-name">Crispy bonbon balls</span></a><a href="#" class="m2-item tall"><img src="images/feteer.jpg" alt="Feteer" style="object-position:center 50%"><span class="m2-name">Feteer</span></a><a href="menu.html" class="m2-item"><img src="images/salmon.jpg" alt="Salmon scotch" style="object-position:center 50%"><span class="m2-name">Salmon scotch</span></a><a href="menu.html" class="m2-item"><img src="images/breakfast.jpg" alt="Foul &amp; ta'ameya" style="object-position:center 50%"><span class="m2-name">Foul &amp; ta'ameya</span></a><a href="#" class="m2-item tall"><img src="images/pizza.jpg" alt="Pepperoni pizza" style="object-position:center 45%"><span class="m2-name">Pepperoni pizza</span></a><a href="menu.html" class="m2-item"><img src="images/chicken.jpg" alt="Chicken teriyaki" style="object-position:center 55%"><span class="m2-name">Chicken teriyaki</span></a></div>
+    <div class="m2-row r"><a href="menu.html" class="m2-item"><img src="images/chicken.jpg" alt="Chicken teriyaki" style="object-position:center 55%"><span class="m2-name">Chicken teriyaki</span></a><a href="#" class="m2-item tall"><img src="images/cordon.jpg" alt="Cordon bleu" style="object-position:center 55%"><span class="m2-name">Cordon bleu</span></a><a href="menu.html" class="m2-item"><img src="images/karkadeh.jpg" alt="Hibiscus" style="object-position:center 60%"><span class="m2-name">Hibiscus</span></a><a href="menu.html" class="m2-item"><img src="images/latte.jpg" alt="Latte" style="object-position:center 60%"><span class="m2-name">Latte</span></a><a href="menu.html" class="m2-item"><img src="images/bonbon.jpg" alt="Crispy bonbon balls" style="object-position:center 55%"><span class="m2-name">Crispy bonbon balls</span></a><a href="#" class="m2-item tall"><img src="images/chicken.jpg" alt="Chicken teriyaki" style="object-position:center 55%"><span class="m2-name">Chicken teriyaki</span></a><a href="menu.html" class="m2-item"><img src="images/cordon.jpg" alt="Cordon bleu" style="object-position:center 55%"><span class="m2-name">Cordon bleu</span></a><a href="#" class="m2-item tall"><img src="images/karkadeh.jpg" alt="Hibiscus" style="object-position:center 60%"><span class="m2-name">Hibiscus</span></a><a href="menu.html" class="m2-item"><img src="images/latte.jpg" alt="Latte" style="object-position:center 60%"><span class="m2-name">Latte</span></a><a href="#" class="m2-item tall"><img src="images/bonbon.jpg" alt="Crispy bonbon balls" style="object-position:center 55%"><span class="m2-name">Crispy bonbon balls</span></a></div>
+  </div>
+</section>
+
+<!-- ============ 5 · THIS WEEK AT RUH ============ -->
+<section id="events" style="background: #EBD8CB; color: #1F2A22; padding: 88px 5vw 96px; display: flex; flex-direction: column; gap: 36px">
+  <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9A6A3C">Workshops &amp; events</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin: 0; font-size: clamp(44px, 4.6vw, 72px); color: #2F4536">Something on <span style="color: #B4553E">this week.</span></h2>
+    </div>
+    <a href="whats-on.html" class="ev-link">See all events →</a>
+  </div>
+  <div style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px">
+    <a href="book.html" class="ec-hero" style="position: relative; border-radius: 32px; overflow: hidden; min-height: 470px; color: #FFF8EE; text-decoration: none; display: block">
+      <img src="images/ev-oud.jpg" alt="Oud night at Ruh" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,30,23,.88), rgba(20,30,23,.05) 60%)"></div>
+      <div style="position: absolute; left: 30px; top: 26px; display: flex; align-items: center; gap: 10px; background: rgba(251,247,240,.95); color: #2F4536; padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 700"><span class="ec-live"></span>Live music · this Friday</div>
+      <div style="position: absolute; left: 30px; right: 30px; bottom: 30px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px">
+        <div style="display: flex; flex-direction: column; gap: 10px"><p style="margin: 0; font-size: 15px; font-weight: 700; color: #F2B9A6">Every Friday · 9 PM – 12 AM · Free entry</p><h3 style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 52px; letter-spacing: -0.03em; line-height: 1">Oud night</h3><p style="margin: 0; font-size: 17px; line-height: 1.5; max-width: 420px; color: rgba(255,248,238,.85)">Classic Arabic and Egyptian songs on the oud over dinner.</p></div>
+        <span class="ev-btn" style="background: #F2B9A6; color: #1F2E24; flex: none">Book a table →</span>
+      </div>
+    </a>
+    <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center">
+      <a href="book.html" class="ec-row" style="animation-delay:0.15s">
+        <div style="text-align: center; background: #2F4536; color: #FFF8EE; border-radius: 18px; padding: 10px 0"><div style="font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #F2B9A6">Nov</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; line-height: 1">17</div></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><span style="font-size: 12px; font-weight: 700; color: #9A6A3C; text-transform: uppercase; letter-spacing: .1em">Every Tuesday · 9 PM</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: #2F4536">Karaoke night</span><span style="font-size: 14px; font-weight: 600; color: #B4553E">Tables filling fast · <span style="color: #4A5547">Free entry</span></span></div>
+        <span class="ec-go" aria-hidden="true">→</span>
+      </a><a href="book.html" class="ec-row" style="animation-delay:0.27s">
+        <div style="text-align: center; background: #2F4536; color: #FFF8EE; border-radius: 18px; padding: 10px 0"><div style="font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #F2B9A6">Nov</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; line-height: 1">20</div></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><span style="font-size: 12px; font-weight: 700; color: #9A6A3C; text-transform: uppercase; letter-spacing: .1em">Every Friday · 10 AM – 1 PM</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: #2F4536">Family Friday</span><span style="font-size: 14px; font-weight: 600; color: #B4553E">For kids 3 to 10 · <span style="color: #4A5547">Free with breakfast</span></span></div>
+        <span class="ec-go" aria-hidden="true">→</span>
+      </a><a href="event-request.html" class="ec-row" style="animation-delay:0.39s">
+        <div style="text-align: center; background: #2F4536; color: #FFF8EE; border-radius: 18px; padding: 10px 0"><div style="font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #F2B9A6">Nov</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; line-height: 1">21</div></div>
+        <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><span style="font-size: 12px; font-weight: 700; color: #9A6A3C; text-transform: uppercase; letter-spacing: .1em">Monthly Saturday · 10 AM</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: #2F4536">Sip &amp; Paint breakfast</span><span style="font-size: 14px; font-weight: 600; color: #B4553E">8 seats left · <span style="color: #4A5547">EGP 950 incl. breakfast</span></span></div>
+        <span class="ec-go" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+  <div class="ec-wa"><div style="display: flex; align-items: center; gap: 18px"><span aria-hidden="true" class="ec-bell">🔔</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; letter-spacing: -0.02em">Never miss a workshop.</strong><span style="font-size: 16px; color: rgba(255,248,238,.8)">Get new dates on WhatsApp before they sell out.</span></div></div><a href="#" class="ev-btn ec-notify">Notify me on WhatsApp →</a></div>
+</section>
+
+<!-- ============ 6 · RUH AT HOME ============ -->
+<section id="home" style="color: #FFF8EE; background: #26382C">
+  <div style="position: relative; height: 480px; overflow: hidden">
+    <img class="hd-bg" src="images/spread.jpg" alt="A Ruh breakfast spread shared at the table" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%">
+    <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,30,23,.88), rgba(20,30,23,.25) 70%), linear-gradient(to bottom, rgba(38,56,44,0) 60%, #26382C)"></div>
+    <div style="position: relative; height: 100%; padding: 0 5vw; display: flex; flex-direction: column; justify-content: center; gap: 20px; max-width: 760px">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F2B9A6">Ruh at Home</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin: 0; font-size: clamp(52px, 5.2vw, 84px)">Ruh, at your <span style="color: #F2B9A6">home.</span></h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: rgba(255,248,238,.86); max-width: 500px">From The Freezer: Ruh favourites, packed frozen and ready to cook, all year round. Fill a box with what you love.</p>
+      <div><a href="ruh-at-home.html" class="he-cta"><span class="box" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Build your box <span aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+  <div class="route-d" style="padding: 10px 5vw 0"><svg viewBox="0 0 1360 200" width="100%" height="200" aria-hidden="true" style="overflow: visible">
+    <path class="hb-path" d="M 120 110 C 310 40, 490 40, 680 110 S 1050 180, 1240 110" fill="none" stroke="#F2B9A6" stroke-width="3" stroke-linecap="round"/>
+    <g class="hb-node" style="animation-delay: 0.0s"><circle cx="120" cy="110" r="16" fill="#F2B9A6"/><circle cx="120" cy="110" r="30" fill="none" stroke="#F2B9A6" stroke-opacity=".35"/><text x="120" y="172" text-anchor="middle" fill="#FFF8EE" style="font-family: Figtree, sans-serif; font-size: 17px; font-weight: 700">Ruh kitchen</text></g>
+    <g class="hb-node" style="animation-delay: 0.6s"><circle cx="680" cy="110" r="16" fill="#F2B9A6"/><circle cx="680" cy="110" r="30" fill="none" stroke="#F2B9A6" stroke-opacity=".35"/><text x="680" y="172" text-anchor="middle" fill="#FFF8EE" style="font-family: Figtree, sans-serif; font-size: 17px; font-weight: 700">Pick-up or delivery</text></g>
+    <g class="hb-node" style="animation-delay: 1.2s"><circle cx="1240" cy="110" r="16" fill="#F2B9A6"/><circle cx="1240" cy="110" r="30" fill="none" stroke="#F2B9A6" stroke-opacity=".35"/><text x="1240" y="172" text-anchor="middle" fill="#FFF8EE" style="font-family: Figtree, sans-serif; font-size: 17px; font-weight: 700">Your table</text></g>
+    <g class="hb-bag"><rect x="-22" y="-26" width="44" height="40" rx="9" fill="#B4553E"/><path d="M -10 -26 v -8 a 10 10 0 0 1 20 0 v 8" fill="none" stroke="#B4553E" stroke-width="4"/><image href="images/logo.png" x="-18" y="-25" width="36" height="36"/></g>
+  </svg></div>
+  <div class="route-m" style="padding:10px 0 0"><svg viewBox="0 0 390 130" width="100%" height="130" aria-hidden="true" style="overflow:visible;display:block">
+    <path class="hb-path" d="M 50 70 C 110 5, 150 135, 195 70 S 290 15, 340 70" fill="none" stroke="#F2B9A6" stroke-width="2.5" stroke-linecap="round"/>
+    <g class="hb-node"><circle cx="50" cy="70" r="10" fill="#F2B9A6"/><circle cx="50" cy="70" r="19" fill="none" stroke="#F2B9A6" stroke-opacity=".35"/><text x="50" y="112" text-anchor="middle" fill="#FFF8EE" style="font-family:Figtree,sans-serif;font-size:12px;font-weight:700">Ruh kitchen</text></g>
+    <g class="hb-node" style="animation-delay:.6s"><circle cx="195" cy="70" r="10" fill="#F2B9A6"/><circle cx="195" cy="70" r="19" fill="none" stroke="#F2B9A6" stroke-opacity=".35"/><text x="195" y="112" text-anchor="middle" fill="#FFF8EE" style="font-family:Figtree,sans-serif;font-size:12px;font-weight:700">Pick-up / delivery</text></g>
+    <g class="hb-node" style="animation-delay:1.2s"><circle cx="340" cy="70" r="10" fill="#F2B9A6"/><circle cx="340" cy="70" r="19" fill="none" stroke="#F2B9A6" stroke-opacity=".35"/><text x="340" y="112" text-anchor="middle" fill="#FFF8EE" style="font-family:Figtree,sans-serif;font-size:12px;font-weight:700">Your home</text></g>
+    <g class="hb-bag-m"><rect x="-15" y="-18" width="30" height="27" rx="7" fill="#B4553E"/><path d="M -7 -18 v -6 a 7 7 0 0 1 14 0 v 6" fill="none" stroke="#B4553E" stroke-width="3"/><image href="images/logo.png" x="-12" y="-17" width="24" height="24"/></g>
+  </svg></div>
+  <div class="hb-wrap" style="overflow: hidden; padding: 24px 0 30px"><div class="hb-row"><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-us-beef-fillet.jpg" alt="US beef fillet, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">US beef fillet</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 700</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-fillet-schnitzel.jpg" alt="Fillet schnitzel, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Fillet schnitzel</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 550</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-beef-burger.jpg" alt="Beef burger, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Beef burger</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 400</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-chicken-pane.jpg" alt="Chicken pane, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Chicken pane</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-chicken-tenders.jpg" alt="Chicken tenders, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Chicken tenders</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-crispy-bonbon.jpg" alt="Crispy bonbon, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Crispy bonbon</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 300</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-shish-tawook.jpg" alt="Shish tawook, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Shish tawook</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-chicken-nuggets.jpg" alt="Chicken nuggets, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Chicken nuggets</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-mac-cheese.jpg" alt="Mac &amp; cheese, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Mac &amp; cheese</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 300</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-us-beef-fillet.jpg" alt="US beef fillet, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">US beef fillet</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 700</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-fillet-schnitzel.jpg" alt="Fillet schnitzel, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Fillet schnitzel</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 550</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-beef-burger.jpg" alt="Beef burger, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Beef burger</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 400</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-chicken-pane.jpg" alt="Chicken pane, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Chicken pane</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-chicken-tenders.jpg" alt="Chicken tenders, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Chicken tenders</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-crispy-bonbon.jpg" alt="Crispy bonbon, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Crispy bonbon</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 300</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-shish-tawook.jpg" alt="Shish tawook, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Shish tawook</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-chicken-nuggets.jpg" alt="Chicken nuggets, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Chicken nuggets</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 350</span></div>
+    </div>
+  </a><a href="ruh-at-home.html" class="he-card">
+    <div class="he-ph"><img src="images/freezer-mac-cheese.jpg" alt="Mac &amp; cheese, ready to cook in a Ruh container" style="object-position:center 55%"><span class="he-chip">Ready to cook</span></div>
+    <div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+      <strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 24px; letter-spacing: -0.02em; line-height: 1.1; color: #2F4536">Mac &amp; cheese</strong>
+      <div style="display: flex; justify-content: space-between; align-items: center"><span style="font-size: 15px; color: #4A5547">½ kg · 1 kg</span><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 20px; color: #B4553E">from EGP 300</span></div>
+    </div>
+  </a></div></div>
+  <div style="padding: 6px 5vw 84px; display: flex; justify-content: center"><a href="ruh-at-home.html" class="he-cta"><span class="box" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Build your box <span aria-hidden="true">→</span></a></div>
+</section>
+
+<!-- ============ 7 · RUH CIRCLE ============ -->
+<section id="circle" style="background: #FBF7F0; color: #1F2A22; padding: 80px 5vw; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; overflow: hidden">
+  <div style="display: flex; flex-direction: column; gap: 28px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9A6A3C">Ruh Circle</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin: 0; font-size: clamp(44px, 4.6vw, 72px); color: #2F4536">A little extra <span style="color: #B4553E">soul</span> for our regulars.</h2>
+      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #4A5547; max-width: 470px">Scan the code on your table, collect points with every visit and watch the rewards roll in. No app to download.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px">
+      <div class="hs-step" style="display: flex; gap: 16px; align-items: flex-start; animation-delay: 0.2s"><span style="flex: none; width: 42px; height: 42px; border-radius: 50%; background: #2F4536; color: #FFF8EE; display: grid; place-items: center; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 17px">1</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; letter-spacing: -0.01em; color: #2F4536">Join for free</strong><span style="font-size: 15px; line-height: 1.5; color: #4A5547">Sign up with your phone number in seconds.</span></div></div>
+      <div class="hs-step" style="display: flex; gap: 16px; align-items: flex-start; animation-delay: 0.35s"><span style="flex: none; width: 42px; height: 42px; border-radius: 50%; background: #2F4536; color: #FFF8EE; display: grid; place-items: center; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 17px">2</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; letter-spacing: -0.01em; color: #2F4536">Scan at your table</strong><span style="font-size: 15px; line-height: 1.5; color: #4A5547">Each visit adds points to your card.</span></div></div>
+      <div class="hs-step" style="display: flex; gap: 16px; align-items: flex-start; animation-delay: 0.5s"><span style="flex: none; width: 42px; height: 42px; border-radius: 50%; background: #2F4536; color: #FFF8EE; display: grid; place-items: center; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 17px">3</span><div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; letter-spacing: -0.01em; color: #2F4536">Unlock rewards</strong><span style="font-size: 15px; line-height: 1.5; color: #4A5547">Desserts, birthday treats and early workshop seats.</span></div></div>
+    </div>
+    <div><a href="circle.html" class="rc-btn">Join Ruh Circle →</a></div>
+  </div>
+  <div style="position: relative; height: 640px">
+    <div class="rd-phone" style="position: absolute; left: 50%; top: 20px; margin-left: -150px; width: 300px; height: 600px; border-radius: 46px; background: #1F2E24; padding: 12px; box-sizing: border-box; box-shadow: 0 40px 70px rgba(38,56,44,.35)">
+      <div style="position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #F6F0E6; display: flex; flex-direction: column">
+        <div class="rd-toast" style="position: absolute; left: 10px; right: 10px; top: 10px; z-index: 3; background: #2F4536; color: #FFF8EE; border-radius: 18px; padding: 12px 14px; display: flex; gap: 10px; align-items: center; font-size: 13px; font-weight: 600"><span style="font-size: 22px">🍰</span><span>Free dessert unlocked! Show this at the counter.</span></div>
+        <div style="background: #2F4536; color: #FFF8EE; padding: 70px 20px 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: #F2B9A6">Ruh Circle · Regular</span><strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px">Hi Nour 👋</strong><div style="display: flex; justify-content: space-between; font-size: 13px"><span>240 points</span><span style="color: #F2B9A6">60 to Insider</span></div><div style="height: 7px; border-radius: 9px; background: rgba(255,248,238,.15)"><div style="width: 80%; height: 100%; border-radius: 9px; background: #F2B9A6"></div></div></div>
+        <div style="padding: 22px 20px; display: flex; flex-direction: column; align-items: center; gap: 14px"><span style="font-size: 13px; font-weight: 700; color: #2F4536">Scan to check in</span><div style="position: relative; width: 150px; height: 150px; background: #FFF; border-radius: 18px; display: grid; place-items: center"><svg viewBox="0 0 90 90" width="120" height="120" aria-hidden="true"><rect x="0" y="0" width="9" height="9" fill="#26382C"/><rect x="10" y="0" width="9" height="9" fill="#26382C"/><rect x="30" y="0" width="9" height="9" fill="#26382C"/><rect x="50" y="0" width="9" height="9" fill="#26382C"/><rect x="60" y="0" width="9" height="9" fill="#26382C"/><rect x="80" y="0" width="9" height="9" fill="#26382C"/><rect x="0" y="10" width="9" height="9" fill="#26382C"/><rect x="20" y="10" width="9" height="9" fill="#26382C"/><rect x="30" y="10" width="9" height="9" fill="#26382C"/><rect x="50" y="10" width="9" height="9" fill="#26382C"/><rect x="70" y="10" width="9" height="9" fill="#26382C"/><rect x="80" y="10" width="9" height="9" fill="#26382C"/><rect x="0" y="20" width="9" height="9" fill="#26382C"/><rect x="20" y="20" width="9" height="9" fill="#26382C"/><rect x="40" y="20" width="9" height="9" fill="#26382C"/><rect x="50" y="20" width="9" height="9" fill="#26382C"/><rect x="70" y="20" width="9" height="9" fill="#26382C"/><rect x="10" y="30" width="9" height="9" fill="#26382C"/><rect x="20" y="30" width="9" height="9" fill="#26382C"/><rect x="40" y="30" width="9" height="9" fill="#26382C"/><rect x="60" y="30" width="9" height="9" fill="#26382C"/><rect x="70" y="30" width="9" height="9" fill="#26382C"/><rect x="10" y="40" width="9" height="9" fill="#26382C"/><rect x="30" y="40" width="9" height="9" fill="#26382C"/><rect x="40" y="40" width="9" height="9" fill="#26382C"/><rect x="60" y="40" width="9" height="9" fill="#26382C"/><rect x="80" y="40" width="9" height="9" fill="#26382C"/><rect x="0" y="50" width="9" height="9" fill="#26382C"/><rect x="10" y="50" width="9" height="9" fill="#26382C"/><rect x="30" y="50" width="9" height="9" fill="#26382C"/><rect x="50" y="50" width="9" height="9" fill="#26382C"/><rect x="60" y="50" width="9" height="9" fill="#26382C"/><rect x="80" y="50" width="9" height="9" fill="#26382C"/><rect x="0" y="60" width="9" height="9" fill="#26382C"/><rect x="20" y="60" width="9" height="9" fill="#26382C"/><rect x="30" y="60" width="9" height="9" fill="#26382C"/><rect x="50" y="60" width="9" height="9" fill="#26382C"/><rect x="70" y="60" width="9" height="9" fill="#26382C"/><rect x="80" y="60" width="9" height="9" fill="#26382C"/><rect x="0" y="70" width="9" height="9" fill="#26382C"/><rect x="20" y="70" width="9" height="9" fill="#26382C"/><rect x="40" y="70" width="9" height="9" fill="#26382C"/><rect x="50" y="70" width="9" height="9" fill="#26382C"/><rect x="70" y="70" width="9" height="9" fill="#26382C"/><rect x="10" y="80" width="9" height="9" fill="#26382C"/><rect x="20" y="80" width="9" height="9" fill="#26382C"/><rect x="40" y="80" width="9" height="9" fill="#26382C"/><rect x="60" y="80" width="9" height="9" fill="#26382C"/><rect x="70" y="80" width="9" height="9" fill="#26382C"/></svg><span class="rd-scan"></span></div>
+          <div style="width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 8px"><div style="background: #EBD8CB; border-radius: 14px; padding: 10px; font-size: 12px; font-weight: 700; color: #2F4536">🎂 Birthday treat<br><span style="font-weight: 500">in 12 days</span></div><div style="background: #EBD8CB; border-radius: 14px; padding: 10px; font-size: 12px; font-weight: 700; color: #2F4536">🎨 Early seats<br><span style="font-weight: 500">at Insider</span></div></div></div>
+      </div>
+    </div>
+    <div class="rd-b" style="left: 2%; top: 120px; animation-delay: .5s">🔥 <span>3-visit streak</span></div>
+    <div class="rd-b" style="right: 0; top: 300px; animation-delay: 1.4s">🎲 <span>Double points tonight</span></div>
+    <div class="rd-b" style="left: 6%; bottom: 70px; animation-delay: 2.2s">👑 <span>#2 this month</span></div>
+  </div>
+</section>
+
+<!-- ============ 8 · GUEST REVIEWS ============ -->
+<section id="reviews" style="background: #26382C; color: #FFF8EE; padding: 88px 0; display: flex; flex-direction: column; gap: 56px; overflow: hidden">
+  <div style="padding: 0 5vw; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center">
+    <div style="display: flex; flex-direction: column; gap: 26px; align-items: flex-start">
+      <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #F2B9A6">Guest reviews</p>
+      <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin: 0; font-size: clamp(48px, 5vw, 80px); color: #FFF8EE">Loved by our <span style="color: #F2B9A6">guests.</span></h2>
+      <div style="display: inline-flex; align-items: center; gap: 12px; background: #FBF7F0; border-radius: 999px; padding: 10px 20px 10px 12px"><span style="display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #FFF; border: 1px solid rgba(47,69,54,.15); font-weight: 800; font-size: 17px; color: #4285F4">G</span><span style="color: #B4553E; letter-spacing: 3px; font-size: 18px">★★★★★</span><span style="font-size: 15px; font-weight: 700; color: #2F4536">Rated by our guests on Google Maps</span></div>
+      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: rgba(255,248,238,.8); max-width: 460px">Enjoyed your visit? A quick review helps more friends and families find their way to Ruh.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="#" class="gm-btn" style="background: #F2B9A6; color: #1F2E24">Leave a review on Google →</a><a href="#" class="gm-btn alt">Read all reviews</a></div>
+    </div>
+    <div style="position: relative; height: 500px">
+      <div style="position: absolute; inset: 0 0 0 70px; border-radius: 32px; overflow: hidden"><img class="gx-zoom" src="images/chairs.jpg" alt="Wooden chairs and green cushions in Ruh's dining area" style="width: 100%; height: 100%; object-fit: cover; object-position: center 55%"></div>
+      <div style="position: absolute; left: 0; bottom: 40px; width: 420px; height: 250px">
+        <div class="gx-q"><div style="height: 100%; box-sizing: border-box; background: #FBF7F0; border-radius: 26px; padding: 26px 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 26px 50px rgba(0,0,0,.45)"><div style="display: flex; justify-content: space-between; align-items: center"><span style="color: #B4553E; letter-spacing: 3px; font-size: 20px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; color: #2F4536">“The pergola at sunset and those bonbons. Already planning our next hangout.”</p><div style="display: flex; align-items: center; gap: 10px; margin-top: auto"><span style="display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #FFF; border: 1px solid rgba(47,69,54,.15); font-weight: 800; font-size: 14px; color: #4285F4">G</span><span style="font-size: 14px; font-weight: 700; color: #2F4536">Guest name · via Google</span></div></div></div><div class="gx-q"><div style="height: 100%; box-sizing: border-box; background: #FBF7F0; border-radius: 26px; padding: 26px 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 26px 50px rgba(0,0,0,.45)"><div style="display: flex; justify-content: space-between; align-items: center"><span style="color: #B4553E; letter-spacing: 3px; font-size: 20px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; color: #2F4536">“Calm, green and the food feels like home. Perfect for a long family lunch.”</p><div style="display: flex; align-items: center; gap: 10px; margin-top: auto"><span style="display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #FFF; border: 1px solid rgba(47,69,54,.15); font-weight: 800; font-size: 14px; color: #4285F4">G</span><span style="font-size: 14px; font-weight: 700; color: #2F4536">Guest name · via Google</span></div></div></div><div class="gx-q"><div style="height: 100%; box-sizing: border-box; background: #FBF7F0; border-radius: 26px; padding: 26px 28px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 26px 50px rgba(0,0,0,.45)"><div style="display: flex; justify-content: space-between; align-items: center"><span style="color: #B4553E; letter-spacing: 3px; font-size: 20px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2; letter-spacing: -0.02em; color: #2F4536">“Came for game night, stayed for dessert. Great vibe with friends.”</p><div style="display: flex; align-items: center; gap: 10px; margin-top: auto"><span style="display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #FFF; border: 1px solid rgba(47,69,54,.15); font-weight: 800; font-size: 14px; color: #4285F4">G</span><span style="font-size: 14px; font-weight: 700; color: #2F4536">Guest name · via Google</span></div></div></div>
+      </div>
+      <svg class="gx-ring" viewBox="0 0 200 200" width="140" height="140" aria-hidden="true" style="position: absolute; right: -30px; top: -40px"><circle cx="100" cy="100" r="98" fill="#F2B9A6"/><path id="gx-cf" d="M100,100 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0" fill="none"/><text style="font-family: Figtree, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 4px" fill="#26382C"><textPath href="#gx-cf">REVIEWED ON GOOGLE MAPS · REVIEWED ON GOOGLE MAPS · </textPath></text><text x="100" y="116" text-anchor="middle" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 46px" fill="#26382C">★</text></svg>
+    </div>
+  </div>
+  <div class="gx-tw" style="overflow: hidden"><div class="gx-tick"><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“The pergola at sunset and those bonbons. Already planning our next hangout.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Calm, green and the food feels like home. Perfect for a long family lunch.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Came for game night, stayed for dessert. Great vibe with friends.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“The pergola at sunset and those bonbons. Already planning our next hangout.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Calm, green and the food feels like home. Perfect for a long family lunch.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Came for game night, stayed for dessert. Great vibe with friends.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“The pergola at sunset and those bonbons. Already planning our next hangout.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Calm, green and the food feels like home. Perfect for a long family lunch.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Came for game night, stayed for dessert. Great vibe with friends.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“The pergola at sunset and those bonbons. Already planning our next hangout.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Calm, green and the food feels like home. Perfect for a long family lunch.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div><div class="gm-r" style="flex: none; width: 420px; background: #FBF7F0; border-radius: 22px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px"><div style="display: flex; justify-content: space-between"><span style="color: #B4553E; letter-spacing: 2px; font-size: 16px">★★★★★</span><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 4px 9px; border-radius: 999px; background: rgba(180,85,62,.12); color: #B4553E">Sample review</span></div><p style="margin: 0; font-size: 16px; line-height: 1.5; color: #2F4536">“Came for game night, stayed for dessert. Great vibe with friends.”</p><span style="font-size: 13px; font-weight: 700; color: #4A5547">Guest name · via Google</span></div></div></div>
+</section>
+
+<!-- ============ 9 · VISIT US ============ -->
+<section id="visit" style="background: #F6F0E6; color: #1F2A22; padding: 88px 5vw; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center">
+  <div style="display: flex; flex-direction: column; gap: 22px">
+    <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9A6A3C">Visit us</p>
+    <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; margin: 0; font-size: clamp(44px, 4.6vw, 72px); color: #2F4536">Come find your <span style="color: #B4553E">seat.</span></h2>
+    <div><span style="display: inline-flex; align-items: center; gap: 8px; background: rgba(122,200,140,.16); color: #2F6B3E; font-weight: 700; font-size: 14px; padding: 7px 14px; border-radius: 999px"><span class="vp-open"></span>Open now · until 2 AM</span></div>
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <div style="display: flex; gap: 16px; align-items: flex-start; background: #FBF7F0; border-radius: 20px; padding: 18px 20px"><span style="flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(180,85,62,.12); color: #B4553E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9A6A3C">Address</span><span style="font-size: 17px; line-height: 1.5; font-weight: 600; color: #2F4536">Izar Plaza, Sheikh Zayed</span></div></div>
+      <div style="display: flex; gap: 16px; align-items: flex-start; background: #FBF7F0; border-radius: 20px; padding: 18px 20px"><span style="flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(180,85,62,.12); color: #B4553E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9A6A3C">Opening hours</span><span style="font-size: 17px; line-height: 1.5; font-weight: 600; color: #2F4536">Every day · 11:00 AM – 2:00 AM</span></div></div>
+      <div style="display: flex; gap: 16px; align-items: flex-start; background: #FBF7F0; border-radius: 20px; padding: 18px 20px"><span style="flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(180,85,62,.12); color: #B4553E"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg></span><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #9A6A3C">Chat with us on WhatsApp</span><span style="font-size: 17px; line-height: 1.5; font-weight: 600; color: #2F4536">0104 4055999</span></div></div>
+    </div>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="https://maps.app.goo.gl/S6GhMiyUsmuUvEjm8" target="_blank" rel="noopener" class="v-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg> Get directions</a><a href="#" class="v-btn ghost"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg> WhatsApp us</a></div>
+  </div>
+  <a href="https://maps.app.goo.gl/S6GhMiyUsmuUvEjm8" target="_blank" rel="noopener" class="v-map" aria-label="Open Ruh Lounge in Google Maps" style="position: relative; display: block; height: 560px; border-radius: 32px; overflow: hidden; box-shadow: 0 30px 60px rgba(38,56,44,.15); text-decoration: none"><svg viewBox="0 0 640 460" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Map showing Ruh's location">
+    <rect width="640" height="460" fill="#EFE6D8"/>
+    <rect x="40" y="40" width="170" height="120" rx="18" fill="#C9D6C3"/><rect x="440" y="300" width="160" height="130" rx="18" fill="#C9D6C3"/><circle cx="520" cy="110" r="60" fill="#C9D6C3"/>
+    <path d="M-20 230 H 660" stroke="#FBF7F0" stroke-width="26"/><path d="M 320 -20 V 480" stroke="#FBF7F0" stroke-width="22"/>
+    <path d="M -20 400 C 160 340, 260 380, 660 250" stroke="#FBF7F0" stroke-width="16" fill="none"/><path d="M 100 -20 L 240 480" stroke="#FBF7F0" stroke-width="12"/><path d="M 420 -20 L 600 480" stroke="#FBF7F0" stroke-width="10"/>
+    <path class="vp-route" d="M 40 430 C 160 370, 250 330, 320 300 S 330 250, 360 215" stroke="#B4553E" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle class="vp-ring" cx="360" cy="200" r="22" fill="#B4553E" fill-opacity=".35"/><circle class="vp-ring b" cx="360" cy="200" r="22" fill="#B4553E" fill-opacity=".35"/>
+    <g class="vp-pin"><path d="M360 200 c0 0 -26 -26 -26 -46 a26 26 0 0 1 52 0 c0 20 -26 46 -26 46z" fill="#B4553E"/><circle cx="360" cy="154" r="10" fill="#FBF7F0"/></g>
+    <rect x="388" y="128" rx="12" width="118" height="36" fill="#2F4536"/><text x="447" y="151" text-anchor="middle" fill="#FFF8EE" style="font-family: Figtree, sans-serif; font-weight: 700; font-size: 15px">Ruh Lounge</text>
+  </svg><span style="position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; background: rgba(251,247,240,.96); border-radius: 22px; padding: 16px 18px; box-shadow: 0 16px 36px rgba(31,46,36,.18)"><span style="display: flex; flex-direction: column; gap: 3px"><strong style="font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; letter-spacing: -0.01em; color: #2F4536">Ruh Lounge</strong><span style="font-size: 14px; color: #4A5547">Izar Plaza, Sheikh Zayed · on Google Maps</span></span><span class="v-map-btn" style="display: inline-flex; align-items: center; gap: 8px; background: #2F4536; color: #FFF8EE; font-weight: 700; font-size: 15px; min-height: 46px; padding: 0 20px; border-radius: 999px; transition: background .3s">Open in Google Maps <span aria-hidden="true">↗</span></span></span></a>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background: #1F2E24; color: #FFF8EE">
+  <div style="padding: 56px 5vw 28px; display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.1fr; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 18px"><a href="#top" aria-label="Back to top" style="align-self: flex-start"><img src="images/logo.png" alt="Ruh" style="height: 64px; display: block"></a><p style="margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255,248,238,.72); max-width: 280px">Authentic Egyptian cuisine in a calm, green space for friends and families.</p></div>
+    <div style="display: flex; flex-direction: column; gap: 12px"><strong style="font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #F2B9A6">Explore</strong><a href="menu.html" class="f-link">Menu</a><a href="#plan" class="f-link">Plan a Hangout</a><a href="whats-on.html" class="f-link">Events &amp; workshops</a><a href="ruh-at-home.html" class="f-link">Ruh at Home</a><a href="circle.html" class="f-link">Ruh Circle</a><a href="#about" class="f-link">Our story</a></div>
+    <div style="display: flex; flex-direction: column; gap: 12px"><strong style="font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #F2B9A6">Visit</strong><span style="font-size: 15px; line-height: 1.6; color: rgba(255,248,238,.78)">Izar Plaza, Sheikh Zayed</span><span style="font-size: 15px; line-height: 1.6; color: rgba(255,248,238,.78)">Every day · 11:00 AM – 2:00 AM</span></div>
+    <div style="display: flex; flex-direction: column; gap: 14px"><strong style="font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: #F2B9A6">Say hi</strong><span style="font-size: 15px; color: rgba(255,248,238,.78)">WhatsApp 0104 4055999</span><div style="display: flex; gap: 10px"><a href="#" class="f-soc" aria-label="Instagram @ruhlounge"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a><a href="#" class="f-soc" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6z"/></svg></a><a href="https://maps.app.goo.gl/S6GhMiyUsmuUvEjm8" target="_blank" rel="noopener" class="f-soc" aria-label="Google Maps"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></a></div><span style="font-size: 14px; font-weight: 700; color: #FFF8EE">@ruhlounge</span></div>
+  </div>
+  <div style="padding: 18px 5vw 26px; border-top: 1px solid rgba(255,248,238,.12); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 13px; color: rgba(255,248,238,.6)"><span>© 2026 Ruh Lounge. All rights reserved.</span><span>Privacy · Terms</span></div>
+</footer>
+
+</div>
+<script>window.RUH_PAGE={home:true};</script>
+<script src="js/ruh.js"></script>
+</body>
+</html>

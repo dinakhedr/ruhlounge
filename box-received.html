@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruh · Ruh at Home · Order received</title>
+<link rel="icon" href="images/logo.png">
+<style>
+html.ruh-narrow,html.ruh-narrow body{overflow-x:hidden}
+html.ruh-narrow [style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}
+html.ruh-narrow [style*="padding:56px 5vw"],html.ruh-narrow [style*="padding:48px 5vw"],html.ruh-narrow [style*="padding:84px 5vw"],html.ruh-narrow [style*="padding:80px 5vw"],html.ruh-narrow [style*="padding:60px 5vw"],html.ruh-narrow [style*="padding:64px 5vw"],html.ruh-narrow [style*="padding:40px 5vw"]{padding:28px 16px!important}
+html.ruh-narrow h1{font-size:40px!important;line-height:.98!important}
+html.ruh-narrow h2{font-size:30px!important}
+html.ruh-narrow [style*="font-size:84px"],html.ruh-narrow [style*="font-size:80px"],html.ruh-narrow [style*="font-size:72px"],html.ruh-narrow [style*="font-size:68px"],html.ruh-narrow [style*="font-size:64px"],html.ruh-narrow [style*="font-size:60px"]{font-size:40px!important}
+html.ruh-narrow [style*="font-size:56px"],html.ruh-narrow [style*="font-size:52px"],html.ruh-narrow [style*="font-size:50px"],html.ruh-narrow [style*="font-size:48px"],html.ruh-narrow [style*="font-size:44px"]{font-size:32px!important}
+html.ruh-narrow [style*="font-size:40px"],html.ruh-narrow [style*="font-size:38px"],html.ruh-narrow [style*="font-size:36px"]{font-size:28px!important}
+html.ruh-narrow [style*="min-height:720px"],html.ruh-narrow [style*="min-height:640px"],html.ruh-narrow [style*="min-height:700px"],html.ruh-narrow [style*="min-height:600px"],html.ruh-narrow [style*="min-height:560px"],html.ruh-narrow [style*="min-height:520px"],html.ruh-narrow [style*="min-height:480px"],html.ruh-narrow [style*="min-height:420px"]{min-height:0!important}
+html.ruh-narrow header nav[aria-label="Main"]{display:none!important}
+html.ruh-narrow header{flex-wrap:nowrap!important;padding:12px 16px!important;gap:10px!important}
+html.ruh-narrow header img{height:40px!important}
+html.ruh-narrow header a[href="book.html"]{padding:10px 14px!important;font-size:13px!important}
+html.ruh-narrow header a[aria-current="page"]:has(> span){font-size:0!important;gap:0!important}
+html.ruh-narrow header a[aria-current="page"] > span{font-size:15px!important}
+html.ruh-narrow header a[aria-current="page"][href="book.html"],html.ruh-narrow header a[href="book.html"]{white-space:nowrap}
+html.ruh-narrow header a.nav-a[href^="sign-in"],html.ruh-narrow header a.nav-a[href="profile.html"]{display:none!important}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"]{display:flex!important;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+html.ruh-narrow [style*="repeat(7,minmax(0,1fr))"] > *{flex:0 0 74px}
+html.ruh-narrow aside[style*="position:sticky"]{position:static!important}
+html.ruh-narrow [style*="flex:1 1 "]{flex-basis:100%!important}
+html.ruh-narrow [style*="width:62%"]{width:80%!important}
+html.ruh-narrow table{display:block;overflow-x:auto}
+html.ruh-narrow div[role="group"],html.ruh-narrow div[role="tablist"]{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;scrollbar-width:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl-BoxConfirm"><x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F0E6}
+a{color:#2F4536}a:hover{color:#B4553E}
+@keyframes bc-ring{0%{transform:scale(.8);opacity:.6}100%{transform:scale(1.9);opacity:0}}
+@keyframes bc-pop{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes bc-now{0%{box-shadow:0 0 0 0 rgba(180,85,62,.55)}100%{box-shadow:0 0 0 16px rgba(180,85,62,0)}}
+@keyframes bc-fill{0%{background-position:100% 0}100%{background-position:0 0}}
+@keyframes bc-conf{0%{transform:translateY(0) rotate(0)}100%{transform:translateY(26px) rotate(160deg)}}
+.bc-ring{position:absolute;inset:0;border-radius:50%;background:#F2B9A6;animation:bc-ring 2.4s ease-out infinite}
+.bc-ring.b{animation-delay:1.2s}
+.bc-pop{animation:bc-pop 3s ease-in-out infinite}
+.bc-now{animation:bc-now 1.8s ease-out infinite}
+.bc-bar{background:linear-gradient(90deg,#B4553E 50%,#E2D5C3 50%);background-size:200% 100%;animation:bc-fill 2.4s ease-in-out infinite alternate}
+.bc-c{position:absolute;width:10px;height:10px;border-radius:3px;animation:bc-conf 3.2s ease-in-out infinite alternate}
+.nav-a{color:#FFF8EE;text-decoration:none;font-size:15px;font-weight:600;transition:color .25s}
+.nav-a:hover{color:#F2B9A6}
+.act{display:flex;align-items:center;gap:14px;text-decoration:none;color:#2F4536;background:#F6F0E6;border:1.5px solid #E2D5C3;border-radius:20px;padding:14px 16px;min-height:44px;transition:all .25s}
+.act:hover{border-color:#B4553E;background:#FFF;color:#2F4536;transform:translateX(4px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#B4553E;color:#FFF8EE;text-decoration:none;font-weight:700;font-size:16px;min-height:52px;padding:0 26px;border-radius:999px;transition:background .3s,transform .3s}
+.btn:hover{background:#2F4536;color:#FFF8EE;transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.bc-ring,.bc-pop,.bc-now,.bc-bar,.bc-c{animation:none}}
+.ln{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #E2D5C3}
+.ln img{width:64px;height:64px;border-radius:16px;object-fit:cover;flex:none}
+</style>
+</helmet>
+<div style="background:#F6F0E6;color:#1F2A22;font-family:Figtree,'Segoe UI',sans-serif">
+
+  <header style="background:#1F2E24;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:20px 5vw">
+    <a href="#" aria-label="Ruh home" style="display:flex"><img src="images/logo.png" alt="Ruh" style="height:52px;width:auto;display:block"></a>
+    <nav aria-label="Main" style="display:flex;flex-wrap:wrap;gap:30px"><a href="#" class="nav-a">Menu</a><a href="#" class="nav-a">Hangouts</a><a href="#" class="nav-a">Celebrations</a><a href="#" class="nav-a">Workshops</a><a href="#" class="nav-a" aria-current="page" style="color:#F2B9A6">Ruh at Home</a></nav>
+    <div style="display:flex;align-items:center;gap:18px"><a href="SignIn.dc.html" class="nav-a">Sign in</a><a href="BookTable.dc.html" style="text-decoration:none;font-size:15px;font-weight:700;color:#1F2E24;background:#F2B9A6;padding:13px 22px;border-radius:999px">Book a table</a></div>
+  </header>
+
+  <section style="position:relative;overflow:hidden;background:#26382C;color:#FFF8EE;padding:72px 5vw 150px;text-align:center">
+    <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;left:-90px;bottom:-110px;height:420px;width:auto;opacity:.05">
+    <div aria-hidden="true" style="position:absolute;right:6%;top:60px;display:flex;gap:10px;transform:rotate(-6deg)"><img src="images/freezer-crispy-bonbon.jpg" alt="" class="bc-pop" style="width:120px;height:120px;border-radius:24px;object-fit:cover;border:5px solid #FBF7F0;box-shadow:0 20px 40px rgba(0,0,0,.3)"></div>
+    <div aria-hidden="true" style="position:absolute;left:6%;top:150px;transform:rotate(7deg)"><img src="images/freezer-beef-burger.jpg" alt="" class="bc-pop" style="width:110px;height:110px;border-radius:24px;object-fit:cover;border:5px solid #FBF7F0;box-shadow:0 20px 40px rgba(0,0,0,.3);animation-delay:1.2s"></div>
+    <div style="position:relative;max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:20px">
+      <div aria-hidden="true" style="position:relative;width:104px;height:104px"><span class="bc-ring"></span><span class="bc-ring b"></span><span class="bc-pop" style="position:absolute;inset:0;border-radius:50%;background:#F2B9A6;color:#1F2E24;display:grid;place-items:center"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span></div>
+      <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#E7C9A8">Ruh at Home · Box sent</p>
+      <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(52px,6vw,88px);line-height:.95;letter-spacing:-.04em">Your box is on our <span style="color:#F2B9A6">list.</span></h1>
+      <p style="margin:0;max-width:580px;font-size:19px;line-height:1.6;color:rgba(255,248,238,.86)">Thanks, Nour! Our team will confirm your order, pick-up time and total with you on WhatsApp at +20 10X ••• 5999.</p>
+      <span style="display:inline-flex;gap:8px;align-items:center;background:rgba(255,248,238,.08);border:1px solid rgba(255,248,238,.18);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600">Order reference <strong style="color:#F2B9A6;letter-spacing:.06em">RAH-0418</strong></span>
+    </div>
+  </section>
+
+  <main style="position:relative;max-width:1180px;margin:-92px auto 0;padding:0 5vw 100px;display:flex;flex-direction:column;gap:28px">
+    <section aria-label="Order status" style="background:#FBF7F0;border-radius:28px;padding:30px 36px;box-shadow:0 24px 60px rgba(38,56,44,.12)">
+      <ol style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative">
+        <li style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:0 10px"><span aria-hidden="true" style="position:absolute;top:27px;left:50%;width:100%;height:4px;border-radius:4px;background:#B4553E"></span><span style="position:relative;width:58px;height:58px;border-radius:50%;background:#B4553E;color:#FFF8EE;display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><strong style="font-size:16px;color:#2F4536">Received</strong><span style="font-size:13px;color:#5C6B60">Mon 9 Nov · 5:48 PM</span></li>
+        <li aria-current="step" style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:0 10px"><span aria-hidden="true" class="bc-bar" style="position:absolute;top:27px;left:50%;width:100%;height:4px;border-radius:4px"></span><span class="bc-now" style="position:relative;width:58px;height:58px;border-radius:50%;background:#FFF;border:3px solid #B4553E;color:#B4553E;display:grid;place-items:center;box-sizing:border-box"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg></span><strong style="font-size:16px;color:#2F4536">Confirmed on WhatsApp</strong><span style="font-size:13px;font-weight:700;color:#B4553E">In progress</span></li>
+        <li style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:0 10px"><span aria-hidden="true" style="position:absolute;top:27px;left:50%;width:100%;height:4px;border-radius:4px;background:#E2D5C3"></span><span style="position:relative;width:58px;height:58px;border-radius:50%;background:#EFE6D8;color:#7A6A55;display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"></path></svg></span><strong style="font-size:16px;color:#2F4536">Packed frozen</strong><span style="font-size:13px;color:#5C6B60">In Ruh containers</span></li>
+        <li style="position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:0 10px"><span style="position:relative;width:58px;height:58px;border-radius:50%;background:#EFE6D8;color:#7A6A55;display:grid;place-items:center"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><strong style="font-size:16px;color:#2F4536">Ready for pick-up</strong><span style="font-size:13px;color:#5C6B60">Tomorrow · 7:00 PM</span></li>
+      </ol>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start">
+      <section aria-labelledby="bx-det" style="flex:999 1 560px;min-width:0;background:#FBF7F0;border-radius:28px;padding:32px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9A6A3C">Your box · 4 packs</span><h2 id="bx-det" style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:36px;letter-spacing:-.03em;line-height:1;color:#2F4536">From The <span style="color:#B4553E">Freezer</span></h2></div><span style="display:inline-flex;align-items:center;gap:8px;background:rgba(180,85,62,.12);color:#8A4A35;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px">Awaiting confirmation</span></div>
+        <div style="border-top:1px solid #E2D5C3"><div class="ln"><img src="images/freezer-crispy-bonbon.jpg" alt=""><span style="flex:1;display:flex;flex-direction:column;gap:3px"><strong style="font-size:17px;color:#2F4536">Crispy bonbon</strong><span style="font-size:14px;color:#5C6B60">½ kg · × 2</span></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:#2F4536">EGP 600</span></div><div class="ln"><img src="images/freezer-beef-burger.jpg" alt=""><span style="flex:1;display:flex;flex-direction:column;gap:3px"><strong style="font-size:17px;color:#2F4536">Beef burger</strong><span style="font-size:14px;color:#5C6B60">1 kg · × 1</span></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:#2F4536">EGP 800</span></div><div class="ln"><img src="images/freezer-mac-cheese.jpg" alt=""><span style="flex:1;display:flex;flex-direction:column;gap:3px"><strong style="font-size:17px;color:#2F4536">Mac & cheese</strong><span style="font-size:14px;color:#5C6B60">½ kg · × 1</span></span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:#2F4536">EGP 300</span></div></div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px">
+          <div style="background:#F6F0E6;border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A6A3C">Pick-up at Ruh</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:#2F4536">Tomorrow · 7:00 PM</span><span style="font-size:13px;color:#5C6B60">Izar Plaza, Sheikh Zayed</span></div>
+          <div style="background:#2F4536;color:#FFF8EE;border-radius:20px;padding:16px 18px;display:flex;flex-direction:column;gap:4px"><span style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F2B9A6">Subtotal</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800">EGP 1,700</span><span style="font-size:13px;color:rgba(255,248,238,.75)">Final total confirmed on WhatsApp</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:6px">
+          <p style="margin:0;font-size:15px;color:#4F5C52">Want to change something? <a href="#" style="font-weight:700">Chat with us on WhatsApp</a> and mention RAH-0418.</p>
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:999px;border:1.5px solid #8A4A35;color:#8A4A35;font-weight:700;font-size:15px;text-decoration:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>Cancel request</a>
+        </div>
+      </section>
+
+      <aside style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <section aria-label="Quick actions" style="background:#FBF7F0;border-radius:28px;padding:24px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;flex-direction:column;gap:10px">
+          <a href="#" class="act"><span style="width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(180,85,62,.12);color:#B4553E"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"></path></svg></span><span style="display:flex;flex-direction:column"><strong style="font-size:16px">WhatsApp us</strong><span style="font-size:13px;color:#5C6B60">0104 4055999</span></span></a>
+          <a href="#" class="act"><span style="width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(180,85,62,.12);color:#B4553E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span><span style="display:flex;flex-direction:column"><strong style="font-size:16px">Get directions</strong><span style="font-size:13px;color:#5C6B60">For pick-up at Izar Plaza</span></span></a>
+          <a href="BuildBox.dc.html" class="act"><span style="width:44px;height:44px;flex:none;border-radius:50%;display:grid;place-items:center;background:rgba(180,85,62,.12);color:#B4553E"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6zM9 8V6a3 3 0 0 1 6 0v2"></path></svg></span><span style="display:flex;flex-direction:column"><strong style="font-size:16px">Build another box</strong><span style="font-size:13px;color:#5C6B60">Back to The Freezer menu</span></span></a>
+        </section>
+        <section aria-labelledby="bx-keep" style="background:#FBF7F0;border-radius:28px;padding:24px;box-shadow:0 20px 50px rgba(38,56,44,.08);display:flex;gap:14px;align-items:flex-start">
+          <span style="width:44px;height:44px;flex:none;border-radius:14px;display:grid;place-items:center;background:#2F4536;color:#F2B9A6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M4.9 6l14.2 12M19.1 6L4.9 18M8 3.5L12 6l4-2.5M8 20.5L12 18l4 2.5"></path></svg></span>
+          <span style="display:flex;flex-direction:column;gap:4px"><strong id="bx-keep" style="font-size:16px;color:#2F4536">Keep it frozen</strong><span style="font-size:14px;line-height:1.5;color:#4F5C52">Bring a cooler bag for pick-up and freeze as soon as you're home. [STORAGE GUIDANCE]</span></span>
+        </section>
+        <section aria-labelledby="bx-save" style="position:relative;overflow:hidden;background:#EBD8CB;border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px">
+          <img src="images/logo.png" alt="" aria-hidden="true" style="position:absolute;right:-40px;top:-30px;height:170px;width:auto;opacity:.12">
+          <span style="position:relative;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8A4A35">Ruh Circle</span>
+          <h2 id="bx-save" style="position:relative;margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;line-height:1.02;letter-spacing:-.03em;color:#2F4536">Collect points on this <span style="color:#B4553E">box.</span></h2>
+          <p style="position:relative;margin:0;font-size:14px;line-height:1.5;color:#2F4536">Save your details in one tap to track your orders and collect Ruh Circle points.</p>
+          <div style="position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:14px"><a href="ProfilePending.dc.html" class="btn">Save my profile</a><a href="#" style="font-weight:700;font-size:15px;color:#2F4536">Not now</a></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer style="background:#1F2E24;color:rgba(255,248,238,.7);font-size:14px;padding:26px 5vw;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center">
+    <img src="images/logo.png" alt="Ruh" style="height:40px;width:auto">
+    <span>Izar Plaza, Sheikh Zayed · Every day 11:00 AM – 2:00 AM · WhatsApp 0104 4055999</span>
+  </footer>
+</div>
+</x-dc></template>
+<script type="text/x-dc" id="js-BoxConfirm">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+<script>window.RUH_PAGE={"views": [{"d": "BoxConfirm"}], "bp": 760, "narrowFix": true, "section": "ruh-at-home.html"};</script>
+<script src="js/ruh.js"></script>
+</body>
+</html>
